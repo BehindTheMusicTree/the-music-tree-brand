@@ -46,6 +46,10 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ## [11.0.2] - 2026-04-19
 
+### Documentation
+
+- **Changelog (`11.0.1`)**: Corrected the `11.0.1` release notes to reflect that the refactor removed internal `readOrgDomain()` usage rather than moving that helper as a preserved API.
+
 ## [11.0.1] - 2026-04-18
 
 ### Changed
