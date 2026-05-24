@@ -47,6 +47,7 @@ jobs:
       AUDIOMETA_API_SUBDOMAIN: ${{ vars.AUDIOMETA_API_SUBDOMAIN }}
       TMTA_SUBDOMAIN: ${{ vars.TMTA_SUBDOMAIN }}
       TMD_GAME_SUBDOMAIN: ${{ vars.TMD_GAME_SUBDOMAIN }}
+      TMD_SHOWCASE_SUBDOMAIN: ${{ vars.TMD_SHOWCASE_SUBDOMAIN }}
     steps:
       - uses: actions/checkout@v5
 
@@ -62,7 +63,8 @@ jobs:
                      ORG_PYPI_URL ORG_LINKEDIN_URL ORG_X_URL ORG_MASTODON_URL \
                      ORG_YOUTUBE_URL ORG_SPOTIFY_URL ORG_DISCORD_URL ORG_TIPEEE_URL \
                      CONTACT_EMAIL HTMT_FRONT_SUBDOMAIN HTMT_API_SUBDOMAIN GTMT_FRONT_SUBDOMAIN GTMT_API_SUBDOMAIN \
-                     AUDIOMETA_FRONT_SUBDOMAIN AUDIOMETA_API_SUBDOMAIN TMTA_SUBDOMAIN TMD_GAME_SUBDOMAIN; do
+                     AUDIOMETA_FRONT_SUBDOMAIN AUDIOMETA_API_SUBDOMAIN TMTA_SUBDOMAIN TMD_GAME_SUBDOMAIN \
+                     TMD_SHOWCASE_SUBDOMAIN; do
             [[ -z "${!var}" ]] && missing+=("$var")
           done
           if [[ ${#missing[@]} -gt 0 ]]; then
