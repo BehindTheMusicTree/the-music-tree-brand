@@ -64,6 +64,7 @@ import {
   TheMusicTreeMarkLink,
   ORG_DOMAIN,
   ORG_GITHUB_SPONSOR_BUTTON_URL,
+  ORG_GITHUB_SPONSOR_BUTTON_IFRAME_SRC,
   ORG_GITHUB_URL,
   ORG_PYPI_URL,
   ORG_LINKEDIN_URL,
@@ -328,7 +329,7 @@ const SOCIAL_LINK_ENV_ROWS: BuildEnvRow[] = [
     keyName: "ORG_GITHUB_SPONSOR_BUTTON_URL",
     keyValue: ORG_GITHUB_SPONSOR_BUTTON_URL,
     inlinedName: "GithubSponsorButton src",
-    inlinedValue: readBuildEnv(() => process.env.ORG_GITHUB_SPONSOR_BUTTON_URL),
+    inlinedValue: ORG_GITHUB_SPONSOR_BUTTON_IFRAME_SRC,
   },
   {
     category: "Social links",

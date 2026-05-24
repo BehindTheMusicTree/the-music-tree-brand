@@ -66,6 +66,9 @@ const tmtaSubdomainLiteral = JSON.stringify(buildEnv.TMTA_SUBDOMAIN ?? "");
 const tmdGameSubdomainLiteral = JSON.stringify(
   buildEnv.TMD_GAME_SUBDOMAIN ?? "",
 );
+const tmdShowcaseSubdomainLiteral = JSON.stringify(
+  buildEnv.TMD_SHOWCASE_SUBDOMAIN ?? "",
+);
 
 export default defineConfig({
   entry: {
@@ -103,6 +106,7 @@ export default defineConfig({
     "process.env.AUDIOMETA_API_SUBDOMAIN": audiometaApiSubdomainLiteral,
     "process.env.TMTA_SUBDOMAIN": tmtaSubdomainLiteral,
     "process.env.TMD_GAME_SUBDOMAIN": tmdGameSubdomainLiteral,
+    "process.env.TMD_SHOWCASE_SUBDOMAIN": tmdShowcaseSubdomainLiteral,
   },
   loader: {
     ".svg": "dataurl",

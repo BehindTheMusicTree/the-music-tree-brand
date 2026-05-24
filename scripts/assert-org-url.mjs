@@ -66,3 +66,4 @@ requireNonEmpty("AUDIOMETA_FRONT_SUBDOMAIN");
 requireNonEmpty("AUDIOMETA_API_SUBDOMAIN");
 requireNonEmpty("TMTA_SUBDOMAIN");
 requireNonEmpty("TMD_GAME_SUBDOMAIN");
+requireNonEmpty("TMD_SHOWCASE_SUBDOMAIN");

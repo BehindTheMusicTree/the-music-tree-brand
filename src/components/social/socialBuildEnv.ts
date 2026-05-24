@@ -25,6 +25,9 @@ export const ORG_TIPEEE_URL = "ORG_TIPEEE_URL" as const;
 export const CONTACT_EMAIL = "CONTACT_EMAIL" as const;
 
 // Inlined build-time values
+export const ORG_GITHUB_SPONSOR_BUTTON_IFRAME_SRC = readBuildEnv(
+  () => process.env.ORG_GITHUB_SPONSOR_BUTTON_URL,
+);
 export const ORG_GITHUB_PROFILE_URL = readBuildEnv(
   () => process.env.ORG_GITHUB_URL,
 );
