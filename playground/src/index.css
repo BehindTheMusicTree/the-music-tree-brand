@@ -320,8 +320,18 @@ body {
 }
 
 .asset-grid--brand .asset-card-preview img,
-.asset-grid--favicons .asset-card-preview img {
+.asset-grid--favicons .asset-card-preview img,
+.asset-grid--brand .asset-card-preview__svg,
+.asset-grid--favicons .asset-card-preview__svg {
   max-height: min(240px, 70vh);
+}
+
+.asset-card-preview__svg {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: none;
+  pointer-events: none;
 }
 
 .asset-card figcaption {

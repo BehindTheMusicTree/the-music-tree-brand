@@ -44,6 +44,19 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ## [Unreleased]
 
+### Added
+
+- **The Music Deck mark**: Added simplified vector `the-music-deck-mark.svg` (~6.5 KB), detailed raster master `the-music-deck-mark-full.png` (1254×1254, RGBA), and web-sized `the-music-deck-mark.png` (512×512, RGBA).
+- **Favicons (the-music-deck)**: Added `favicon.svg` bundle under `src/favicons/the-music-deck/`.
+
+### Fixed
+
+- **Brand (the-music-deck)**: Fixed mark SVG img compatibility (`width`/`height`, `xlink:href` on `textPath`), playground Brand tab SVG preview (`<object>`), and replaced opaque JPEG raster with transparent PNG master and web export.
+
+### Documentation
+
+- **Playground**: **The Music Deck** mark (`the-music-deck-mark-full.png`, `.png`, `.svg`) appears under the **Brand** tab; favicon under **Favicons**. SVG previews use `<object>` for reliable rendering.
+
 ## [11.0.2] - 2026-04-19
 
 ### Documentation

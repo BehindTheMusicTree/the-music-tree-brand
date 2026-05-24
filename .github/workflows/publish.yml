@@ -43,7 +43,7 @@ jobs:
           AUDIOMETA_FRONT_SUBDOMAIN: ${{ vars.AUDIOMETA_FRONT_SUBDOMAIN }}
           AUDIOMETA_API_SUBDOMAIN: ${{ vars.AUDIOMETA_API_SUBDOMAIN }}
           TMTA_SUBDOMAIN: ${{ vars.TMTA_SUBDOMAIN }}
-          TMD_SUBDOMAIN: ${{ vars.TMD_SUBDOMAIN }}
+          TMD_GAME_SUBDOMAIN: ${{ vars.TMD_GAME_SUBDOMAIN }}
 
       - run: npm publish
         env:

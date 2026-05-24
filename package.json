@@ -34,6 +34,7 @@
     "./brand/behind-the-music-tree/*": "./dist/brand/behind-the-music-tree/*",
     "./brand/grow-the-music-tree/*": "./dist/brand/grow-the-music-tree/*",
     "./brand/hear-the-music-tree/*": "./dist/brand/hear-the-music-tree/*",
+    "./brand/the-music-deck/*": "./dist/brand/the-music-deck/*",
     "./brand/the-music-tree/*": "./dist/brand/the-music-tree/*",
     "./favicons/*": "./dist/favicons/*",
     "./banners/*": "./dist/banners/*",
@@ -62,7 +63,7 @@
     "src/brand/README.md"
   ],
   "scripts": {
-    "build": "node scripts/assert-org-url.mjs && tsup && cp src/tokens/*.css dist/tokens/ && cp -r src/styles dist/ && cp -r src/brand/audio-fingerprinter src/brand/audiometa src/brand/behind-the-music-tree src/brand/grow-the-music-tree src/brand/hear-the-music-tree src/brand/the-music-tree dist/brand/ && cp -r src/favicons dist/ && mkdir -p dist/banners && find src/banners -mindepth 1 -maxdepth 1 -type d -exec cp -r {} dist/banners/ \\;",
+    "build": "node scripts/assert-org-url.mjs && tsup && cp src/tokens/*.css dist/tokens/ && cp -r src/styles dist/ && cp -r src/brand/audio-fingerprinter src/brand/audiometa src/brand/behind-the-music-tree src/brand/grow-the-music-tree src/brand/hear-the-music-tree src/brand/the-music-deck src/brand/the-music-tree dist/brand/ && cp -r src/favicons dist/ && mkdir -p dist/banners && find src/banners -mindepth 1 -maxdepth 1 -type d -exec cp -r {} dist/banners/ \\;",
     "dev": "node scripts/assert-org-url.mjs && tsup --watch",
     "playground": "node scripts/run-playground.mjs",
     "playground:dev": "npm run dev --prefix playground",

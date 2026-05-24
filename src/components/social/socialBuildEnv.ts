@@ -72,4 +72,6 @@ export const AUDIOMETA_API_SUBDOMAIN = readBuildEnv(
   () => process.env.AUDIOMETA_API_SUBDOMAIN,
 );
 export const TMTA_SUBDOMAIN = readBuildEnv(() => process.env.TMTA_SUBDOMAIN);
-export const TMD_SUBDOMAIN = readBuildEnv(() => process.env.TMD_SUBDOMAIN);
+export const TMD_GAME_SUBDOMAIN = readBuildEnv(
+  () => process.env.TMD_GAME_SUBDOMAIN,
+);
