@@ -44,6 +44,8 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ## [Unreleased]
 
+## [11.1.0] - 2026-05-24
+
 ### Added
 
 - **The Music Deck mark**: Added simplified vector `the-music-deck-mark.svg` (~6.5 KB), detailed raster master `the-music-deck-mark-full.png` (1254×1254, RGBA), and web-sized `the-music-deck-mark.png` (512×512, RGBA).
