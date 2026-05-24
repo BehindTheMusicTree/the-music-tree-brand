@@ -44,6 +44,24 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ## [Unreleased]
 
+### Added
+
+- **`TMD_SHOWCASE_SUBDOMAIN`**: New build-time constant exported from `socialBuildEnv` — env key `TMD_SHOWCASE_SUBDOMAIN` inlined into `dist/` at package build time (same pattern as `TMD_GAME_SUBDOMAIN`). Added to `tsup.config.ts` define map, `scripts/assert-org-url.mjs` validation, and `playground/.env.example`.
+- **`ORG_GITHUB_SPONSOR_BUTTON_IFRAME_SRC`**: New inlined constant exported from `socialBuildEnv` — the resolved sponsor button iframe URL baked in at build time (fixes playground Constants tab showing `undefined` for that row).
+- **Favicons (the-music-deck)**: Completed favicon bundle with transparent-background rasters — `favicon.ico` (16×16 + 32×32, PNG-compressed), `apple-touch-icon.png` (180×180 RGBA), `icon-192.png` (192×192 RGBA), `icon-512.png` (512×512 RGBA).
+
+### Improved
+
+- **Playground — Favicons tab**: Renders one sub-tab per project (same pattern as the Brand tab). Underlying `groupBrandEntriesByProject` refactored into the generic `groupEntriesByProject(entries, distSubfolder)`.
+
+### Fixed
+
+- **`playground/.env`**: Corrected stale `TMD_SUBDOMAIN` key to `TMD_GAME_SUBDOMAIN` so local builds no longer fail the assert check.
+
+### CI
+
+- **Vercel sync workflow** (`vercel-playground-env.yml`) and **`sync-vercel-playground-env.mjs`**: Added `TMD_SHOWCASE_SUBDOMAIN` so it is pushed to the Vercel project environment alongside the other subdomain variables.
+
 ## [11.1.0] - 2026-05-24
 
 ### Added
