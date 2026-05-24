@@ -230,14 +230,6 @@ type BuildEnvRow = {
   inlinedValue: string | undefined;
 };
 
-function readBuildEnv(read: () => string | undefined): string | undefined {
-  try {
-    const value = read()?.trim();
-    return value || undefined;
-  } catch {
-    return undefined;
-  }
-}
 
 const DOMAIN_ENV_ROWS: BuildEnvRow[] = [
   {
