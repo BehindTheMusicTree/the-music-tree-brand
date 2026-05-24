@@ -435,10 +435,9 @@ function sortedEntries(map: Record<string, string>) {
 
 type AssetEntry = { key: string; url: string; label: string };
 
-/** First path segment under `dist/brand/` (project slug). */
-function projectSlugFromBrandKey(key: string): string {
+function projectSlugFromDistKey(key: string, distSubfolder: string): string {
   const normalized = key.replace(/^\.\.\//, "");
-  const marker = "/dist/brand/";
+  const marker = `/dist/${distSubfolder}/`;
   const idx = normalized.indexOf(marker);
   if (idx === -1) return "_other";
   const rest = normalized.slice(idx + marker.length);
@@ -447,12 +446,13 @@ function projectSlugFromBrandKey(key: string): string {
   return rest.slice(0, slash) || "_other";
 }
 
-function groupBrandEntriesByProject(
+function groupEntriesByProject(
   entries: AssetEntry[],
+  distSubfolder: string,
 ): Map<string, AssetEntry[]> {
   const map = new Map<string, AssetEntry[]>();
   for (const entry of entries) {
-    const slug = projectSlugFromBrandKey(entry.key);
+    const slug = projectSlugFromDistKey(entry.key, distSubfolder);
     const list = map.get(slug) ?? [];
     list.push(entry);
     map.set(slug, list);
@@ -493,9 +493,10 @@ export default function App() {
   const [componentsSubTab, setComponentsSubTab] =
     useState<ComponentsSubTab>("basics");
   const [brandProject, setBrandProject] = useState<string>("");
+  const [faviconProject, setFaviconProject] = useState<string>("");
   const brandEntries = sortedEntries(brandAssets);
   const brandByProject = useMemo(
-    () => groupBrandEntriesByProject(brandEntries),
+    () => groupEntriesByProject(brandEntries, "brand"),
     [brandEntries],
   );
   const brandProjectSlugs = useMemo(
@@ -504,6 +505,14 @@ export default function App() {
   );
   const bannerEntries = sortedEntries(bannerAssets);
   const faviconEntries = sortedEntries(faviconAssets);
+  const faviconByProject = useMemo(
+    () => groupEntriesByProject(faviconEntries, "favicons"),
+    [faviconEntries],
+  );
+  const faviconProjectSlugs = useMemo(
+    () => [...faviconByProject.keys()].sort((a, b) => a.localeCompare(b)),
+    [faviconByProject],
+  );
 
   useEffect(() => {
     if (brandProjectSlugs.length === 0) return;
@@ -511,6 +520,15 @@ export default function App() {
       prev && brandProjectSlugs.includes(prev) ? prev : brandProjectSlugs[0],
     );
   }, [brandProjectSlugs]);
+
+  useEffect(() => {
+    if (faviconProjectSlugs.length === 0) return;
+    setFaviconProject((prev) =>
+      prev && faviconProjectSlugs.includes(prev)
+        ? prev
+        : faviconProjectSlugs[0],
+    );
+  }, [faviconProjectSlugs]);
 
   return (
     <div className="playground">
@@ -1221,7 +1239,44 @@ export default function App() {
                 repository root.
               </p>
             ) : (
-              <AssetGrid entries={faviconEntries} variant="favicons" />
+              <>
+                <ul
+                  className="playground-subtablist"
+                  role="tablist"
+                  aria-label="Favicon project"
+                >
+                  {faviconProjectSlugs.map((slug) => (
+                    <li key={slug} role="presentation">
+                      <button
+                        type="button"
+                        role="tab"
+                        id={`tab-favicon-${slug}`}
+                        aria-selected={faviconProject === slug}
+                        aria-controls="panel-favicon-project"
+                        tabIndex={0}
+                        className="playground-subtab"
+                        onClick={() => setFaviconProject(slug)}
+                      >
+                        {formatProjectTabLabel(slug)}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+                <div
+                  role="tabpanel"
+                  id="panel-favicon-project"
+                  aria-labelledby={
+                    faviconProject
+                      ? `tab-favicon-${faviconProject}`
+                      : undefined
+                  }
+                >
+                  <AssetGrid
+                    entries={faviconByProject.get(faviconProject) ?? []}
+                    variant="favicons"
+                  />
+                </div>
+              </>
             )}
           </section>
         </div>
