@@ -44,6 +44,8 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ## [Unreleased]
 
+## [11.2.0] - 2026-05-24
+
 ### Added
 
 - **`TMD_SHOWCASE_SUBDOMAIN`**: New build-time constant exported from `socialBuildEnv` — env key `TMD_SHOWCASE_SUBDOMAIN` inlined into `dist/` at package build time (same pattern as `TMD_GAME_SUBDOMAIN`). Added to `tsup.config.ts` define map, `scripts/assert-org-url.mjs` validation, and `playground/.env.example`.
