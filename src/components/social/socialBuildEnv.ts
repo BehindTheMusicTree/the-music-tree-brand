@@ -75,3 +75,6 @@ export const TMTA_SUBDOMAIN = readBuildEnv(() => process.env.TMTA_SUBDOMAIN);
 export const TMD_GAME_SUBDOMAIN = readBuildEnv(
   () => process.env.TMD_GAME_SUBDOMAIN,
 );
+export const TMD_SHOWCASE_SUBDOMAIN = readBuildEnv(
+  () => process.env.TMD_SHOWCASE_SUBDOMAIN,
+);

@@ -92,6 +92,7 @@ import {
   AUDIOMETA_API_SUBDOMAIN,
   TMTA_SUBDOMAIN,
   TMD_GAME_SUBDOMAIN,
+  TMD_SHOWCASE_SUBDOMAIN,
   WebsiteSocialLink,
   WebsiteSocialLinkColored,
   XSocialLink,
@@ -309,6 +310,14 @@ const DOMAIN_ENV_ROWS: BuildEnvRow[] = [
     keyValue: "TMD_GAME_SUBDOMAIN",
     inlinedName: "TMD_GAME_SUBDOMAIN",
     inlinedValue: TMD_GAME_SUBDOMAIN,
+  },
+  {
+    category: "Domain",
+    usage: "TMD showcase subdomain",
+    keyName: "TMD_SHOWCASE_SUBDOMAIN",
+    keyValue: "TMD_SHOWCASE_SUBDOMAIN",
+    inlinedName: "TMD_SHOWCASE_SUBDOMAIN",
+    inlinedValue: TMD_SHOWCASE_SUBDOMAIN,
   },
 ];
 
