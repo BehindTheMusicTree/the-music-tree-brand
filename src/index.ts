@@ -11,6 +11,8 @@ export {
   TheMusicTreeHorizontalLink,
   TheMusicTreeMarkLink,
   ORG_DOMAIN,
+  TMD_GAME_SUBDOMAIN,
+  TMD_SHOWCASE_SUBDOMAIN,
   parseOrgSiteHref,
   resolveOrgSiteHref,
   type TheMusicTreeBylineProps,

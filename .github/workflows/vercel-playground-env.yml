@@ -3,6 +3,7 @@
 #
 # Configure in the repo:
 #   Secrets:  VERCEL_TOKEN — Vercel token with project env access
+#             GH_PACKAGES_TOKEN — GitHub Packages token for npm auth in playground builds
 #   Variables: VERCEL_PROJECT_ID — Vercel project id (e.g. prj_…)
 #   Optional variables: VERCEL_TEAM_ID — required when the project lives under a Vercel team
 #
@@ -25,6 +26,7 @@ jobs:
       contents: read
     env:
       VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      GH_PACKAGES_TOKEN: ${{ secrets.GH_PACKAGES_TOKEN }}
       VERCEL_PROJECT_ID: ${{ vars.VERCEL_PROJECT_ID }}
       VERCEL_TEAM_ID: ${{ vars.VERCEL_TEAM_ID }}
       ORG_DOMAIN: ${{ vars.DOMAIN_NAME }}
@@ -58,7 +60,7 @@ jobs:
       - name: Validate required variables
         run: |
           missing=()
-          for var in VERCEL_TOKEN VERCEL_PROJECT_ID \
+          for var in VERCEL_TOKEN GH_PACKAGES_TOKEN VERCEL_PROJECT_ID \
                      ORG_DOMAIN ORG_GITHUB_SPONSOR_BUTTON_URL ORG_GITHUB_URL \
                      ORG_PYPI_URL ORG_LINKEDIN_URL ORG_X_URL ORG_MASTODON_URL \
                      ORG_YOUTUBE_URL ORG_SPOTIFY_URL ORG_DISCORD_URL ORG_TIPEEE_URL \
