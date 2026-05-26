@@ -44,6 +44,8 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ## [Unreleased]
 
+## [11.3.0] - 2026-05-26
+
 ### Added
 
 - **`TMD_GAME_SUBDOMAIN`, `TMD_SHOWCASE_SUBDOMAIN`**: Explicitly re-exported from the package root (`src/index.ts`) so consumers can import these constants directly from the package.
