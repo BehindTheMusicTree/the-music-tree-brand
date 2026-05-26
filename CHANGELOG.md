@@ -44,6 +44,10 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ## [Unreleased]
 
+### CI
+
+- **Publish workflow**: Install pnpm via `pnpm/action-setup@v4` (reads version from `packageManager` field) and replace `npm ci` / `npm run build` / `npm publish` with their pnpm equivalents.
+
 ## [11.4.1] - 2026-05-26
 
 ### CI

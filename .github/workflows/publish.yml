@@ -14,14 +14,18 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
+      - uses: pnpm/action-setup@v4
+        with:
+          version: use-packageManager-field
+
       - uses: actions/setup-node@v5
         with:
           node-version: 22
           registry-url: https://npm.pkg.github.com
 
-      - run: npm ci
+      - run: pnpm install --frozen-lockfile
 
-      - run: npm run build
+      - run: pnpm run build
         env:
           # Required repository variables — enforced by scripts/assert-org-url.mjs (CI: env only; local: merge with playground/.env)
           ORG_DOMAIN: ${{ vars.DOMAIN_NAME }}
@@ -46,7 +50,7 @@ jobs:
           TMD_GAME_SUBDOMAIN: ${{ vars.TMD_GAME_SUBDOMAIN }}
           TMD_SHOWCASE_SUBDOMAIN: ${{ vars.TMD_SHOWCASE_SUBDOMAIN }}
 
-      - run: npm publish
+      - run: pnpm publish --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
