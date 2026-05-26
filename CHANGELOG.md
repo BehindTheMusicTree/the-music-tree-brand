@@ -44,6 +44,13 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ## [Unreleased]
 
+## [11.4.1] - 2026-05-26
+
+### CI
+
+- **Package manager**: Migrated from npm to pnpm. Updated `package.json`, `playground/package.json`, and playground scripts accordingly.
+- **Publish workflow**: Fixed 403 error on `npm publish` by switching from the custom `GH_PACKAGES_TOKEN` secret (wrong scopes) to the built-in `GITHUB_TOKEN`, which already holds `packages: write` via the workflow's `permissions` block.
+
 ## [11.4.0] - 2026-05-26
 
 ### Added

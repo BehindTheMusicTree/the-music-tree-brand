@@ -47,7 +47,7 @@ if (n < 2) { console.error('Error: expected a second ## [Unreleased] in CHANGELO
 fs.writeFileSync('CHANGELOG.md', s);
 " "$NEW_VERSION" "$TODAY"
 
-git add package.json package-lock.json CHANGELOG.md
+git add package.json pnpm-lock.yaml CHANGELOG.md
 git commit -m "chore: release $NEW_VERSION"
 git tag -a "v$NEW_VERSION" -m "v$NEW_VERSION"
 git push --follow-tags

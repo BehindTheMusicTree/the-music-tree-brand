@@ -27,5 +27,5 @@ function run(cmd, args) {
   if (r.error) throw r.error;
 }
 
-run("npm", ["run", "build"]);
-run("npm", ["run", "dev", "--prefix", "playground"]);
+run("pnpm", ["run", "build"]);
+run("pnpm", ["-C", "playground", "dev"]);

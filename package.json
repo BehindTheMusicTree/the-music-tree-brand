@@ -62,12 +62,12 @@
     "src/banners/README.md",
     "src/brand/README.md"
   ],
+  "packageManager": "pnpm@10.33.2",
   "scripts": {
     "build": "node scripts/assert-org-url.mjs && tsup && cp src/tokens/*.css dist/tokens/ && cp -r src/styles dist/ && cp -r src/brand/audio-fingerprinter src/brand/audiometa src/brand/behind-the-music-tree src/brand/grow-the-music-tree src/brand/hear-the-music-tree src/brand/the-music-deck src/brand/the-music-tree dist/brand/ && cp -r src/favicons dist/ && mkdir -p dist/banners && find src/banners -mindepth 1 -maxdepth 1 -type d -exec cp -r {} dist/banners/ \\;",
     "dev": "node scripts/assert-org-url.mjs && tsup --watch",
     "playground": "node scripts/run-playground.mjs",
-    "playground:dev": "npm run dev --prefix playground",
-    "playground:install": "npm install --prefix playground",
+    "playground:dev": "pnpm -C playground dev",
     "test": "echo \"Error: no test specified\" && exit 1",
     "release": "bash scripts/release.sh"
   },
@@ -83,6 +83,9 @@
     "react-dom": "^18.2.0",
     "tsup": "^8.0.0",
     "typescript": "^5.0.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild"]
   },
   "keywords": [
     "react",

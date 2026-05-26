@@ -2,13 +2,14 @@
   "name": "organization-assets-playground",
   "private": true,
   "type": "module",
+  "packageManager": "pnpm@10.33.2",
   "scripts": {
     "dev": "node ../scripts/assert-org-url.mjs && vite",
     "build": "node ../scripts/assert-org-url.mjs && tsc --noEmit && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
-    "@behindthemusictree/assets": "file:..",
+    "@behindthemusictree/assets": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
