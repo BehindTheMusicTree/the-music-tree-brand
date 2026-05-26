@@ -44,6 +44,8 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ## [Unreleased]
 
+## [11.4.3] - 2026-05-26
+
 ### CI
 
 - **Publish workflow**: Drop explicit `version: use-packageManager-field` from `pnpm/action-setup@v4` — omitting the key is the correct way to auto-read from `packageManager` in `package.json` (the string was treated as a literal version, causing a conflict).
