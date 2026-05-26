@@ -44,6 +44,10 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ## [Unreleased]
 
+### Added
+
+- **Subdomain constants**: Explicitly re-exported `HTMT_FRONT_SUBDOMAIN`, `HTMT_API_SUBDOMAIN`, `GTMT_FRONT_SUBDOMAIN`, `GTMT_API_SUBDOMAIN`, `AUDIOMETA_FRONT_SUBDOMAIN`, `AUDIOMETA_API_SUBDOMAIN`, and `TMTA_SUBDOMAIN` from the package root (`src/index.ts`). All subdomain constants are now importable directly from the package.
+
 ## [11.3.0] - 2026-05-26
 
 ### Added
