@@ -46,8 +46,6 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ## [11.4.1] - 2026-05-26
 
-## [11.4.1] - 2026-05-26
-
 ### CI
 
 - **Package manager**: Migrated from npm to pnpm. Updated `package.json`, `playground/package.json`, and playground scripts accordingly.
