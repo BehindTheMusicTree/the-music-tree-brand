@@ -44,6 +44,14 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ## [Unreleased]
 
+### Added
+
+- **`TMD_GAME_SUBDOMAIN`, `TMD_SHOWCASE_SUBDOMAIN`**: Explicitly re-exported from the package root (`src/index.ts`) so consumers can import these constants directly from the package.
+
+### CI
+
+- **GitHub Packages token**: Switched `publish.yml` to use `GH_PACKAGES_TOKEN` secret for `NODE_AUTH_TOKEN` (replaces `GITHUB_TOKEN`); exports it before `npm ci` so private package installs succeed. Added `GH_PACKAGES_TOKEN` to `vercel-playground-env.yml` validation and `sync-vercel-playground-env.mjs` required keys.
+
 ## [11.2.1] - 2026-05-24
 
 ## [11.2.0] - 2026-05-24
