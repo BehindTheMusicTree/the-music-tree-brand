@@ -14,47 +14,12 @@
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    },
-    "./components": {
-      "types": "./dist/components/index.d.ts",
-      "import": "./dist/components/index.js",
-      "require": "./dist/components/index.cjs"
-    },
-    "./brand": {
-      "types": "./dist/brand/index.d.ts",
-      "import": "./dist/brand/index.js",
-      "require": "./dist/brand/index.cjs"
-    },
-    "./brand/audio-fingerprinter/*": "./dist/brand/audio-fingerprinter/*",
-    "./brand/audiometa/*": "./dist/brand/audiometa/*",
-    "./brand/behind-the-music-tree/*": "./dist/brand/behind-the-music-tree/*",
-    "./brand/grow-the-music-tree/*": "./dist/brand/grow-the-music-tree/*",
-    "./brand/hear-the-music-tree/*": "./dist/brand/hear-the-music-tree/*",
-    "./brand/the-music-deck/*": "./dist/brand/the-music-deck/*",
-    "./brand/the-music-tree/*": "./dist/brand/the-music-tree/*",
-    "./favicons/*": "./dist/favicons/*",
-    "./banners/*": "./dist/banners/*",
-    "./tokens": {
-      "types": "./dist/tokens/index.d.ts",
-      "import": "./dist/tokens/index.js",
-      "require": "./dist/tokens/index.cjs"
-    },
-    "./styles": "./dist/styles/index.css",
-    "./styles/icon-links.css": "./dist/styles/icon-links.css",
-    "./hooks": {
-      "types": "./dist/hooks/index.d.ts",
-      "import": "./dist/hooks/index.js",
-      "require": "./dist/hooks/index.cjs"
-    },
-    "./utils": {
-      "types": "./dist/utils/index.d.ts",
-      "import": "./dist/utils/index.js",
-      "require": "./dist/utils/index.cjs"
-    }
+    ".": "./dist/index.js",
+    "./components": "./dist/components/index.js",
+    "./components/*": "./dist/components/*",
+    "./brand/*": "./dist/brand/*",
+    "./tokens/*": "./dist/tokens/*",
+    "./styles/*": "./dist/styles/*"
   },
   "files": [
     "dist",
@@ -64,10 +29,12 @@
   ],
   "packageManager": "pnpm@10.33.2",
   "scripts": {
-    "build": "node scripts/assert-org-url.mjs && tsup && cp src/tokens/*.css dist/tokens/ && cp -r src/styles dist/ && cp -r src/brand/audio-fingerprinter src/brand/audiometa src/brand/behind-the-music-tree src/brand/grow-the-music-tree src/brand/hear-the-music-tree src/brand/the-music-deck src/brand/the-music-tree dist/brand/ && cp -r src/favicons dist/ && mkdir -p dist/banners && find src/banners -mindepth 1 -maxdepth 1 -type d -exec cp -r {} dist/banners/ \\;",
-    "dev:lib": "node scripts/assert-org-url.mjs && tsup --watch",
+    "copy-assets": "rsync -av src/ dist/",
+    "copy-assets:watch": "pnpm chokidar \"src/**/*.{png,svg,css}\" -c \"pnpm copy-assets\"",
+    "build": "node scripts/assert-org-url.mjs && tsup && pnpm copy-assets",
+    "dev:lib": "pnpm build && concurrently \"tsup --watch\" \"pnpm copy-assets:watch\"",
     "dev:app": "pnpm -C playground dev",
-    "dev:all": "concurrently \"pnpm dev:lib\" \"pnpm dev:app\"",
+    "dev:all": "pnpm build && concurrently \"pnpm dev:lib\" \"pnpm --dir playground dev\"",
     "playground": "node scripts/run-playground.mjs",
     "test": "echo \"Error: no test specified\" && exit 1",
     "release": "bash scripts/release.sh"
@@ -80,6 +47,7 @@
     "@types/node": "^25.5.0",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
+    "chokidar-cli": "^3.0.0",
     "concurrently": "^10.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -98,5 +66,8 @@
     "shared-assets"
   ],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "workspaces": [
+    "playground"
+  ]
 }
