@@ -65,9 +65,10 @@
   "packageManager": "pnpm@10.33.2",
   "scripts": {
     "build": "node scripts/assert-org-url.mjs && tsup && cp src/tokens/*.css dist/tokens/ && cp -r src/styles dist/ && cp -r src/brand/audio-fingerprinter src/brand/audiometa src/brand/behind-the-music-tree src/brand/grow-the-music-tree src/brand/hear-the-music-tree src/brand/the-music-deck src/brand/the-music-tree dist/brand/ && cp -r src/favicons dist/ && mkdir -p dist/banners && find src/banners -mindepth 1 -maxdepth 1 -type d -exec cp -r {} dist/banners/ \\;",
-    "dev": "node scripts/assert-org-url.mjs && tsup --watch",
+    "dev:lib": "node scripts/assert-org-url.mjs && tsup --watch",
+    "dev:app": "pnpm -C playground dev",
+    "dev:all": "concurrently \"pnpm dev:lib\" \"pnpm dev:app\"",
     "playground": "node scripts/run-playground.mjs",
-    "playground:dev": "pnpm -C playground dev",
     "test": "echo \"Error: no test specified\" && exit 1",
     "release": "bash scripts/release.sh"
   },
@@ -79,6 +80,7 @@
     "@types/node": "^25.5.0",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
+    "concurrently": "^10.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tsup": "^8.0.0",
