@@ -31,6 +31,7 @@ const buildEnv = {
 
 /** Same merge order as **`scripts/assert-org-url.mjs`** (file then shell). */
 const orgDomainLiteral = JSON.stringify(buildEnv.ORG_DOMAIN ?? "");
+const orgNameLiteral = JSON.stringify(buildEnv.ORG_NAME ?? "");
 const githubSponsorButtonUrlLiteral = JSON.stringify(
   buildEnv.ORG_GITHUB_SPONSOR_BUTTON_URL ?? "",
 );
@@ -87,6 +88,7 @@ export default defineConfig({
   external: ["react", "react-dom"],
   define: {
     "process.env.ORG_DOMAIN": orgDomainLiteral,
+    "process.env.ORG_NAME": orgNameLiteral,
     "process.env.ORG_GITHUB_SPONSOR_BUTTON_URL": githubSponsorButtonUrlLiteral,
     "process.env.ORG_GITHUB_URL": orgGithubUrlLiteral,
     "process.env.ORG_PYPI_URL": orgPypiUrlLiteral,

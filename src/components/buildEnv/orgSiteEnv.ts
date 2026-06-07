@@ -8,6 +8,12 @@ const ORG_DOMAIN_KEY = "ORG_DOMAIN";
 export const ORG_DOMAIN = process.env.ORG_DOMAIN?.trim() || undefined;
 
 /**
+ * Organization name baked into `dist/` at package build time (e.g. `BehindTheMusicTree`).
+ * Same pattern as inlined subdomain exports from `socialBuildEnv`.
+ */
+export const ORG_NAME = process.env.ORG_NAME?.trim() || undefined;
+
+/**
  * Normalize a hostname or full URL to an `https://.../` href.
  * Use `resolveOrgSiteHref()` for the link target; keep this for tests or custom strings.
  */

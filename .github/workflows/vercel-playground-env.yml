@@ -30,6 +30,7 @@ jobs:
       VERCEL_PROJECT_ID: ${{ vars.VERCEL_PROJECT_ID }}
       VERCEL_TEAM_ID: ${{ vars.VERCEL_TEAM_ID }}
       ORG_DOMAIN: ${{ vars.DOMAIN_NAME }}
+      ORG_NAME: ${{ vars.ORG_NAME }}
       ORG_GITHUB_SPONSOR_BUTTON_URL: ${{ vars.ORG_GITHUB_SPONSOR_BUTTON_URL }}
       ORG_GITHUB_URL: ${{ vars.ORG_GITHUB_URL }}
       ORG_PYPI_URL: ${{ vars.ORG_PYPI_URL }}

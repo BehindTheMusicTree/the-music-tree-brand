@@ -27,6 +27,7 @@ jobs:
         env:
           # Required repository variables — enforced by scripts/assert-org-url.mjs (CI: env only; local: merge with playground/.env)
           ORG_DOMAIN: ${{ vars.DOMAIN_NAME }}
+          ORG_NAME: ${{ vars.ORG_NAME }}
           ORG_GITHUB_SPONSOR_BUTTON_URL: ${{ vars.ORG_GITHUB_SPONSOR_BUTTON_URL }}
           ORG_GITHUB_URL: ${{ vars.ORG_GITHUB_URL }}
           ORG_PYPI_URL: ${{ vars.ORG_PYPI_URL }}

@@ -11,6 +11,7 @@ export {
   TheMusicTreeHorizontalLink,
   TheMusicTreeMarkLink,
   ORG_DOMAIN,
+  ORG_NAME,
   HTMT_FRONT_SUBDOMAIN,
   HTMT_API_SUBDOMAIN,
   GTMT_FRONT_SUBDOMAIN,

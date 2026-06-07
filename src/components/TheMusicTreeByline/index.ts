@@ -9,6 +9,7 @@ export {
 
 export {
   ORG_DOMAIN,
+  ORG_NAME,
   parseOrgSiteHref,
   resolveOrgSiteHref,
 } from "../buildEnv/orgSiteEnv";

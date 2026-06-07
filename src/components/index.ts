@@ -4,6 +4,7 @@ export {
   TheMusicTreeHorizontalLink,
   TheMusicTreeMarkLink,
   ORG_DOMAIN,
+  ORG_NAME,
   parseOrgSiteHref,
   resolveOrgSiteHref,
   type TheMusicTreeBylineProps,
