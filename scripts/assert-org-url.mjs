@@ -45,6 +45,8 @@ requireHttpUrl("ORG_GITHUB_SPONSOR_BUTTON_URL");
 
 /** Social **`Social*Link`** defaults — same names as **`playground/.env.example`** / **`publish.yml`**. */
 requireHttpUrl("ORG_GITHUB_URL");
+requireNonEmpty("HTMT_API_REPO_NAME");
+requireNonEmpty("TMD_ADMIN_API_REPO_NAME");
 requireHttpUrl("ORG_PYPI_URL");
 requireNonEmpty("ORG_LINKEDIN_URL");
 requireHttpUrl("ORG_X_URL");

@@ -23,8 +23,31 @@ export const ORG_GITHUB_SPONSOR_BUTTON_IFRAME_SRC = readBuildEnv(
 );
 
 export const ORG_GITHUB_URL = readBuildEnv(() => process.env.ORG_GITHUB_URL);
-export const HTMT_API_GITHUB_URL = readBuildEnv(
-  () => process.env.HTMT_API_GITHUB_URL,
+export const HTMT_API_REPO_NAME = readBuildEnv(
+  () => process.env.HTMT_API_REPO_NAME,
+);
+
+const buildGithubRepoUrl = (
+  repoName: string | undefined,
+  fallback?: string | undefined,
+): string | undefined => {
+  if (!repoName || !ORG_GITHUB_URL) {
+    return fallback;
+  }
+  return `${ORG_GITHUB_URL}/${repoName}`;
+};
+
+export const HTMT_API_GITHUB_URL = buildGithubRepoUrl(
+  HTMT_API_REPO_NAME,
+  readBuildEnv(() => process.env.HTMT_API_GITHUB_URL),
+);
+
+export const TMD_ADMIN_API_REPO_NAME = readBuildEnv(
+  () => process.env.TMD_ADMIN_API_REPO_NAME,
+);
+
+export const TMD_ADMIN_API_GITHUB_URL = buildGithubRepoUrl(
+  TMD_ADMIN_API_REPO_NAME,
 );
 export const ORG_PYPI_URL = readBuildEnv(() => process.env.ORG_PYPI_URL);
 export const ORG_LINKEDIN_URL = readBuildEnv(

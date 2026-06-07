@@ -36,10 +36,16 @@ const githubSponsorButtonUrlLiteral = JSON.stringify(
   buildEnv.ORG_GITHUB_SPONSOR_BUTTON_URL ?? "",
 );
 const orgGithubUrlLiteral = JSON.stringify(buildEnv.ORG_GITHUB_URL ?? "");
+const htmtApiRepoNameLiteral = JSON.stringify(
+  buildEnv.HTMT_API_REPO_NAME ?? "",
+);
 const htmtApiGithubUrlLiteral = JSON.stringify(
   buildEnv.ORG_GITHUB_URL && buildEnv.HTMT_API_REPO_NAME
     ? `${buildEnv.ORG_GITHUB_URL}/${buildEnv.HTMT_API_REPO_NAME}`
     : "",
+);
+const tmdAdminApiRepoNameLiteral = JSON.stringify(
+  buildEnv.TMD_ADMIN_API_REPO_NAME ?? "",
 );
 const orgPypiUrlLiteral = JSON.stringify(buildEnv.ORG_PYPI_URL ?? "");
 const orgLinkedinUrlLiteral = JSON.stringify(buildEnv.ORG_LINKEDIN_URL ?? "");
@@ -96,7 +102,9 @@ export default defineConfig({
     "process.env.ORG_NAME": orgNameLiteral,
     "process.env.ORG_GITHUB_SPONSOR_BUTTON_URL": githubSponsorButtonUrlLiteral,
     "process.env.ORG_GITHUB_URL": orgGithubUrlLiteral,
+    "process.env.HTMT_API_REPO_NAME": htmtApiRepoNameLiteral,
     "process.env.HTMT_API_GITHUB_URL": htmtApiGithubUrlLiteral,
+    "process.env.TMD_ADMIN_API_REPO_NAME": tmdAdminApiRepoNameLiteral,
     "process.env.ORG_PYPI_URL": orgPypiUrlLiteral,
     "process.env.ORG_LINKEDIN_URL": orgLinkedinUrlLiteral,
     "process.env.ORG_X_URL": orgXUrlLiteral,

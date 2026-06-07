@@ -68,6 +68,7 @@ import {
   ORG_GITHUB_SPONSOR_BUTTON_IFRAME_SRC,
   ORG_GITHUB_URL,
   HTMT_API_GITHUB_URL,
+  TMD_ADMIN_API_GITHUB_URL,
   ORG_PYPI_URL,
   ORG_LINKEDIN_URL,
   ORG_X_URL,
@@ -348,6 +349,17 @@ const SOCIAL_LINK_ENV_ROWS: BuildEnvRow[] = [
     keyValue: requireBuildConstant("HTMT_API_GITHUB_URL", HTMT_API_GITHUB_URL),
     inlinedName: "HTMT_API_GITHUB_URL",
     inlinedValue: HTMT_API_GITHUB_URL,
+  },
+  {
+    category: "GitHub",
+    usage: "TMD Admin API GitHub link",
+    keyName: "TMD_ADMIN_API_GITHUB_URL",
+    keyValue: requireBuildConstant(
+      "TMD_ADMIN_API_GITHUB_URL",
+      TMD_ADMIN_API_GITHUB_URL,
+    ),
+    inlinedName: "TMD_ADMIN_API_GITHUB_URL",
+    inlinedValue: TMD_ADMIN_API_GITHUB_URL,
   },
   {
     category: "Social links",
