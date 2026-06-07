@@ -1,6 +1,6 @@
 import type { CSSProperties, IframeHTMLAttributes } from "react";
 
-import { GithubSponsorButtonUrl } from "../social/socialBuildEnv";
+import { GithubSponsorButtonUrl } from "../buildEnv/buildEnv";
 
 function readGithubSponsorButtonSrcFromProcess(): string | undefined {
   const v = process.env.ORG_GITHUB_SPONSOR_BUTTON_URL?.trim();

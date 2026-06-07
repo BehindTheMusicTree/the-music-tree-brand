@@ -1,3 +1,5 @@
+/// <reference types="node" />
+
 /**
  * Build-time env keys and inlined values used by social components and related services.
  * Values are replaced in published `dist/` at package build time.

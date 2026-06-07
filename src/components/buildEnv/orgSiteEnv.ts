@@ -3,13 +3,13 @@ const ORG_DOMAIN_KEY = "ORG_DOMAIN";
 
 /**
  * Organization domain baked into `dist/` at package build time (e.g. `themusictree.org`).
- * Same pattern as inlined subdomain exports from `socialBuildEnv`.
+ * Same pattern as inlined subdomain exports from `buildEnv`.
  */
 export const ORG_DOMAIN = process.env.ORG_DOMAIN?.trim() || undefined;
 
 /**
  * Organization name baked into `dist/` at package build time (e.g. `BehindTheMusicTree`).
- * Same pattern as inlined subdomain exports from `socialBuildEnv`.
+ * Same pattern as inlined subdomain exports from `buildEnv`.
  */
 export const ORG_NAME = process.env.ORG_NAME?.trim() || undefined;
 

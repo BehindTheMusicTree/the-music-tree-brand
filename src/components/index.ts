@@ -11,7 +11,7 @@ export {
   type TheMusicTreeHorizontalLinkProps,
   type TheMusicTreeMarkLinkProps,
 } from "./TheMusicTreeByline";
-export * from "./social/socialBuildEnv";
+export * from "./buildEnv/buildEnv";
 export * from "./social/SocialIcons";
 export * from "./social/SocialIconsColored";
 export * from "./social/SocialIconLinks";
