@@ -88,39 +88,39 @@ cd organization-assets
 Ensure you have:
 
 - **Node.js 20+**
-- **npm**
+- **pnpm**
 
 Install dependencies:
 
 ```bash
-npm install
+pnpm install
 ```
 
 Build the package:
 
 ```bash
-npm run build
+pnpm run build
 ```
 
 For local development with watch mode:
 
 ```bash
-npm run dev
+pnpm run dev
 ```
 
-To test in a consuming app locally, use `npm link`:
+To test in a consuming app locally, use `pnpm link --global`:
 
 ```bash
 # In this repo
-npm link
+pnpm link --global
 
 # In your React app
-npm link @behindthemusictree/assets
+pnpm link --global @behindthemusictree/assets
 ```
 
 #### Installing the package in an app
 
-To depend on a **published** version from GitHub Packages (instead of `npm link`), configure npm scope + authentication, then install. Full steps: **[README — Install](README.md#install)**.
+To depend on a **published** version from GitHub Packages (instead of `pnpm link --global`), configure npm scope + authentication, then install. Full steps: **[README — Install](README.md#install)**.
 
 #### Component and asset preview (playground)
 
@@ -129,26 +129,26 @@ The `playground/` app is a dev-only Vite catalog of published components and fil
 One-time setup after clone (or when `playground/package.json` dependencies change):
 
 ```bash
-npm run playground:install
+pnpm run playground:install
 ```
 
-Copy **`playground/.env.example`** to **`playground/.env`** and set **every** key before **`npm run playground`** or **`npm run build`**. **`scripts/run-playground.mjs`** merges **`playground/.env`** into the environment for the root **`npm run build`** (shell overrides file). **`scripts/assert-org-url.mjs`** requires **`ORG_DOMAIN`**, **`ORG_GITHUB_SPONSOR_BUTTON_URL`**, all playground social URLs, **`HTMT_API_SUBDOMAIN`**, **`GTMT_FRONT_SUBDOMAIN`**, and **`AUDIOMETA_FRONT_SUBDOMAIN`** (same names as **`publish.yml`** / **`.env.example`**). **tsup** inlines those keys into published **`dist/`** (defaults for **`TheMusicTree*Link`**, **`GithubSponsorButton`**, **`Social*Link`**, and **`socialBuildEnv`** subdomain values). Re-run root **`npm run build`** after editing **`playground/.env`** so **`node_modules/…/dist/`** picks up new values. If the playground UI stays blank after changing **`dist/`**, remove **`playground/node_modules/.vite`** and restart the dev server.
+Copy **`playground/.env.example`** to **`playground/.env`** and set **every** key before **`pnpm run playground`** or **`pnpm run build`**. **`scripts/run-playground.mjs`** merges **`playground/.env`** into the environment for the root **`pnpm run build`** (shell overrides file). **`scripts/assert-org-url.mjs`** requires **`ORG_DOMAIN`**, **`ORG_GITHUB_SPONSOR_BUTTON_URL`**, all playground social URLs, **`HTMT_API_SUBDOMAIN`**, **`GTMT_FRONT_SUBDOMAIN`**, and **`AUDIOMETA_FRONT_SUBDOMAIN`** (same names as **`publish.yml`** / **`.env.example`**). **tsup** inlines those keys into published **`dist/`** (defaults for **`TheMusicTree*Link`**, **`GithubSponsorButton`**, **`Social*Link`**, and **`socialBuildEnv`** subdomain values). Re-run root **`pnpm run build`** after editing **`playground/.env`** so **`node_modules/…/dist/`** picks up new values. If the playground UI stays blank after changing **`dist/`**, remove **`playground/node_modules/.vite`** and restart the dev server.
 
 **Maintainers:** define **all** repository variables listed in **`.cursor/rules/publish-workflow.mdc`** ( **`DOMAIN_NAME`** maps to **`ORG_DOMAIN`**; other keys match **`publish.yml`**). Every workflow **`env`** entry is **required**.
 
-Run a build and start the dev server (default port **5174**). **`npm run playground`** uses **`scripts/run-playground.mjs`**, which merges **`playground/.env`** into the environment before **`npm run build`**:
+Run a build and start the dev server (default port **5174**). **`pnpm run playground`** uses **`scripts/run-playground.mjs`**, which merges **`playground/.env`** into the environment before **`pnpm run build`**:
 
 ```bash
-npm run playground
+pnpm run playground
 ```
 
-To run only the playground Vite dev server (after `dist/` is current from a recent root `npm run build`). **`npm run dev --prefix playground`** runs **`scripts/assert-org-url.mjs`** first (same as playground **`build`**), so the command fails if **`playground/.env`** is incomplete:
+To run only the playground Vite dev server (after `dist/` is current from a recent root `pnpm run build`). **`pnpm -C playground dev`** runs **`scripts/assert-org-url.mjs`** first (same as playground **`build`**), so the command fails if **`playground/.env`** is incomplete:
 
 ```bash
-npm run playground:dev
+pnpm run playground:dev
 ```
 
-Refresh after `npm run build` at the repo root so new static assets appear.
+Refresh after `pnpm run build` at the repo root so new static assets appear.
 
 ### 2. Branching
 
@@ -180,7 +180,7 @@ Refresh after `npm run build` at the repo root so new static assets appear.
 - **New favicons** under `src/favicons/<project>/`: expose via `"./favicons/*"` export and ensure the build copies them.
 - **Banner assets** under `src/banners/<project-slug>/`: add files in a project subfolder (not loose under `src/banners/`). `"./banners/*"` and the build’s `dist/banners/` copy pick up new folders automatically; run a full build after adding binaries.
 - **Components**: follow existing component patterns and import style; prefer minimal, focused diffs.
-- **Playground (required)**: any **new exported component** or **published static asset** must be visible in the playground in the same change (before merge). Add a demo in [`playground/src/App.tsx`](playground/src/App.tsx) for components. For assets, run a full [`npm run build`](README.md#build) so files land under `dist/`; the catalog globs in [`playground/src/distAssetGlobs.ts`](playground/src/distAssetGlobs.ts) list matching files under `dist/brand`, `dist/banners`, and `dist/favicons`. Extend those globs or add an explicit preview import if needed. See [Component and asset preview (playground)](#component-and-asset-preview-playground).
+- **Playground (required)**: any **new exported component** or **published static asset** must be visible in the playground in the same change (before merge). Add a demo in [`playground/src/App.tsx`](playground/src/App.tsx) for components. For assets, run a full [`pnpm run build`](README.md#build) so files land under `dist/`; the catalog globs in [`playground/src/distAssetGlobs.ts`](playground/src/distAssetGlobs.ts) list matching files under `dist/brand`, `dist/banners`, and `dist/favicons`. Extend those globs or add an explicit preview import if needed. See [Component and asset preview (playground)](#component-and-asset-preview-playground).
 - **TypeScript**: `tsconfig.json` uses `"moduleResolution": "bundler"` — keep it compatible with tsup.
 
 #### 3.1 Interactive affordances (hover / focus)
@@ -190,7 +190,7 @@ Shipped **clickable** UI (`<a>`, `<button>`, and similar) should show a visible 
 After structural changes, run a full build to verify:
 
 ```bash
-npm run build
+pnpm run build
 ```
 
 ### 4. Committing
@@ -223,7 +223,7 @@ Before submitting a Pull Request:
 
 **2. Build**
 
-- `npm run build` completes successfully
+- `pnpm run build` completes successfully
 - New exports are accessible from the built package
 - **Playground (required):** Anything new or changed that ships in **`dist/`** (components, brand files, favicons, banners, or any new copied **`dist/`** tree) must be visible in **`playground/`** in this PR—update [`playground/src/distAssetGlobs.ts`](playground/src/distAssetGlobs.ts) and/or [`playground/src/App.tsx`](playground/src/App.tsx), run a full build, then confirm in the dev server. See [Component and asset preview (playground)](#component-and-asset-preview-playground).
 
@@ -267,9 +267,9 @@ Releases are created from the `main` branch. A GitHub Actions workflow publishes
 Run the release script from `main` with a clean working tree:
 
 ```bash
-npm run release -- patch   # 1.0.0 -> 1.0.1
-npm run release -- minor   # 1.0.0 -> 1.1.0
-npm run release -- major   # 1.0.0 -> 2.0.0
+pnpm run release -- patch   # 1.0.0 -> 1.0.1
+pnpm run release -- minor   # 1.0.0 -> 1.1.0
+pnpm run release -- major   # 1.0.0 -> 2.0.0
 ```
 
 The script (`scripts/release.sh`) does the following in one shot:
@@ -277,7 +277,7 @@ The script (`scripts/release.sh`) does the following in one shot:
 1. Validates you're on `main` with a clean working tree
 2. Bumps the version in `package.json`
 3. Stamps `CHANGELOG.md` — replaces `[Unreleased]` with the new version and today's date, keeping an empty `[Unreleased]` section for future PRs
-4. Commits `package.json`, `package-lock.json`, and `CHANGELOG.md`
+4. Commits `package.json`, `pnpm-lock.yaml`, and `CHANGELOG.md`
 5. Creates a git tag `v<version>`
 6. Pushes the commit and tag
 

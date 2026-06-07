@@ -4,7 +4,7 @@
     {
       "label": "assets: build",
       "type": "shell",
-      "command": "npm run build",
+      "command": "pnpm run build",
       "options": {
         "cwd": "${workspaceFolder}"
       },
@@ -13,7 +13,7 @@
     {
       "label": "playground: dev server",
       "type": "shell",
-      "command": "npm run playground:dev",
+      "command": "pnpm run playground:dev",
       "options": {
         "cwd": "${workspaceFolder}"
       },

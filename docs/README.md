@@ -14,7 +14,7 @@ Start here for naming, formats, and where specs live.
 
 ## Installing the package
 
-**`@behindthemusictree/assets`** is published to GitHub Packages. Registry configuration, authentication (local machine and GitHub Actions), and **`npm install`** commands are documented in the repository root **[README — Install](../README.md#install)**.
+**`@behindthemusictree/assets`** is published to GitHub Packages. Registry configuration, authentication (local machine and GitHub Actions), and **`pnpm add`** commands are documented in the repository root **[README — Install](../README.md#install)**.
 
 ## Naming
 

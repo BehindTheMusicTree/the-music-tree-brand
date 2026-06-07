@@ -1,6 +1,6 @@
 {
   // Main launch flow: run build+server tasks, then open browser on the strict Vite port.
-  // Library watch (`npm run dev` / tsup --watch) is separate; it does not start the UI.
+  // Library watch (`pnpm run dev` / tsup --watch) is separate; it does not start the UI.
   "version": "0.2.0",
   "configurations": [
     {
@@ -23,7 +23,7 @@
       "type": "node",
       "request": "launch",
       "name": "Library: tsup watch (no browser)",
-      "runtimeExecutable": "npm",
+      "runtimeExecutable": "pnpm",
       "runtimeArgs": ["run", "dev"],
       "cwd": "${workspaceFolder}",
       "console": "integratedTerminal"

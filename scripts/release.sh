@@ -4,7 +4,7 @@ set -euo pipefail
 BUMP="${1:-}"
 
 if [[ -z "$BUMP" ]]; then
-  echo "Usage: npm run release -- <patch|minor|major>"
+  echo "Usage: pnpm run release -- <patch|minor|major>"
   exit 1
 fi
 

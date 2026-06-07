@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Runs `npm run build` at the repo root with env from the shell merged with `playground/.env`,
+ * Runs `pnpm run build` at the repo root with env from the shell merged with `playground/.env`,
  * then starts the playground dev server. **`scripts/assert-org-url.mjs`** (invoked by the root
  * build) requires every key in **`playground/.env.example`**.
  */
@@ -9,7 +9,10 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { loadPlaygroundDotenv } from "./load-playground-dotenv.mjs";
 
-const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const repoRoot = path.resolve(
+  path.dirname(fileURLToPath(import.meta.url)),
+  "..",
+);
 const envFile = path.join(repoRoot, "playground", ".env");
 
 const dot = loadPlaygroundDotenv(envFile);

@@ -1,6 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "installCommand": "cd .. && npm ci && npm ci --prefix playground",
-  "buildCommand": "cd .. && npm run build && npm run build --prefix playground",
+  "installCommand": "cd .. && pnpm install --frozen-lockfile",
+  "buildCommand": "cd .. && pnpm run build && pnpm -C playground build",
   "outputDirectory": "dist"
 }

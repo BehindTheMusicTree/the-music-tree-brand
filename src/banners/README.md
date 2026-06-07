@@ -33,7 +33,7 @@ Example:
 import hero from "@behindthemusictree/assets/banners/grow-the-music-tree/grow-the-music-tree-banner-mobile.webp";
 ```
 
-Add files under `src/banners/<project-slug>/`, then run a full **`npm run build`** so they appear under `dist/banners/`. New project folders are picked up automatically (no per-folder export entry).
+Add files under `src/banners/<project-slug>/`, then run a full **`pnpm run build`** so they appear under `dist/banners/`. New project folders are picked up automatically (no per-folder export entry).
 
 Keep all variants for a project in that folder (desktop, mobile, dark, light).
 
@@ -72,15 +72,15 @@ Use a master source and export platform-specific files instead of reusing one im
 
 ### Recommended export matrix
 
-| Platform | Surface | Recommended size | Ratio |
-|----------|---------|------------------|-------|
-| X | Profile header | `1500x500` | `3:1` |
-| LinkedIn | Company cover | `1128x191` | `~5.91:1` |
-| LinkedIn | Personal cover | `1584x396` | `4:1` |
-| Facebook | Page cover | `851x315` | `~2.70:1` |
-| Mastodon | Profile header | `1500x500` | `3:1` |
-| Instagram | Story/Reel cover | `1080x1920` | `9:16` |
-| Instagram | Feed post (portrait) | `1080x1350` | `4:5` |
+| Platform  | Surface              | Recommended size | Ratio     |
+| --------- | -------------------- | ---------------- | --------- |
+| X         | Profile header       | `1500x500`       | `3:1`     |
+| LinkedIn  | Company cover        | `1128x191`       | `~5.91:1` |
+| LinkedIn  | Personal cover       | `1584x396`       | `4:1`     |
+| Facebook  | Page cover           | `851x315`        | `~2.70:1` |
+| Mastodon  | Profile header       | `1500x500`       | `3:1`     |
+| Instagram | Story/Reel cover     | `1080x1920`      | `9:16`    |
+| Instagram | Feed post (portrait) | `1080x1350`      | `4:5`     |
 
 Note: platforms may revise dimensions over time; verify before final export for campaigns.
 

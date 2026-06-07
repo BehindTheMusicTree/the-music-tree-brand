@@ -16,7 +16,7 @@ export type GithubSponsorButtonProps = {
 
 /**
  * GitHub Sponsors (or other) embed **iframe**. **`src`** comes from **`GithubSponsorButtonUrl`**
- * at **package build** time, not from props. **`scripts/assert-org-url.mjs`** fails **`npm run build`**
+ * at **package build** time, not from props. **`scripts/assert-org-url.mjs`** fails **`pnpm run build`**
  * when that variable is missing, so published **`dist/`** should always include a non-empty URL; this
  * component returns **`null`** only if a consumer bundles a non-standard build with an empty inlined
  * value.

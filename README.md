@@ -52,7 +52,7 @@ To avoid a literal token in any file, use an environment variable (works well wi
 //npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
 ```
 
-Then export **`NODE_AUTH_TOKEN`** (or **`GITHUB_TOKEN`** in some setups) before running **`npm install`**.
+Then export **`NODE_AUTH_TOKEN`** (or **`GITHUB_TOKEN`** in some setups) before running **`pnpm add`**.
 
 If you cannot use **`~/.npmrc`**, a **gitignored** **`.npmrc`** in the app repo that contains **only** the **`_authToken`** line is possible, but splitting **registry (committed repo)** and **token (user home or secret store)** is the safer default.
 
@@ -61,13 +61,13 @@ If you cannot use **`~/.npmrc`**, a **gitignored** **`.npmrc`** in the app repo 
 ### 3. Install
 
 ```bash
-npm install @behindthemusictree/assets
+pnpm add @behindthemusictree/assets
 ```
 
 Pin a version when you want an explicit upgrade path:
 
 ```bash
-npm install @behindthemusictree/assets@3.0.1
+pnpm add @behindthemusictree/assets@3.0.1
 ```
 
 **pnpm** and **Yarn** can use the same **`@behindthemusictree:registry`** and host auth settings; see their docs for equivalent **`.npmrc`** / **`.yarnrc.yml`** layout if you do not use npm.
@@ -82,7 +82,7 @@ import { colors, spacing } from "@behindthemusictree/assets/tokens";
 import "@behindthemusictree/assets/styles";
 ```
 
-**TheMusicTreeByline** — single clickable **SVG knockout** (transparent outside the horizontal lockup; link and image use **`backgroundColor: transparent`**). The **`href`** is **not a prop**: when **this package** is built for publish, **`ORG_DOMAIN`** (hostname, no protocol) is read from GitHub repository variable **`DOMAIN_NAME`** and **embedded in `dist/`** via **tsup `define`**. **Consuming apps** normally need **no** **`ORG_DOMAIN`** env — they install a pre-built package from GitHub Packages. **Maintainers:** configure GitHub repository variable **`DOMAIN_NAME`** for **`.github/workflows/publish.yml`** (see **Publishing** below); locally, set **`ORG_DOMAIN`** in **`playground/.env`** when running **`npm run build`** / **`npm run dev`**. **`resolveOrgSiteHref()`** and **`parseOrgSiteHref()`** are exported if you need the same URL string in app code. Default variant uses **`the-music-tree-lockup-horizontal.svg`**; **`variant="onDark"`** uses **`the-music-tree-lockup-horizontal-dark.svg`**. Default display height **56px**, width **auto**. **Web-sized PNGs** (**`the-music-tree-lockup-horizontal.png`** / **`-dark.png`**) ship for raster-only contexts (email, CMS); import from **`@behindthemusictree/assets/brand/the-music-tree/...`**.
+**TheMusicTreeByline** — single clickable **SVG knockout** (transparent outside the horizontal lockup; link and image use **`backgroundColor: transparent`**). The **`href`** is **not a prop**: when **this package** is built for publish, **`ORG_DOMAIN`** (hostname, no protocol) is read from GitHub repository variable **`DOMAIN_NAME`** and **embedded in `dist/`** via **tsup `define`**. **Consuming apps** normally need **no** **`ORG_DOMAIN`** env — they install a pre-built package from GitHub Packages. **Maintainers:** configure GitHub repository variable **`DOMAIN_NAME`** for **`.github/workflows/publish.yml`** (see **Publishing** below); locally, set **`ORG_DOMAIN`** in **`playground/.env`** when running **`pnpm run build`** / **`pnpm run dev`**. **`resolveOrgSiteHref()`** and **`parseOrgSiteHref()`** are exported if you need the same URL string in app code. Default variant uses **`the-music-tree-lockup-horizontal.svg`**; **`variant="onDark"`** uses **`the-music-tree-lockup-horizontal-dark.svg`**. Default display height **56px**, width **auto**. **Web-sized PNGs** (**`the-music-tree-lockup-horizontal.png`** / **`-dark.png`**) ship for raster-only contexts (email, CMS); import from **`@behindthemusictree/assets/brand/the-music-tree/...`**.
 
 ```tsx
 import { TheMusicTreeByline } from "@behindthemusictree/assets/components";
@@ -135,25 +135,25 @@ Ensure design tokens are loaded (e.g. import `@behindthemusictree/assets/styles`
 A GitHub Actions workflow automatically publishes to GitHub Packages whenever a version tag is pushed. To cut a new version:
 
 ```bash
-npm run release -- patch   # or minor / major
+pnpm run release -- patch   # or minor / major
 ```
 
 This bumps the version, stamps the changelog, commits, tags, and pushes. Publishing starts automatically. See [CONTRIBUTING.md](CONTRIBUTING.md#6-releasing-for-maintainers) for details.
 
-The **Publish** workflow passes every key in **`publish.yml`**'s **`npm run build`** **`env`** block ( **`ORG_DOMAIN`** from GitHub repository variable **`DOMAIN_NAME`**, **`ORG_GITHUB_SPONSOR_BUTTON_URL`**, and all playground social URLs—see **`playground/.env.example`**). Define the matching **GitHub repository variables** or the build fails. **tsup** inlines **`ORG_DOMAIN`**, **`ORG_GITHUB_SPONSOR_BUTTON_URL`**, and those social URLs into **`dist/`** (lockup, **`GithubSponsorButton`** iframe, and **`Social*Link`** defaults); **`scripts/assert-org-url.mjs`** enforces the same keys locally and in CI.
+The **Publish** workflow passes every key in **`publish.yml`**'s **`pnpm run build`** **`env`** block ( **`ORG_DOMAIN`** from GitHub repository variable **`DOMAIN_NAME`**, **`ORG_GITHUB_SPONSOR_BUTTON_URL`**, and all playground social URLs—see **`playground/.env.example`**). Define the matching **GitHub repository variables** or the build fails. **tsup** inlines **`ORG_DOMAIN`**, **`ORG_GITHUB_SPONSOR_BUTTON_URL`**, and those social URLs into **`dist/`** (lockup, **`GithubSponsorButton`** iframe, and **`Social*Link`** defaults); **`scripts/assert-org-url.mjs`** enforces the same keys locally and in CI.
 
 ## Build
 
 ```bash
-npm install
+pnpm install
 cp playground/.env.example playground/.env   # then edit values
-npm run build
+pnpm run build
 ```
 
 **`scripts/assert-org-url.mjs`** requires **`playground/.env`** (or equivalent shell exports) to define **`ORG_DOMAIN`**, **`ORG_GITHUB_SPONSOR_BUTTON_URL`**, and every playground social key listed in **`playground/.env.example`**. None of these are needed in downstream apps that install the published package. Output is in **`dist/`**.
 
 ## Local development
 
-From this repo: `npm link`. In your React app: `npm link @behindthemusictree/assets`. Use a filled **`playground/.env`** (or export the same keys) for **`npm run dev`**—same **`assert-org-url`** gate as **`npm run build`**.
+From this repo: `pnpm link --global`. In your React app: `pnpm link --global @behindthemusictree/assets`. Use a filled **`playground/.env`** (or export the same keys) for **`pnpm run dev`**—same **`assert-org-url`** gate as **`pnpm run build`**.
 
-**Playground:** `npm run playground` merges **`playground/.env`** into the environment for the root **`npm run build`**, then starts the Vite dev server. Every key in **`playground/.env.example`** is required for that root build.
+**Playground:** `pnpm run playground` merges **`playground/.env`** into the environment for the root **`pnpm run build`**, then starts the Vite dev server. Every key in **`playground/.env.example`** is required for that root build.

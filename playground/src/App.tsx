@@ -549,19 +549,20 @@ export default function App() {
       <p>
         Local catalog: npm pack contents under <code>node_modules/…/dist/</code>
         . After changing brand files or the library build, run{" "}
-        <code>npm run build</code> at the repo root, then refresh this app (or
-        restart <code>npm run dev</code> if the catalog still looks stale). The
+        <code>pnpm run build</code> at the repo root, then refresh this app (or
+        restart <code>pnpm run dev</code> if the catalog still looks stale). The
         org link target is **embedded in `dist/`** when you run{" "}
-        <code>npm run build</code> at the repo root (see <code>ORG_DOMAIN</code>{" "}
-        in <code>playground/.env</code> for <code>npm run playground</code>).
-        Social link defaults (<code>ORG_GITHUB_URL</code>,{" "}
-        <code>ORG_LINKEDIN_URL</code>, <code>CONTACT_EMAIL</code>, etc.) are
-        inlined into <code>dist/</code> when you run root{" "}
-        <code>npm run build</code> (same keys in <code>playground/.env</code>);
-        pass <code>href</code> / <code>text</code> props to override.{" "}
-        <strong>DocLink</strong>, <strong>DiscussionLink</strong>, and{" "}
-        <strong>InformationLink</strong> have no build default — supply{" "}
-        <code>href</code>. **GithubSponsorButton** and **SponsorSocialLink** use{" "}
+        <code>pnpm run build</code> at the repo root (see{" "}
+        <code>ORG_DOMAIN</code> in <code>playground/.env</code> for{" "}
+        <code>pnpm run playground</code>). Social link defaults (
+        <code>ORG_GITHUB_URL</code>, <code>ORG_LINKEDIN_URL</code>,{" "}
+        <code>CONTACT_EMAIL</code>, etc.) are inlined into <code>dist/</code>{" "}
+        when you run root <code>pnpm run build</code> (same keys in{" "}
+        <code>playground/.env</code>); pass <code>href</code> /{" "}
+        <code>text</code> props to override. <strong>DocLink</strong>,{" "}
+        <strong>DiscussionLink</strong>, and <strong>InformationLink</strong>{" "}
+        have no build default — supply <code>href</code>.
+        **GithubSponsorButton** and **SponsorSocialLink** use{" "}
         <code>ORG_GITHUB_SPONSOR_BUTTON_URL</code> from the package build.
         Raster and SVG previews use each file’s natural dimensions (wide assets
         scroll inside the card). <strong>TheMusicTreeMarkLink</strong>{" "}
@@ -647,17 +648,16 @@ export default function App() {
                         &lt;GithubSponsorButton /&gt;
                       </code>
                       <p className="empty-note sponsor-demo__hint">
-                        Root <code>npm run build</code> and playground{" "}
-                        <code>npm run build</code> / <code>npm run dev</code>{" "}
+                        Root <code>pnpm run build</code> and playground{" "}
+                        <code>pnpm run build</code> / <code>pnpm run dev</code>{" "}
                         both run <code>scripts/assert-org-url.mjs</code>{" "}
                         first—the build fails if{" "}
                         <code>ORG_GITHUB_SPONSOR_BUTTON_URL</code> or any other
                         required key is missing. If the iframe is still absent,{" "}
                         <code>node_modules/@behindthemusictree/assets</code> is
-                        probably stale: run <code>npm run build</code> at the
-                        repo root, then{" "}
-                        <code>npm install --prefix playground</code>, and
-                        refresh.
+                        probably stale: run <code>pnpm run build</code> at the
+                        repo root, then <code>pnpm -C playground install</code>,
+                        and refresh.
                       </p>
                     </div>
                   </div>
@@ -1104,7 +1104,7 @@ export default function App() {
             <h2 id="brand-heading">Brand (dist/brand)</h2>
             {brandEntries.length === 0 ? (
               <p className="empty-note">
-                No files matched. Run <code>npm run build</code> at the
+                No files matched. Run <code>pnpm run build</code> at the
                 repository root so <code>dist/brand</code> exists.
               </p>
             ) : (
@@ -1166,7 +1166,7 @@ export default function App() {
               any value is <code>undefined</code>, rebuild the root package with
               a populated
               <code>playground/.env</code>, then run{" "}
-              <code>npm install --prefix playground</code>.
+              <code>pnpm -C playground install</code>.
             </p>
             <div className="env-vars-table-wrap">
               <table className="env-vars-table">
@@ -1243,7 +1243,7 @@ export default function App() {
             <h2 id="favicons-heading">Favicons (dist/favicons)</h2>
             {faviconEntries.length === 0 ? (
               <p className="empty-note">
-                No favicon files matched. Run <code>npm run build</code> at the
+                No favicon files matched. Run <code>pnpm run build</code> at the
                 repository root.
               </p>
             ) : (

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Ensures required build-time env is set for `npm run build` / `npm run dev`.
+ * Ensures required build-time env is set for `pnpm run build` / `pnpm run dev`.
  * Merges **`playground/.env`** then **`process.env`** (shell overrides file).
  * **Publish** workflow must pass the same keys (see `.github/workflows/publish.yml`).
  */
