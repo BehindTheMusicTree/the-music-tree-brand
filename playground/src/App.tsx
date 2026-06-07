@@ -63,6 +63,7 @@ import {
   TheMusicTreeHorizontalLink,
   TheMusicTreeMarkLink,
   ORG_DOMAIN,
+  ORG_NAME,
   ORG_GITHUB_SPONSOR_BUTTON_URL,
   ORG_GITHUB_SPONSOR_BUTTON_IFRAME_SRC,
   ORG_GITHUB_URL,
@@ -230,7 +231,6 @@ type BuildEnvRow = {
   inlinedValue: string | undefined;
 };
 
-
 const DOMAIN_ENV_ROWS: BuildEnvRow[] = [
   {
     category: "Domain",
@@ -239,6 +239,14 @@ const DOMAIN_ENV_ROWS: BuildEnvRow[] = [
     keyValue: "ORG_DOMAIN",
     inlinedName: "ORG_DOMAIN",
     inlinedValue: ORG_DOMAIN,
+  },
+  {
+    category: "Domain",
+    usage: "Organization name",
+    keyName: "ORG_NAME",
+    keyValue: "ORG_NAME",
+    inlinedName: "ORG_NAME",
+    inlinedValue: ORG_NAME,
   },
   {
     category: "Domain",
@@ -1266,9 +1274,7 @@ export default function App() {
                   role="tabpanel"
                   id="panel-favicon-project"
                   aria-labelledby={
-                    faviconProject
-                      ? `tab-favicon-${faviconProject}`
-                      : undefined
+                    faviconProject ? `tab-favicon-${faviconProject}` : undefined
                   }
                 >
                   <AssetGrid
