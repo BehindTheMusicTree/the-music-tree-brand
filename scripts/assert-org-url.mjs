@@ -60,6 +60,11 @@ if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
   fail("Error: CONTACT_EMAIL must look like a valid email address.");
 }
 
+requireNonEmpty("HTMT_API_REPO_NAME");
+requireNonEmpty("TMD_ADMIN_API_REPO_NAME");
+requireNonEmpty("GTMT_API_REPO_NAME");
+requireNonEmpty("GTMT_FRONT_REPO_NAME");
+requireNonEmpty("TMD_ADMIN_REPO_NAME");
 requireNonEmpty("HTMT_API_SUBDOMAIN");
 requireNonEmpty("HTMT_FRONT_SUBDOMAIN");
 requireNonEmpty("GTMT_FRONT_SUBDOMAIN");

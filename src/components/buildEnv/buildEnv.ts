@@ -49,6 +49,24 @@ export const TMD_ADMIN_API_REPO_NAME = readBuildEnv(
 export const TMD_ADMIN_API_GITHUB_URL = buildGithubRepoUrl(
   TMD_ADMIN_API_REPO_NAME,
 );
+
+export const GTMT_API_REPO_NAME = readBuildEnv(
+  () => process.env.GTMT_API_REPO_NAME,
+);
+
+export const GTMT_API_GITHUB_URL = buildGithubRepoUrl(GTMT_API_REPO_NAME);
+
+export const GTMT_FRONT_REPO_NAME = readBuildEnv(
+  () => process.env.GTMT_FRONT_REPO_NAME,
+);
+
+export const GTMT_FRONT_GITHUB_URL = buildGithubRepoUrl(GTMT_FRONT_REPO_NAME);
+
+export const TMD_ADMIN_REPO_NAME = readBuildEnv(
+  () => process.env.TMD_ADMIN_REPO_NAME,
+);
+
+export const TMD_ADMIN_GITHUB_URL = buildGithubRepoUrl(TMD_ADMIN_REPO_NAME);
 export const ORG_PYPI_URL = readBuildEnv(() => process.env.ORG_PYPI_URL);
 export const ORG_LINKEDIN_URL = readBuildEnv(
   () => process.env.ORG_LINKEDIN_URL,
