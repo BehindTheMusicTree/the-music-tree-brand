@@ -13,46 +13,29 @@ const readBuildEnv = (read: () => string | undefined): string | undefined => {
 
 // Build env keys
 export const GithubSponsorButtonUrl = "ORG_GITHUB_SPONSOR_BUTTON_URL" as const;
-export const ORG_GITHUB_URL = "ORG_GITHUB_URL" as const;
-export const ORG_PYPI_URL = "ORG_PYPI_URL" as const;
-export const ORG_LINKEDIN_URL = "ORG_LINKEDIN_URL" as const;
-export const ORG_X_URL = "ORG_X_URL" as const;
-export const ORG_MASTODON_URL = "ORG_MASTODON_URL" as const;
-export const ORG_YOUTUBE_URL = "ORG_YOUTUBE_URL" as const;
-export const ORG_SPOTIFY_URL = "ORG_SPOTIFY_URL" as const;
-export const ORG_DISCORD_URL = "ORG_DISCORD_URL" as const;
-export const ORG_TIPEEE_URL = "ORG_TIPEEE_URL" as const;
 export const CONTACT_EMAIL = "CONTACT_EMAIL" as const;
 
 // Inlined build-time values
 export const ORG_GITHUB_SPONSOR_BUTTON_IFRAME_SRC = readBuildEnv(
   () => process.env.ORG_GITHUB_SPONSOR_BUTTON_URL,
 );
-export const ORG_GITHUB_PROFILE_URL = readBuildEnv(
-  () => process.env.ORG_GITHUB_URL,
+
+export const ORG_GITHUB_URL = readBuildEnv(() => process.env.ORG_GITHUB_URL);
+export const HTMT_API_GITHUB_URL = readBuildEnv(
+  () => process.env.HTMT_API_GITHUB_URL,
 );
-export const ORG_PYPI_PROFILE_URL = readBuildEnv(
-  () => process.env.ORG_PYPI_URL,
-);
-export const ORG_LINKEDIN_PROFILE_URL = readBuildEnv(
+export const ORG_PYPI_URL = readBuildEnv(() => process.env.ORG_PYPI_URL);
+export const ORG_LINKEDIN_URL = readBuildEnv(
   () => process.env.ORG_LINKEDIN_URL,
 );
-export const ORG_X_PROFILE_URL = readBuildEnv(() => process.env.ORG_X_URL);
-export const ORG_MASTODON_PROFILE_URL = readBuildEnv(
+export const ORG_X_URL = readBuildEnv(() => process.env.ORG_X_URL);
+export const ORG_MASTODON_URL = readBuildEnv(
   () => process.env.ORG_MASTODON_URL,
 );
-export const ORG_YOUTUBE_PROFILE_URL = readBuildEnv(
-  () => process.env.ORG_YOUTUBE_URL,
-);
-export const ORG_SPOTIFY_PROFILE_URL = readBuildEnv(
-  () => process.env.ORG_SPOTIFY_URL,
-);
-export const ORG_DISCORD_INVITE_URL = readBuildEnv(
-  () => process.env.ORG_DISCORD_URL,
-);
-export const ORG_TIPEEE_PROFILE_URL = readBuildEnv(
-  () => process.env.ORG_TIPEEE_URL,
-);
+export const ORG_YOUTUBE_URL = readBuildEnv(() => process.env.ORG_YOUTUBE_URL);
+export const ORG_SPOTIFY_URL = readBuildEnv(() => process.env.ORG_SPOTIFY_URL);
+export const ORG_DISCORD_URL = readBuildEnv(() => process.env.ORG_DISCORD_URL);
+export const ORG_TIPEEE_URL = readBuildEnv(() => process.env.ORG_TIPEEE_URL);
 export const CONTACT_EMAIL_ADDRESS = readBuildEnv(
   () => process.env.CONTACT_EMAIL,
 );

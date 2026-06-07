@@ -33,6 +33,7 @@ jobs:
       ORG_NAME: ${{ vars.ORG_NAME }}
       ORG_GITHUB_SPONSOR_BUTTON_URL: ${{ vars.ORG_GITHUB_SPONSOR_BUTTON_URL }}
       ORG_GITHUB_URL: ${{ vars.ORG_GITHUB_URL }}
+      HTMT_API_REPO_NAME: ${{ vars.HTMT_API_REPO_NAME }}
       ORG_PYPI_URL: ${{ vars.ORG_PYPI_URL }}
       ORG_LINKEDIN_URL: ${{ vars.ORG_LINKEDIN_URL }}
       ORG_X_URL: ${{ vars.ORG_X_URL }}

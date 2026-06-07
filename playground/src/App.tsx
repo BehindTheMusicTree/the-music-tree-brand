@@ -67,6 +67,7 @@ import {
   ORG_GITHUB_SPONSOR_BUTTON_URL,
   ORG_GITHUB_SPONSOR_BUTTON_IFRAME_SRC,
   ORG_GITHUB_URL,
+  HTMT_API_GITHUB_URL,
   ORG_PYPI_URL,
   ORG_LINKEDIN_URL,
   ORG_X_URL,
@@ -76,15 +77,6 @@ import {
   ORG_DISCORD_URL,
   ORG_TIPEEE_URL,
   CONTACT_EMAIL,
-  ORG_GITHUB_PROFILE_URL,
-  ORG_PYPI_PROFILE_URL,
-  ORG_LINKEDIN_PROFILE_URL,
-  ORG_X_PROFILE_URL,
-  ORG_MASTODON_PROFILE_URL,
-  ORG_YOUTUBE_PROFILE_URL,
-  ORG_SPOTIFY_PROFILE_URL,
-  ORG_DISCORD_INVITE_URL,
-  ORG_TIPEEE_PROFILE_URL,
   CONTACT_EMAIL_ADDRESS,
   HTMT_FRONT_SUBDOMAIN,
   HTMT_API_SUBDOMAIN,
@@ -223,7 +215,7 @@ const TABS: { id: CatalogTab; label: string }[] = [
 ];
 
 type BuildEnvRow = {
-  category: "Social links" | "Domain";
+  category: "Social links" | "Domain" | "GitHub";
   usage: string;
   keyName: string;
   keyValue: string;
@@ -324,7 +316,7 @@ const DOMAIN_ENV_ROWS: BuildEnvRow[] = [
 
 const SOCIAL_LINK_ENV_ROWS: BuildEnvRow[] = [
   {
-    category: "Social links",
+    category: "GitHub",
     usage: "Sponsor button URL",
     keyName: "ORG_GITHUB_SPONSOR_BUTTON_URL",
     keyValue: ORG_GITHUB_SPONSOR_BUTTON_URL,
@@ -332,12 +324,20 @@ const SOCIAL_LINK_ENV_ROWS: BuildEnvRow[] = [
     inlinedValue: ORG_GITHUB_SPONSOR_BUTTON_IFRAME_SRC,
   },
   {
-    category: "Social links",
+    category: "GitHub",
     usage: "GitHub social link",
     keyName: "ORG_GITHUB_URL",
     keyValue: ORG_GITHUB_URL,
     inlinedName: "ORG_GITHUB_PROFILE_URL",
     inlinedValue: ORG_GITHUB_PROFILE_URL,
+  },
+  {
+    category: "GitHub",
+    usage: "HTMT API GitHub link",
+    keyName: "HTMT_API_GITHUB_URL",
+    keyValue: HTMT_API_GITHUB_URL,
+    inlinedName: "HTMT_API_GITHUB_PROFILE_URL",
+    inlinedValue: HTMT_API_GITHUB_PROFILE_URL,
   },
   {
     category: "Social links",

@@ -36,6 +36,11 @@ const githubSponsorButtonUrlLiteral = JSON.stringify(
   buildEnv.ORG_GITHUB_SPONSOR_BUTTON_URL ?? "",
 );
 const orgGithubUrlLiteral = JSON.stringify(buildEnv.ORG_GITHUB_URL ?? "");
+const htmtApiGithubUrlLiteral = JSON.stringify(
+  buildEnv.ORG_GITHUB_URL && buildEnv.HTMT_API_REPO_NAME
+    ? `${buildEnv.ORG_GITHUB_URL}/${buildEnv.HTMT_API_REPO_NAME}`
+    : "",
+);
 const orgPypiUrlLiteral = JSON.stringify(buildEnv.ORG_PYPI_URL ?? "");
 const orgLinkedinUrlLiteral = JSON.stringify(buildEnv.ORG_LINKEDIN_URL ?? "");
 const orgXUrlLiteral = JSON.stringify(buildEnv.ORG_X_URL ?? "");
@@ -91,6 +96,7 @@ export default defineConfig({
     "process.env.ORG_NAME": orgNameLiteral,
     "process.env.ORG_GITHUB_SPONSOR_BUTTON_URL": githubSponsorButtonUrlLiteral,
     "process.env.ORG_GITHUB_URL": orgGithubUrlLiteral,
+    "process.env.HTMT_API_GITHUB_URL": htmtApiGithubUrlLiteral,
     "process.env.ORG_PYPI_URL": orgPypiUrlLiteral,
     "process.env.ORG_LINKEDIN_URL": orgLinkedinUrlLiteral,
     "process.env.ORG_X_URL": orgXUrlLiteral,

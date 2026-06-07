@@ -47,6 +47,7 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 ### Added
 
 - **ORG_NAME Export**: Added `ORG_NAME` constant exported from build environment, sourced from GitHub repository variable in CI
+- **HTMT_API_GITHUB_URL Export**: Added `HTMT_API_GITHUB_URL`, constructed from `ORG_GITHUB_URL` and `HTMT_API_REPO_NAME` GitHub variable
 
 ## [11.4.3] - 2026-05-26
 
@@ -214,7 +215,7 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ### Changed
 
-- **Build env / `socialBuildEnv`**: Simplified exports by centralizing env reads and exposing explicit inlined value constants (`ORG_GITHUB_PROFILE_URL`, `ORG_PYPI_PROFILE_URL`, `ORG_LINKEDIN_PROFILE_URL`, `ORG_X_PROFILE_URL`, `ORG_MASTODON_PROFILE_URL`, `ORG_YOUTUBE_PROFILE_URL`, `ORG_SPOTIFY_PROFILE_URL`, `ORG_DISCORD_INVITE_URL`, `ORG_TIPEEE_PROFILE_URL`, `CONTACT_EMAIL_ADDRESS`).
+- **Build env / `socialBuildEnv`**: Simplified exports by centralizing env reads and exposing explicit inlined value constants (`ORG_PYPI_URL`, `ORG_LINKEDIN_URL`, `ORG_X_URL`, `ORG_MASTODON_URL`, `ORG_YOUTUBE_URL`, `ORG_SPOTIFY_URL`, `ORG_DISCORD_URL`, `ORG_TIPEEE_URL`, `CONTACT_EMAIL_ADDRESS`).
 
 ## [7.0.6] - 2026-04-15
 
