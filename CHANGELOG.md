@@ -47,7 +47,7 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 ### Added
 
 - **ORG_NAME Export**: Added `ORG_NAME` constant exported from build environment, sourced from GitHub repository variable in CI
-- **HTMT_API_GITHUB_URL Export**: Added `HTMT_API_GITHUB_URL`, constructed from `ORG_GITHUB_URL` and `HTMT_API_REPO_NAME` GitHub variable
+- **HTMT_API_GITHUB_URL Export**: Added `HTMT_API_GITHUB_URL`, 'GTMT_FRONT_GITHUB_URL`, `TMD_ADMIN_GITHUB_URL`, and `AUDIOMETA_FRONT_GITHUB_URL` constants exported from build environment, sourced from GitHub repository variable in CI
 
 ## [11.4.3] - 2026-05-26
 
