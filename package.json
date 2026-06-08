@@ -1,5 +1,5 @@
 {
-  "name": "@behindthemusictree/assets",
+  "name": "@themusictree/brand",
   "version": "11.4.3",
   "description": "Shared assets (components, tokens, brand artwork, styles) for React projects",
   "repository": {
@@ -67,8 +67,5 @@
     "shared-assets"
   ],
   "author": "",
-  "license": "ISC",
-  "workspaces": [
-    "playground"
-  ]
+  "license": "ISC"
 }
