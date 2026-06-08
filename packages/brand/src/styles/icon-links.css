@@ -1,0 +1,156 @@
+/**
+ * Canonical styling for icon+label links from `@behindthemusictree/assets/components`
+ * (e.g. **Social*Link**, **DocLink**, **DiscussionLink**, **InformationLink**, and colored
+ * variants). Add **`btmt-icon-link--dark`**
+ * (see **`BTMT_ICON_LINK_DARK_CLASS`**) on dark surfaces. Raster marks (**Tipeee** img) use
+ * **`opacity`** on **`:hover`** because they are not **`currentColor`**.
+ * Import once in your app: `import '@behindthemusictree/assets/styles/icon-links.css'`
+ * (or use the **`unstyled`** prop on those links to skip these defaults).
+ */
+
+.btmt-icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  color: var(--color-text, #1a1a1a);
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  text-decoration: none;
+  transition: color 0.12s ease, opacity 0.12s ease;
+}
+
+/* Icon size when hosts do not pass Tailwind (`h-6 w-6`) on the SVG */
+.btmt-icon-link svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+}
+
+/*
+ * Raster marks: same box as SVGs. `min-width: 0` avoids flex `min-width: auto` using
+ * intrinsic width and blowing up pills.
+ */
+.btmt-icon-link img {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+  min-width: 0;
+  object-fit: contain;
+}
+
+/* Tipeee: wordmark sits in a wider inline-flex slot (see **`IconTipeee`**); fill that slot. */
+.btmt-icon-link img[data-btmt-social="tipeee"],
+.btmt-icon-link img[data-btmt-social="tipeee-mono"] {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  opacity: 1;
+  transition: opacity 0.12s ease;
+}
+
+/*
+ * Raster wordmark does not use `currentColor`; dim on hover like SVG icons (see `.btmt-icon-link:hover`).
+ */
+.btmt-icon-link:hover:not(.btmt-icon-link--dark) img[data-btmt-social="tipeee"],
+.btmt-icon-link:hover:not(.btmt-icon-link--dark) img[data-btmt-social="tipeee-mono"] {
+  opacity: 0.65;
+}
+
+.btmt-icon-link--dark:hover img[data-btmt-social="tipeee"],
+.btmt-icon-link--dark:hover img[data-btmt-social="tipeee-mono"] {
+  opacity: 0.78;
+}
+
+/* Icon-only links are `2.75rem` square; let the wordmark slot widen the hit target slightly. */
+.btmt-icon-link:not(.btmt-icon-link--with-text):has(img[data-btmt-social="tipeee"]),
+.btmt-icon-link:not(.btmt-icon-link--with-text):has(img[data-btmt-social="tipeee-mono"]) {
+  width: auto;
+  min-width: 2.75rem;
+  padding-inline: 0.25rem;
+}
+
+.btmt-icon-link:hover {
+  color: var(--color-text-muted, #666);
+}
+
+.btmt-icon-link:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--color-text, #1a1a1a) 55%, transparent);
+  outline-offset: 2px;
+}
+
+.btmt-icon-link--with-text {
+  width: auto;
+  min-height: 2.75rem;
+  height: auto;
+  padding: 0.35rem 0.75rem;
+  gap: 0.375rem;
+  justify-content: flex-start;
+  border-radius: 9999px;
+  border: 1px solid color-mix(in srgb, var(--color-text-muted, #888) 38%, transparent);
+  background: #fff;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.05);
+  transition:
+    color 0.12s ease,
+    opacity 0.12s ease,
+    border-color 0.12s ease,
+    background 0.12s ease,
+    box-shadow 0.12s ease;
+}
+
+.btmt-icon-link--with-text:hover {
+  border-color: color-mix(in srgb, var(--color-text-muted, #888) 55%, transparent);
+  background: color-mix(in srgb, var(--color-surface, #f6f6f6) 65%, #fff);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.07);
+}
+
+.btmt-icon-link--with-text span {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: inherit;
+  white-space: nowrap;
+}
+
+/* Dark UI: add with `btmt-icon-link` (and `btmt-icon-link--with-text` when using showText). */
+.btmt-icon-link--dark {
+  color: rgb(255 255 255 / 0.92);
+}
+
+.btmt-icon-link--dark:hover {
+  color: rgb(255 255 255 / 0.72);
+}
+
+.btmt-icon-link--dark:focus-visible {
+  outline: 2px solid color-mix(in srgb, #fff 50%, transparent);
+  outline-offset: 2px;
+}
+
+.btmt-icon-link--dark.btmt-icon-link--with-text {
+  border-color: rgb(255 255 255 / 0.22);
+  background: rgb(30 30 30);
+  color: rgb(255 255 255 / 0.92);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.35);
+}
+
+.btmt-icon-link--dark.btmt-icon-link--with-text:hover {
+  border-color: rgb(255 255 255 / 0.32);
+  background: rgb(42 42 42);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.45);
+}
+
+/*
+ * Brand marks that default to black/near-black fills need a light fill on dark UI
+ * (see **`data-btmt-social`** on **`SocialIconsColored`**).
+ */
+.btmt-icon-link--dark svg[data-btmt-social="github"],
+.btmt-icon-link--dark svg[data-btmt-social="x"] {
+  fill: rgb(255 255 255 / 0.92);
+}
+
+/* Monochrome Tipeee raster: black on light (`brightness(0)` on the img); light on dark UI. */
+.btmt-icon-link--dark img[data-btmt-social="tipeee-mono"] {
+  filter: brightness(0) invert(1) !important;
+}
