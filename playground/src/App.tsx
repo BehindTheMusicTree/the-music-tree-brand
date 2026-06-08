@@ -234,7 +234,7 @@ function requireBuildConstant(name: string, value: string | undefined): string {
   return value;
 }
 
-const DOMAIN_ENV_ROWS: BuildEnvRow[] = [
+const ENV_ROWS: BuildEnvRow[] = [
   {
     category: "Domain",
     usage: "Org site URL",
@@ -323,9 +323,6 @@ const DOMAIN_ENV_ROWS: BuildEnvRow[] = [
     inlinedName: "TMD_SHOWCASE_SUBDOMAIN",
     inlinedValue: TMD_SHOWCASE_SUBDOMAIN,
   },
-];
-
-const SOCIAL_LINK_ENV_ROWS: BuildEnvRow[] = [
   {
     category: "GitHub",
     usage: "Sponsor button URL",
@@ -466,11 +463,6 @@ const SOCIAL_LINK_ENV_ROWS: BuildEnvRow[] = [
     inlinedName: "CONTACT_EMAIL_ADDRESS",
     inlinedValue: CONTACT_EMAIL_ADDRESS,
   },
-];
-
-const BUILD_ENV_ROWS: BuildEnvRow[] = [
-  ...DOMAIN_ENV_ROWS,
-  ...SOCIAL_LINK_ENV_ROWS,
 ];
 
 type ComponentsSubTab = "basics" | "social" | "icons" | "lockups";
@@ -1236,7 +1228,7 @@ export default function App() {
                   </tr>
                 </thead>
                 <tbody>
-                  {BUILD_ENV_ROWS.map((row) => (
+                  {ENV_ROWS.map((row) => (
                     <tr key={row.inlinedName}>
                       <td>{row.category}</td>
                       <td>{row.usage}</td>
