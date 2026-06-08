@@ -29,7 +29,7 @@
   ],
   "packageManager": "pnpm@10.33.2",
   "scripts": {
-    "copy-assets": "rsync -av --include='*/' --include='*.css' --include='*.svg' --include='*.png' --exclude='*' src/ dist/",
+    "copy-assets": "rsync -av --include='*/' --include='*.css' --include='*.svg' --include='*.png' --include='*.ico' --exclude='*' src/ dist/",
     "copy-assets:watch": "pnpm copy-assets && pnpm chokidar \"src/**/*.{png,svg,css}\" -c \"pnpm copy-assets\"",
     "build": "node scripts/assert-org-url.mjs && tsup && pnpm copy-assets",
     "dev:lib": "pnpm build && concurrently \"tsup --watch\" \"pnpm copy-assets:watch\"",
