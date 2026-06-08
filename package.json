@@ -9,14 +9,8 @@
   },
   "packageManager": "pnpm@10.33.2",
   "scripts": {
-    "copy-assets": "rsync -av --include='*/' --include='*.css' --include='*.svg' --include='*.png' --include='*.ico' --exclude='*' src/ dist/",
-    "copy-assets:watch": "pnpm copy-assets && pnpm chokidar \"src/**/*.{png,svg,css}\" -c \"pnpm copy-assets\"",
-    "build": "node scripts/assert-org-url.mjs && tsup && pnpm copy-assets",
-    "dev:lib": "pnpm build && concurrently \"tsup --watch\" \"pnpm copy-assets:watch\"",
-    "dev:app": "pnpm -C playground dev",
-    "dev:all": "pnpm build && concurrently \"pnpm dev:lib\" \"pnpm --dir playground dev\"",
-    "playground": "node scripts/run-playground.mjs",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "pnpm --parallel --filter @themusictree/brand --filter playground dev",
+    "build": "pnpm -r build",
     "release": "bash scripts/release.sh"
   },
   "pnpm": {

@@ -1,0 +1,53 @@
+{
+  "name": "@themusictree/brand",
+  "version": "11.4.3",
+  "description": "Shared assets (components, tokens, brand artwork, styles) for React projects",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BehindTheMusicTree/the-music-tree-brand.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./components": "./dist/components/index.js",
+    "./components/*": "./dist/components/*",
+    "./brand/*": "./dist/brand/*",
+    "./tokens/*": "./dist/tokens/*",
+    "./styles": "./dist/styles/index.css",
+    "./styles/*": "./dist/styles/*"
+  },
+  "files": [
+    "dist",
+    "docs",
+    "src/banners/README.md",
+    "src/brand/README.md"
+  ],
+  "scripts": {
+    "dev": "tsup --watch",
+    "build": "tsup"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "chokidar-cli": "^3.0.0",
+    "concurrently": "^10.0.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0"
+  },
+  "author": "Andreas Garcia",
+  "license": "ISC"
+}
