@@ -20,7 +20,7 @@ concurrency:
 
 jobs:
   sync:
-    if: github.repository == 'BehindTheMusicTree/organization-assets'
+    if: github.repository == 'BehindTheMusicTree/the-music-tree-brand'
     runs-on: ubuntu-latest
     permissions:
       contents: read

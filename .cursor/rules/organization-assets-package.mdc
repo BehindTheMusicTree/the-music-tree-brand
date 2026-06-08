@@ -1,9 +1,9 @@
 ---
-description: organization-assets package layout, build, and exports
+description: the-music-tree-brand package layout, build, and exports
 alwaysApply: true
 ---
 
-# organization-assets package
+# the-music-tree-brand package
 
 Shared **React** library: components, tokens, brand artwork (static files), styles, hooks, utils. Published as `@themusictree/brand` to GitHub Packages. Consumed via subpath imports from `@themusictree/brand/...`.
 

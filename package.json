@@ -4,7 +4,7 @@
   "description": "Shared assets (components, tokens, brand artwork, styles) for React projects",
   "repository": {
     "type": "git",
-    "url": "https://github.com/BehindTheMusicTree/organization-assets.git"
+    "url": "https://github.com/BehindTheMusicTree/the-music-tree-brand.git"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"

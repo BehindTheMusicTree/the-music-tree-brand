@@ -70,8 +70,8 @@ The maintainer(s) are responsible for:
 2. Clone your fork:
 
    ```bash
-   git clone https://github.com/YOUR-USERNAME/organization-assets.git
-   cd organization-assets
+   git clone https://github.com/YOUR-USERNAME/the-music-tree-brand.git
+   cd the-music-tree-brand
    ```
 
 **For maintainers:**
@@ -79,8 +79,8 @@ The maintainer(s) are responsible for:
 Clone the main repository directly:
 
 ```bash
-git clone https://github.com/BehindTheMusicTree/organization-assets.git
-cd organization-assets
+git clone https://github.com/BehindTheMusicTree/the-music-tree-brand.git
+cd the-music-tree-brand
 ```
 
 ### 1. Environment Setup
