@@ -1,34 +1,12 @@
 {
-  "name": "@themusictree/brand",
-  "version": "11.4.3",
-  "description": "Shared assets (components, tokens, brand artwork, styles) for React projects",
+  "name": "the-music-tree-brand",
+  "version": "0.0.0",
+  "description": "Shared assets for React projects and playground app",
   "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/BehindTheMusicTree/the-music-tree-brand.git"
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  },
-  "type": "module",
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": "./dist/index.js",
-    "./components": "./dist/components/index.js",
-    "./components/*": "./dist/components/*",
-    "./brand/*": "./dist/brand/*",
-    "./tokens/*": "./dist/tokens/*",
-    "./styles": "./dist/styles/index.css",
-    "./styles/*": "./dist/styles/*"
-  },
-  "files": [
-    "dist",
-    "docs",
-    "src/banners/README.md",
-    "src/brand/README.md"
-  ],
   "packageManager": "pnpm@10.33.2",
   "scripts": {
     "copy-assets": "rsync -av --include='*/' --include='*.css' --include='*.svg' --include='*.png' --include='*.ico' --exclude='*' src/ dist/",
@@ -41,21 +19,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "release": "bash scripts/release.sh"
   },
-  "peerDependencies": {
-    "react": ">=18.0.0",
-    "react-dom": ">=18.0.0"
-  },
-  "devDependencies": {
-    "@types/node": "^25.5.0",
-    "@types/react": "^18.2.0",
-    "@types/react-dom": "^18.2.0",
-    "chokidar-cli": "^3.0.0",
-    "concurrently": "^10.0.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "tsup": "^8.0.0",
-    "typescript": "^5.0.0"
-  },
   "pnpm": {
     "onlyBuiltDependencies": [
       "esbuild"
@@ -67,6 +30,6 @@
     "design-tokens",
     "shared-assets"
   ],
-  "author": "",
+  "author": "Andreas Garcia",
   "license": "ISC"
 }
