@@ -21,7 +21,7 @@ export function parseOrgSiteHref(value: string | undefined): string {
   const raw = value?.trim();
   if (!raw) {
     throw new Error(
-      `Missing organization site URL: set environment variable ${ORG_DOMAIN_KEY} when building @behindthemusictree/assets (e.g. map GitHub repository variable DOMAIN_NAME into ${ORG_DOMAIN_KEY} in the publish workflow).`,
+      `Missing organization site URL: set environment variable ${ORG_DOMAIN_KEY} when building @themusictree/brand (e.g. map GitHub repository variable DOMAIN_NAME into ${ORG_DOMAIN_KEY} in the publish workflow).`,
     );
   }
   return raw.startsWith("http") ? raw : `https://${raw.replace(/\/$/, "")}/`;

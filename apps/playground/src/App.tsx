@@ -99,15 +99,15 @@ import {
   YouTubeSocialLinkColored,
   socialBrandIconClass,
   type SocialIconLinkProps,
-} from "@behindthemusictree/assets/components";
-import gtmtLockupFullPng from "@behindthemusictree/assets/brand/grow-the-music-tree/grow-the-music-tree-lockup-horizontal-full.png?url";
-import gtmtLockupSvg from "@behindthemusictree/assets/brand/grow-the-music-tree/grow-the-music-tree-lockup-horizontal.svg?url";
-import lockupDarkPng from "@behindthemusictree/assets/brand/the-music-tree/the-music-tree-lockup-horizontal-dark.png?url";
-import lockupDefaultPng from "@behindthemusictree/assets/brand/the-music-tree/the-music-tree-lockup-horizontal.png?url";
-import markDarkPng from "@behindthemusictree/assets/brand/the-music-tree/the-music-tree-mark-dark.png?url";
-import markDarkSvg from "@behindthemusictree/assets/brand/the-music-tree/the-music-tree-mark-dark.svg?url";
-import markDefaultPng from "@behindthemusictree/assets/brand/the-music-tree/the-music-tree-mark.png?url";
-import markDefaultSvg from "@behindthemusictree/assets/brand/the-music-tree/the-music-tree-mark.svg?url";
+} from "@themusictree/brand/components";
+import gtmtLockupFullPng from "@themusictree/brand/brand/grow-the-music-tree/grow-the-music-tree-lockup-horizontal-full.png?url";
+import gtmtLockupSvg from "@themusictree/brand/brand/grow-the-music-tree/grow-the-music-tree-lockup-horizontal.svg?url";
+import lockupDarkPng from "@themusictree/brand/brand/the-music-tree/the-music-tree-lockup-horizontal-dark.png?url";
+import lockupDefaultPng from "@themusictree/brand/brand/the-music-tree/the-music-tree-lockup-horizontal.png?url";
+import markDarkPng from "@themusictree/brand/brand/the-music-tree/the-music-tree-mark-dark.png?url";
+import markDarkSvg from "@themusictree/brand/brand/the-music-tree/the-music-tree-mark-dark.svg?url";
+import markDefaultPng from "@themusictree/brand/brand/the-music-tree/the-music-tree-mark.png?url";
+import markDefaultSvg from "@themusictree/brand/brand/the-music-tree/the-music-tree-mark.svg?url";
 type CatalogTab = "components" | "env" | "brand" | "banners" | "favicons";
 
 type SocialLinkComponent = ComponentType<SocialIconLinkProps>;
@@ -569,7 +569,7 @@ export default function App() {
   return (
     <div className="playground">
       <h1>
-        @behindthemusictree/assets{" "}
+        @themusictree/brand{" "}
         <span style={{ fontSize: "0.55em", opacity: 0.6, fontWeight: 400 }}>
           v{__APP_VERSION__}
         </span>
@@ -682,7 +682,7 @@ export default function App() {
                         first—the build fails if{" "}
                         <code>ORG_GITHUB_SPONSOR_BUTTON_URL</code> or any other
                         required key is missing. If the iframe is still absent,{" "}
-                        <code>node_modules/@behindthemusictree/assets</code> is
+                        <code>node_modules/@themusictree/brand</code> is
                         probably stale: run <code>pnpm run build</code> at the
                         repo root, then <code>pnpm -C playground install</code>,
                         and refresh.
@@ -774,9 +774,7 @@ export default function App() {
                   <div className="demo-row">
                     <span className="demo-label">
                       Social*Link + <code>showText</code> — canonical pill from{" "}
-                      <code>
-                        @behindthemusictree/assets/styles/icon-links.css
-                      </code>{" "}
+                      <code>@themusictree/brand/styles/icon-links.css</code>{" "}
                       (imported in <code>main.tsx</code>); SVG size in that
                       sheet when not using Tailwind on icons
                     </span>
@@ -1188,11 +1186,11 @@ export default function App() {
             <h2 id="env-heading">Build constants (from installed package)</h2>
             <p className="empty-note env-vars-note">
               This table shows constants exported by{" "}
-              <code>@behindthemusictree/assets/components</code>. The rightmost
-              values are read from built package code, not your runtime process
-              env. Org site and sponsor keys are included in the first rows. If
-              any value is <code>undefined</code>, rebuild the root package with
-              a populated
+              <code>@themusictree/brand/components</code>. The rightmost values
+              are read from built package code, not your runtime process env.
+              Org site and sponsor keys are included in the first rows. If any
+              value is <code>undefined</code>, rebuild the root package with a
+              populated
               <code>playground/.env</code>, then run{" "}
               <code>pnpm -C playground install</code>.
             </p>

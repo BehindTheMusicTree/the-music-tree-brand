@@ -45,5 +45,5 @@ Full detail lives in-repo—keep rules and files aligned:
 
 - Prefer `grow-the-music-tree-mark.png` over `gtmt.png`.
 - Prefer `audiometa-lockup-horizontal.svg` (or `…-lockup-stacked.svg`) with explicit **`-mark`** / **`-wordmark`** roles over vague compound filenames for identity artwork.
-- Prefer `@behindthemusictree/assets/brand/audiometa/audiometa-mark.png` over legacy umbrella paths or `brand/cv/...`.
+- Prefer `@themusictree/brand/brand/audiometa/audiometa-mark.png` over legacy umbrella paths or `brand/cv/...`.
 - Prefer `grow-the-music-tree-banner-mobile.webp` over `hero-mobile-final.webp`.

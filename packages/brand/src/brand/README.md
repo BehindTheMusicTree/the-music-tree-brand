@@ -24,14 +24,14 @@ This directory holds **static brand identity** assets: marks (`-mark`), wordmark
 From published package:
 
 ```text
-@behindthemusictree/assets/brand/<project-slug>/<filename>
+@themusictree/brand/brand/<project-slug>/<filename>
 ```
 
 Examples:
 
 ```tsx
-import theMusicTreeLockupStackedPng from "@behindthemusictree/assets/brand/the-music-tree/the-music-tree-lockup-stacked.png";
-import productMark from "@behindthemusictree/assets/brand/audiometa/audiometa-mark.svg";
+import theMusicTreeLockupStackedPng from "@themusictree/brand/brand/the-music-tree/the-music-tree-lockup-stacked.png";
+import productMark from "@themusictree/brand/brand/audiometa/audiometa-mark.svg";
 ```
 
 ## Role suffixes (mark, wordmark, lockup orientation)
@@ -56,11 +56,11 @@ Avoid **JPEG** for marks on arbitrary backgrounds (no alpha). Use JPEG only for 
 
 The file extension must match the encoded format (see [`asset-naming.md`](../../docs/asset-naming.md)). Common cases:
 
-| Extension | Typical use |
-|-----------|-------------|
-| `.svg` | Vector mark or wordmark |
-| `.png` | Raster with transparency |
-| `.webp` | Raster alternative (if explicitly committed) |
+| Extension | Typical use                                  |
+| --------- | -------------------------------------------- |
+| `.svg`    | Vector mark or wordmark                      |
+| `.png`    | Raster with transparency                     |
+| `.webp`   | Raster alternative (if explicitly committed) |
 
 Do not use `.jpg`/`.jpeg` for assets that need transparency behind the artwork.
 
@@ -118,8 +118,8 @@ An **enclosed lockup** is still named with **`-lockup-horizontal`** or **`-locku
 
 ## Checklist for new brand files
 
-- [ ] Format matches the artwork (SVG vs PNG) and extension is correct  
-- [ ] Role is explicit and matches usage (`-mark`, `-wordmark`, `-lockup-horizontal` / `-lockup-stacked`; avoid bare `-lockup`)  
-- [ ] Raster long-edge or square size matches intended max display × retina, without huge unused resolution  
-- [ ] Transparency or explicit light/dark variants documented in filename  
-- [ ] File size reasonable; consider SVG if PNG is large and flat  
+- [ ] Format matches the artwork (SVG vs PNG) and extension is correct
+- [ ] Role is explicit and matches usage (`-mark`, `-wordmark`, `-lockup-horizontal` / `-lockup-stacked`; avoid bare `-lockup`)
+- [ ] Raster long-edge or square size matches intended max display × retina, without huge unused resolution
+- [ ] Transparency or explicit light/dark variants documented in filename
+- [ ] File size reasonable; consider SVG if PNG is large and flat

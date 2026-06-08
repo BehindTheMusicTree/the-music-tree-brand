@@ -14,7 +14,7 @@ Start here for naming, formats, and where specs live.
 
 ## Installing the package
 
-**`@behindthemusictree/assets`** is published to GitHub Packages. Registry configuration, authentication (local machine and GitHub Actions), and **`pnpm add`** commands are documented in the repository root **[README — Install](../README.md#install)**.
+**`@themusictree/brand`** is published to GitHub Packages. Registry configuration, authentication (local machine and GitHub Actions), and **`pnpm add`** commands are documented in the repository root **[README — Install](../README.md#install)**.
 
 ## Naming
 
@@ -37,7 +37,7 @@ The repo includes a dev-only Vite app under [`playground/`](../playground/) to p
 
 ## Breaking change (icons → brand)
 
-If you used `@behindthemusictree/assets/icons/...`, migrate to `./brand` — see [`migrations/icons-to-brand.md`](migrations/icons-to-brand.md).
+If you used `@themusictree/brand/icons/...`, migrate to `./brand` — see [`migrations/icons-to-brand.md`](migrations/icons-to-brand.md).
 
 ## Published package contents
 

@@ -5,7 +5,7 @@ alwaysApply: true
 
 # organization-assets package
 
-Shared **React** library: components, tokens, brand artwork (static files), styles, hooks, utils. Published as `@behindthemusictree/assets` to GitHub Packages. Consumed via subpath imports from `@behindthemusictree/assets/...`.
+Shared **React** library: components, tokens, brand artwork (static files), styles, hooks, utils. Published as `@themusictree/brand` to GitHub Packages. Consumed via subpath imports from `@themusictree/brand/...`.
 
 ## Build
 
@@ -34,7 +34,7 @@ The Vite app under **`playground/`** is the local catalog for published **`dist/
 
 1. Run **`npm run build`** at the repo root (static copies and tsup output must be current).
 2. **Components, hooks, or other TS** shipped from **`components`** / **`index`**: add or extend a **demo** in **`playground/src/App.tsx`** (or a colocated playground module)—props, variants, and any required **`playground/.env`** keys documented in **`playground/.env.example`** when applicable.
-3. **Static assets** (brand, favicons, banners, or anything else copied into **`dist/`**): the file must appear under the correct **tab** (**Components** demos vs **Brand** / **Banners** / **Favicons** grids). Grids use **`import.meta.glob`** in **`playground/src/distAssetGlobs.ts`** (paths under **`node_modules/@behindthemusictree/assets/dist/...`**). If assets live under a **new `dist/` subtree**, **extend those globs** or add an explicit **`?url` import** preview in **`App.tsx`** so the file is listed or shown.
+3. **Static assets** (brand, favicons, banners, or anything else copied into **`dist/`**): the file must appear under the correct **tab** (**Components** demos vs **Brand** / **Banners** / **Favicons** grids). Grids use **`import.meta.glob`** in **`playground/src/distAssetGlobs.ts`** (paths under **`node_modules/@themusictree/brand/dist/...`**). If assets live under a **new `dist/` subtree**, **extend those globs** or add an explicit **`?url` import** preview in **`App.tsx`** so the file is listed or shown.
 4. When the auto grid is not enough (e.g. light vs dark lockups), add a **labeled preview** alongside or instead of relying on the grid alone.
 5. **Workflow:** **`npm run build`** at the repo root, then **`npm run dev --prefix playground`** or **`npm run playground`**. Playground **`dev`** / **`build`** run **`scripts/assert-org-url.mjs`** first (same keys as root build). If the catalog looks stale, restart the dev server or clear **`playground/node_modules/.vite`**.
 

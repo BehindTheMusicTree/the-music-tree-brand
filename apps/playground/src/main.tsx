@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "@behindthemusictree/assets/styles";
-import "@behindthemusictree/assets/styles/icon-links.css";
+import "@themusictree/brand/styles";
+import "@themusictree/brand/styles/icon-links.css";
 import App from "./App";
 import "./index.css";
 
