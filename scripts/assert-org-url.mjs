@@ -42,10 +42,10 @@ function requireHttpUrl(name) {
 
 /* Domain & Subdomains */
 requireNonEmpty("ORG_DOMAIN");
-requireNonEmpty("HTMT_API_SUBDOMAIN");
-requireNonEmpty("HTMT_FRONT_SUBDOMAIN");
 requireNonEmpty("GTMT_FRONT_SUBDOMAIN");
 requireNonEmpty("GTMT_API_SUBDOMAIN");
+requireNonEmpty("HTMT_FRONT_SUBDOMAIN");
+requireNonEmpty("HTMT_API_SUBDOMAIN");
 requireNonEmpty("AUDIOMETA_FRONT_SUBDOMAIN");
 requireNonEmpty("AUDIOMETA_API_SUBDOMAIN");
 requireNonEmpty("TMTA_SUBDOMAIN");
@@ -54,12 +54,12 @@ requireNonEmpty("TMD_SHOWCASE_SUBDOMAIN");
 
 requireHttpUrl("ORG_GITHUB_SPONSOR_BUTTON_URL");
 
-/* Github Repositories */
+/* Github */
 requireHttpUrl("ORG_GITHUB_URL");
-requireNonEmpty("HTMT_API_REPO_NAME");
-requireNonEmpty("TMD_ADMIN_REPO_NAME");
 requireNonEmpty("GTMT_API_REPO_NAME");
 requireNonEmpty("GTMT_FRONT_REPO_NAME");
+requireNonEmpty("HTMT_API_REPO_NAME");
+requireNonEmpty("TMD_ADMIN_REPO_NAME");
 
 /* Social */
 requireHttpUrl("ORG_PYPI_URL");
