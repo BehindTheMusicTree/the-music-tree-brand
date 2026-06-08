@@ -19,6 +19,7 @@
     "./components/*": "./dist/components/*",
     "./brand/*": "./dist/brand/*",
     "./tokens/*": "./dist/tokens/*",
+    "./styles": "./dist/styles/index.css",
     "./styles/*": "./dist/styles/*"
   },
   "files": [
