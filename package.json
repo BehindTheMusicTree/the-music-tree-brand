@@ -2,6 +2,7 @@
   "name": "@themusictree/brand",
   "version": "11.4.3",
   "description": "Shared assets (components, tokens, brand artwork, styles) for React projects",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/BehindTheMusicTree/the-music-tree-brand.git"
