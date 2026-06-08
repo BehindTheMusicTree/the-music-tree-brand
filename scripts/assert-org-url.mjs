@@ -40,13 +40,28 @@ function requireHttpUrl(name) {
   return v;
 }
 
+/* Domain & Subdomains */
 requireNonEmpty("ORG_DOMAIN");
+requireNonEmpty("HTMT_API_SUBDOMAIN");
+requireNonEmpty("HTMT_FRONT_SUBDOMAIN");
+requireNonEmpty("GTMT_FRONT_SUBDOMAIN");
+requireNonEmpty("GTMT_API_SUBDOMAIN");
+requireNonEmpty("AUDIOMETA_FRONT_SUBDOMAIN");
+requireNonEmpty("AUDIOMETA_API_SUBDOMAIN");
+requireNonEmpty("TMTA_SUBDOMAIN");
+requireNonEmpty("TMD_GAME_SUBDOMAIN");
+requireNonEmpty("TMD_SHOWCASE_SUBDOMAIN");
+
 requireHttpUrl("ORG_GITHUB_SPONSOR_BUTTON_URL");
 
-/** Social **`Social*Link`** defaults — same names as **`playground/.env.example`** / **`publish.yml`**. */
+/* Github Repositories */
 requireHttpUrl("ORG_GITHUB_URL");
 requireNonEmpty("HTMT_API_REPO_NAME");
-requireNonEmpty("TMD_ADMIN_API_REPO_NAME");
+requireNonEmpty("TMD_ADMIN_REPO_NAME");
+requireNonEmpty("GTMT_API_REPO_NAME");
+requireNonEmpty("GTMT_FRONT_REPO_NAME");
+
+/* Social */
 requireHttpUrl("ORG_PYPI_URL");
 requireNonEmpty("ORG_LINKEDIN_URL");
 requireHttpUrl("ORG_X_URL");
@@ -59,18 +74,3 @@ const email = requireNonEmpty("CONTACT_EMAIL");
 if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
   fail("Error: CONTACT_EMAIL must look like a valid email address.");
 }
-
-requireNonEmpty("HTMT_API_REPO_NAME");
-requireNonEmpty("TMD_ADMIN_API_REPO_NAME");
-requireNonEmpty("GTMT_API_REPO_NAME");
-requireNonEmpty("GTMT_FRONT_REPO_NAME");
-requireNonEmpty("TMD_ADMIN_REPO_NAME");
-requireNonEmpty("HTMT_API_SUBDOMAIN");
-requireNonEmpty("HTMT_FRONT_SUBDOMAIN");
-requireNonEmpty("GTMT_FRONT_SUBDOMAIN");
-requireNonEmpty("GTMT_API_SUBDOMAIN");
-requireNonEmpty("AUDIOMETA_FRONT_SUBDOMAIN");
-requireNonEmpty("AUDIOMETA_API_SUBDOMAIN");
-requireNonEmpty("TMTA_SUBDOMAIN");
-requireNonEmpty("TMD_GAME_SUBDOMAIN");
-requireNonEmpty("TMD_SHOWCASE_SUBDOMAIN");
