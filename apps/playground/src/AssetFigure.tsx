@@ -3,7 +3,7 @@ import { useState } from "react";
 type AssetFigureProps = {
   url: string;
   label: string;
-  variant: "brand" | "banners" | "favicons";
+  variant: "marks" | "banners" | "favicons";
 };
 
 function isSvgAssetUrl(url: string): boolean {
@@ -64,7 +64,9 @@ export function AssetFigure({ url, label, variant }: AssetFigureProps) {
       <figcaption>
         <div className="asset-card-title">{label}</div>
         {loadError ? (
-          <div className="asset-card-dims asset-card-dims--error">{loadError}</div>
+          <div className="asset-card-dims asset-card-dims--error">
+            {loadError}
+          </div>
         ) : null}
         {dims ? <div className="asset-card-dims">{dims}</div> : null}
       </figcaption>
