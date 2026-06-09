@@ -13,7 +13,7 @@ Per-project favicon and PWA icon bundles live under `src/favicons/<project-slug>
 ## Layout and import
 
 - **Source:** `src/favicons/<project-slug>/`
-- **Published:** `@themusictree/marks/favicons/<project-slug>/<file>`
+- **Published:** `@themusictree/brand/favicons/<project-slug>/<file>`
 - After `pnpm run build`, the same tree is under `dist/favicons/` in the package.
 
 ### Example
