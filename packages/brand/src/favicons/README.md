@@ -1,6 +1,6 @@
 # Favicon bundles
 
-Per-project favicon and PWA icon bundles live under `src/favicons/<project-slug>/`. Use **kebab-case** slugs (same style as `src/brand/`). Keep each bundle in its own folder; do not mix favicon files into `src/brand/`.
+Per-project favicon and PWA icon bundles live under `src/favicons/<project-slug>/`. Use **kebab-case** slugs.
 
 **Documentation map:** [`docs/README.md`](../../docs/README.md)
 
@@ -13,7 +13,7 @@ Per-project favicon and PWA icon bundles live under `src/favicons/<project-slug>
 ## Layout and import
 
 - **Source:** `src/favicons/<project-slug>/`
-- **Published:** `@themusictree/brand/favicons/<project-slug>/<file>`
+- **Published:** `@themusictree/marks/favicons/<project-slug>/<file>`
 - After `pnpm run build`, the same tree is under `dist/favicons/` in the package.
 
 ### Example
@@ -25,7 +25,7 @@ Per-project favicon and PWA icon bundles live under `src/favicons/<project-slug>
 - `src/favicons/behind-the-music-tree/icon-512.png`
 
 ```tsx
-import faviconSvg from "@themusictree/brand/favicons/behind-the-music-tree/favicon.svg";
+import faviconSvg from "@themusictree/marks/favicons/behind-the-music-tree/favicon.svg";
 ```
 
 ## Recommended files per bundle
@@ -40,4 +40,4 @@ import faviconSvg from "@themusictree/brand/favicons/behind-the-music-tree/favic
 
 - **Favicon / PWA:** Prefer `favicon.svg` with `favicon.ico` fallback, plus PNG app icons at **180×180**, **192×192**, and **512×512** (minimum). Keep a **master** at **1024×1024** or **512×512** PNG (or SVG if vector) when exporting from design tools.
 
-Naming and repo-wide rules: [`docs/asset-naming.md`](../../docs/asset-naming.md). **Brand marks** (used in UI, not in this folder): [`src/brand/README.md`](../brand/README.md).
+Naming and repo-wide rules: [`docs/asset-naming.md`](../../docs/asset-naming.md). **Brand marks** (used in UI, not in this folder): [`src/marks/README.md`](../marks/README.md).
