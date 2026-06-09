@@ -75,7 +75,7 @@ export default defineConfig({
   entry: {
     index: "src/index.ts",
     "components/index": "src/components/index.ts",
-    "brand/index": "src/brand/index.ts",
+    "marks/index": "src/marks/index.ts",
     "tokens/index": "src/tokens/index.ts",
     "hooks/index": "src/hooks/index.ts",
     "utils/index": "src/utils/index.ts",
