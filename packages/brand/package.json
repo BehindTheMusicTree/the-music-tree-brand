@@ -19,6 +19,8 @@
     "./components": "./dist/components/index.js",
     "./components/*": "./dist/components/*",
     "./brand/*": "./dist/brand/*",
+    "./favicons/*": "./dist/favicons/*",
+    "./banners/*": "./dist/banners/*",
     "./tokens/*": "./dist/tokens/*",
     "./styles": "./dist/styles/index.css",
     "./styles/*": "./dist/styles/*"
@@ -31,7 +33,7 @@
   ],
   "scripts": {
     "dev": "tsup --watch",
-    "build": "tsup"
+    "build": "tsup && cp -r src/brand dist/brand && cp -r src/styles dist/styles && cp -r src/favicons dist/favicons && cp -r src/banners dist/banners"
   },
   "peerDependencies": {
     "react": ">=18.0.0",

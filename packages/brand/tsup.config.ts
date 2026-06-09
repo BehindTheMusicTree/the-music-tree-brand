@@ -125,8 +125,4 @@ export default defineConfig({
     "process.env.TMD_GAME_SUBDOMAIN": tmdGameSubdomainLiteral,
     "process.env.TMD_SHOWCASE_SUBDOMAIN": tmdShowcaseSubdomainLiteral,
   },
-  loader: {
-    ".svg": "dataurl",
-    ".png": "dataurl",
-  },
 });
