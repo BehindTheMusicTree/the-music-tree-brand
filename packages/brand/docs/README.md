@@ -9,7 +9,6 @@ Start here for naming, formats, and where specs live.
 - [Brand assets (marks and lockups)](#brand-assets-marks-and-lockups)
 - [Colocated READMEs](#colocated-readmes)
 - [Playground (local preview)](#playground-local-preview)
-- [Breaking change (icons → brand)](#breaking-change-icons-brand)
 - [Published package contents](#published-package-contents)
 
 ## Installing the package
@@ -18,11 +17,11 @@ Start here for naming, formats, and where specs live.
 
 ## Naming
 
-Conventions for filenames and folders across `src/brand/`, `src/favicons/`, `src/banners/`, and future asset trees: **[`asset-naming.md`](asset-naming.md)** (kebab-case, role suffixes such as `-mark` and **`-lockup-horizontal` / `-lockup-stacked`** — orientation required for lockups, placement, checklist).
+Conventions for filenames and folders across `src/marks/`, `src/favicons/`, `src/banners/`, and future asset trees: **[`asset-naming.md`](asset-naming.md)** (kebab-case, role suffixes such as `-mark` and **`-lockup-horizontal` / `-lockup-stacked`** — orientation required for lockups, placement, checklist).
 
 ## Brand assets (marks and lockups)
 
-The canonical specification for **formats, dimensions, greyscale SVG filters, and checks** for files in `src/brand/` lives next to those assets: **[`src/brand/README.md`](../src/brand/README.md)**.
+The canonical specification for **formats, dimensions, greyscale SVG filters, and checks** for files in `src/marks/` lives next to those assets: **[`src/marks/README.md`](../src/marks/README.md)**.
 
 File naming for those assets follows [`asset-naming.md`](asset-naming.md).
 
@@ -35,10 +34,6 @@ File naming for those assets follows [`asset-naming.md`](asset-naming.md).
 
 The repo includes a dev-only Vite app under [`playground/`](../playground/) to preview components and files under `dist/` (not published on npm). Setup and commands: **[`CONTRIBUTING.md` — Component and asset preview (playground)](../CONTRIBUTING.md#component-and-asset-preview-playground)**.
 
-## Breaking change (icons → brand)
-
-If you used `@themusictree/brand/icons/...`, migrate to `./brand` — see [`migrations/icons-to-brand.md`](migrations/icons-to-brand.md).
-
 ## Published package contents
 
-Published installs include this `docs/` tree (including [`asset-naming.md`](asset-naming.md)), `src/banners/README.md`, and `src/brand/README.md` (see `package.json` `files`). Favicon guidance is also available under `dist/favicons/README.md` after a build.
+Published installs include this `docs/` tree (including [`asset-naming.md`](asset-naming.md)), `src/banners/README.md`, and `src/marks/README.md` (see `package.json` `files`). Favicon guidance is also available under `dist/favicons/README.md` after a build.
