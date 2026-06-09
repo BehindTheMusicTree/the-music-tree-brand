@@ -4,7 +4,7 @@ This directory holds **static brand identity** assets: marks (`-mark`), wordmark
 
 **Related:** naming rules in [`docs/asset-naming.md`](../../docs/asset-naming.md); documentation index [`docs/README.md`](../../docs/README.md). **Favicon bundles** live under [`src/favicons/`](../favicons/README.md), not here.
 
-**Layout:** one **`src/brand/<project-slug>/`** folder per product (same slug style as [`src/favicons/`](../favicons/README.md)). Each folder holds that project’s marks, lockups, and wordmarks—not an umbrella folder mixing every product.
+**Layout:** one **`src/marks/<project-slug>/`** folder per product.
 
 ## Table of contents
 
@@ -17,21 +17,21 @@ This directory holds **static brand identity** assets: marks (`-mark`), wordmark
   - [Enclosed lockup (badge or pill)](#enclosed-lockup-badge-or-pill)
 - [Color, transparency, and background](#color-transparency-and-background)
 - [File size (practical targets)](#file-size-practical-targets)
-- [Checklist for new brand files](#checklist-for-new-brand-files)
+- [Checklist for new marks files](#checklist-for-new-marks-files)
 
 ## Imports
 
 From published package:
 
 ```text
-@themusictree/brand/brand/<project-slug>/<filename>
+@themusictree/brand/marks/<project-slug>/<filename>
 ```
 
 Examples:
 
 ```tsx
-import theMusicTreeLockupStackedPng from "@themusictree/brand/brand/the-music-tree/the-music-tree-lockup-stacked.png";
-import productMark from "@themusictree/brand/brand/audiometa/audiometa-mark.svg";
+import theMusicTreeLockupStackedPng from "@themusictree/marks/marks/the-music-tree/the-music-tree-lockup-stacked.png";
+import productMark from "@themusictree/marks/marks/audiometa/audiometa-mark.svg";
 ```
 
 ## Role suffixes (mark, wordmark, lockup orientation)
