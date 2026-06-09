@@ -32,8 +32,9 @@
     "src/marks/README.md"
   ],
   "scripts": {
-    "dev": "tsup --watch",
-    "build": "tsup && cp -r src/marks dist/marks && cp -r src/styles dist/styles && cp -r src/favicons dist/favicons && cp -r src/banners dist/banners"
+    "copy-assets": "cp -r src/marks dist/marks && cp -r src/styles dist/styles && cp -r src/favicons dist/favicons && cp -r src/banners dist/banners",
+    "dev": "pnpm run copy-assets && concurrently \"tsup --watch\" \"chokidar 'src/marks/**' 'src/styles/**' 'src/favicons/**' 'src/banners/**' -c 'pnpm run copy-assets'\"",
+    "build": "tsup && pnpm run copy-assets"
   },
   "peerDependencies": {
     "react": ">=18.0.0",
