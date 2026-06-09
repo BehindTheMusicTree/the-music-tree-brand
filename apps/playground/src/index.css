@@ -174,7 +174,7 @@ body {
   color: var(--color-text-muted, #555);
 }
 
-/* Colored-icon rows: keep marks tint on hover (canonical CSS uses text-color hover) */
+/* Colored-icon rows: keep brand tint on hover (canonical CSS uses text-color hover) */
 .social-links-demo--colored .btmt-icon-link:hover {
   color: inherit;
   opacity: 0.85;
@@ -199,7 +199,7 @@ body {
   box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.08);
 }
 
-/* Keep marks fills on hover; do not reset dark pills to white */
+/* Keep brand fills on hover; do not reset dark pills to white */
 .social-links-demo--on-dark.social-links-demo--colored
   .btmt-icon-link--with-text:hover {
   border-color: rgb(255 255 255 / 0.32);
