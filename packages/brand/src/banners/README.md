@@ -2,7 +2,7 @@
 
 Guidance for banner artwork shipped in this package (`*-banner.png`, `*-banner-mobile.webp`, etc.). Aligns with [`asset-naming.md`](../../docs/asset-naming.md). Documentation map: [`docs/README.md`](../../docs/README.md).
 
-**Layout:** **One `src/banners/<project-slug>/` directory per product** — same slug style as [`src/brand/`](../brand/README.md) and [`src/favicons/`](../favicons/README.md). Do not store every project’s banners in a single umbrella folder; only this README sits at `src/banners/` root.
+**Layout:** **One `src/banners/<project-slug>/` directory per product** — same slug style as [`src/marks/`](../marks/README.md) and [`src/favicons/`](../favicons/README.md). Do not store every project’s banners in a single umbrella folder; only this README sits at `src/banners/` root.
 
 ## Table of contents
 
