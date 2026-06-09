@@ -34,7 +34,7 @@ Anyone can be a contributor by:
 - Submitting bug reports or feature requests via GitHub Issues
 - Proposing code changes through Pull Requests
 - Improving documentation
-- Adding or updating components, tokens, marks assets, or styles
+- Adding or updating components, tokens, marks, or styles
 
 **Maintainers**
 
