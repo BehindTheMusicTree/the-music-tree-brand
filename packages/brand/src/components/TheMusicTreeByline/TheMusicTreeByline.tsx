@@ -3,10 +3,10 @@ import type { CSSProperties } from "react";
 /**
  * Renders **SVG knockouts** (transparent outside the artwork). Raster exports for email/CMS: **`the-music-tree-lockup-horizontal.png`** / **`-dark.png`**; full master: **`the-music-tree-lockup-horizontal-full.png`**. Do not swap for another mark.
  */
-import theMusicTreeLockupHorizontalDark from "../../brand/the-music-tree/the-music-tree-lockup-horizontal-dark.svg";
-import theMusicTreeLockupHorizontal from "../../brand/the-music-tree/the-music-tree-lockup-horizontal.svg";
-import theMusicTreeMarkDark from "../../brand/the-music-tree/the-music-tree-mark-dark.svg";
-import theMusicTreeMark from "../../brand/the-music-tree/the-music-tree-mark.svg";
+import theMusicTreeLockupHorizontalDark from "../../marks/the-music-tree/the-music-tree-lockup-horizontal-dark.svg";
+import theMusicTreeLockupHorizontal from "../../marks/the-music-tree/the-music-tree-lockup-horizontal.svg";
+import theMusicTreeMarkDark from "../../marks/the-music-tree/the-music-tree-mark-dark.svg";
+import theMusicTreeMark from "../../marks/the-music-tree/the-music-tree-mark.svg";
 import { resolveOrgSiteHref } from "../buildEnv/orgSiteEnv";
 
 /**
