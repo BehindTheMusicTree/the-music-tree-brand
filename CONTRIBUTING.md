@@ -34,7 +34,7 @@ Anyone can be a contributor by:
 - Submitting bug reports or feature requests via GitHub Issues
 - Proposing code changes through Pull Requests
 - Improving documentation
-- Adding or updating components, tokens, brand assets, or styles
+- Adding or updating components, tokens, marks assets, or styles
 
 **Maintainers**
 
@@ -71,7 +71,7 @@ The maintainer(s) are responsible for:
 
    ```bash
    git clone https://github.com/YOUR-USERNAME/the-music-tree-brand.git
-   cd the-music-tree-brand
+   cd the-music-tree-marks
    ```
 
 **For maintainers:**
@@ -124,7 +124,7 @@ To depend on a **published** version from GitHub Packages (instead of `pnpm link
 
 #### Component and asset preview (playground)
 
-The `playground/` app is a dev-only Vite catalog of published components and files under `dist/` (brand, banners, favicons). It is not part of the npm package `files` list.
+The `playground/` app is a dev-only Vite catalog of published components and files under `dist/` (marks, banners, favicons). It is not part of the npm package `files` list.
 
 One-time setup after clone (or when `playground/package.json` dependencies change):
 
@@ -180,7 +180,7 @@ Refresh after `pnpm run build` at the repo root so new static assets appear.
 - **New favicons** under `src/favicons/<project>/`: expose via `"./favicons/*"` export and ensure the build copies them.
 - **Banner assets** under `src/banners/<project-slug>/`: add files in a project subfolder (not loose under `src/banners/`). `"./banners/*"` and the build’s `dist/banners/` copy pick up new folders automatically; run a full build after adding binaries.
 - **Components**: follow existing component patterns and import style; prefer minimal, focused diffs.
-- **Playground (required)**: any **new exported component** or **published static asset** must be visible in the playground in the same change (before merge). Add a demo in [`playground/src/App.tsx`](playground/src/App.tsx) for components. For assets, run a full [`pnpm run build`](README.md#build) so files land under `dist/`; the catalog globs in [`playground/src/distAssetGlobs.ts`](playground/src/distAssetGlobs.ts) list matching files under `dist/brand`, `dist/banners`, and `dist/favicons`. Extend those globs or add an explicit preview import if needed. See [Component and asset preview (playground)](#component-and-asset-preview-playground).
+- **Playground (required)**: any **new exported component** or **published static asset** must be visible in the playground in the same change (before merge). Add a demo in [`playground/src/App.tsx`](playground/src/App.tsx) for components. For assets, run a full [`pnpm run build`](README.md#build) so files land under `dist/`; the catalog globs in [`playground/src/distAssetGlobs.ts`](playground/src/distAssetGlobs.ts) list matching files under `dist/marks`, `dist/banners`, and `dist/favicons`. Extend those globs or add an explicit preview import if needed. See [Component and asset preview (playground)](#component-and-asset-preview-playground).
 - **TypeScript**: `tsconfig.json` uses `"moduleResolution": "bundler"` — keep it compatible with tsup.
 
 #### 3.1 Interactive affordances (hover / focus)
@@ -225,7 +225,7 @@ Before submitting a Pull Request:
 
 - `pnpm run build` completes successfully
 - New exports are accessible from the built package
-- **Playground (required):** Anything new or changed that ships in **`dist/`** (components, brand files, favicons, banners, or any new copied **`dist/`** tree) must be visible in **`playground/`** in this PR—update [`playground/src/distAssetGlobs.ts`](playground/src/distAssetGlobs.ts) and/or [`playground/src/App.tsx`](playground/src/App.tsx), run a full build, then confirm in the dev server. See [Component and asset preview (playground)](#component-and-asset-preview-playground).
+- **Playground (required):** Anything new or changed that ships in **`dist/`** (components, marks, favicons, banners, or any new copied **`dist/`** tree) must be visible in **`playground/`** in this PR—update [`playground/src/distAssetGlobs.ts`](playground/src/distAssetGlobs.ts) and/or [`playground/src/App.tsx`](playground/src/App.tsx), run a full build, then confirm in the dev server. See [Component and asset preview (playground)](#component-and-asset-preview-playground).
 
 **3. Documentation**
 
