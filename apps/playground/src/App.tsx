@@ -100,14 +100,14 @@ import {
   socialBrandIconClass,
   type SocialIconLinkProps,
 } from "@themusictree/brand/components";
-import gtmtLockupFullPng from "@themusictree/brand/brand/grow-the-music-tree/grow-the-music-tree-lockup-horizontal-full.png?url";
-import gtmtLockupSvg from "@themusictree/brand/brand/grow-the-music-tree/grow-the-music-tree-lockup-horizontal.svg?url";
-import lockupDarkPng from "@themusictree/brand/brand/the-music-tree/the-music-tree-lockup-horizontal-dark.png?url";
-import lockupDefaultPng from "@themusictree/brand/brand/the-music-tree/the-music-tree-lockup-horizontal.png?url";
-import markDarkPng from "@themusictree/brand/brand/the-music-tree/the-music-tree-mark-dark.png?url";
-import markDarkSvg from "@themusictree/brand/brand/the-music-tree/the-music-tree-mark-dark.svg?url";
-import markDefaultPng from "@themusictree/brand/brand/the-music-tree/the-music-tree-mark.png?url";
-import markDefaultSvg from "@themusictree/brand/brand/the-music-tree/the-music-tree-mark.svg?url";
+import gtmtLockupFullPng from "@brand-dist/marks/grow-the-music-tree/grow-the-music-tree-lockup-horizontal-full.png?url";
+import gtmtLockupSvg from "@brand-dist/marks/grow-the-music-tree/grow-the-music-tree-lockup-horizontal.svg?url";
+import lockupDarkPng from "@brand-dist/marks/the-music-tree/the-music-tree-lockup-horizontal-dark.png?url";
+import lockupDefaultPng from "@brand-dist/marks/the-music-tree/the-music-tree-lockup-horizontal.png?url";
+import markDarkPng from "@brand-dist/marks/the-music-tree/the-music-tree-mark-dark.png?url";
+import markDarkSvg from "@brand-dist/marks/the-music-tree/the-music-tree-mark-dark.svg?url";
+import markDefaultPng from "@brand-dist/marks/the-music-tree/the-music-tree-mark.png?url";
+import markDefaultSvg from "@brand-dist/marks/the-music-tree/the-music-tree-mark.svg?url";
 type CatalogTab = "components" | "env" | "brand" | "banners" | "favicons";
 
 type SocialLinkComponent = ComponentType<SocialIconLinkProps>;
@@ -456,11 +456,8 @@ const COMPONENT_SUBTABS: { id: ComponentsSubTab; label: string }[] = [
 ];
 
 function labelFromGlobKey(key: string): string {
-  const normalized = key.replace(/^\.\.\//, "");
-  const marker = "/dist/";
-  const idx = normalized.indexOf(marker);
-  if (idx === -1) return normalized;
-  return normalized.slice(idx + marker.length);
+  // keys are "@brand-dist/<subfolder>/..." — strip the alias prefix
+  return key.replace(/^@brand-dist\//, "");
 }
 
 function sortedEntries(map: Record<string, string>) {
@@ -472,11 +469,10 @@ function sortedEntries(map: Record<string, string>) {
 type AssetEntry = { key: string; url: string; label: string };
 
 function projectSlugFromDistKey(key: string, distSubfolder: string): string {
-  const normalized = key.replace(/^\.\.\//, "");
-  const marker = `/dist/${distSubfolder}/`;
-  const idx = normalized.indexOf(marker);
-  if (idx === -1) return "_other";
-  const rest = normalized.slice(idx + marker.length);
+  // keys are "@brand-dist/<distSubfolder>/<project-slug>/..."
+  const prefix = `@brand-dist/${distSubfolder}/`;
+  if (!key.startsWith(prefix)) return "_other";
+  const rest = key.slice(prefix.length);
   const slash = rest.indexOf("/");
   if (slash === -1) return rest || "_other";
   return rest.slice(0, slash) || "_other";
@@ -532,7 +528,7 @@ export default function App() {
   const [faviconProject, setFaviconProject] = useState<string>("");
   const brandEntries = sortedEntries(brandAssets);
   const brandByProject = useMemo(
-    () => groupEntriesByProject(brandEntries, "brand"),
+    () => groupEntriesByProject(brandEntries, "marks"),
     [brandEntries],
   );
   const brandProjectSlugs = useMemo(
@@ -1127,11 +1123,11 @@ export default function App() {
           aria-labelledby="tab-brand"
         >
           <section className="section" aria-labelledby="brand-heading">
-            <h2 id="brand-heading">Brand (dist/brand)</h2>
+            <h2 id="brand-heading">Marks (dist/marks)</h2>
             {brandEntries.length === 0 ? (
               <p className="empty-note">
                 No files matched. Run <code>pnpm run build</code> at the
-                repository root so <code>dist/brand</code> exists.
+                repository root so <code>dist/marks</code> exists.
               </p>
             ) : (
               <>
