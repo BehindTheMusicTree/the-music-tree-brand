@@ -213,7 +213,7 @@ const SOCIAL_LINK_DEMO: {
 const TABS: { id: CatalogTab; label: string }[] = [
   { id: "components", label: "Components" },
   { id: "env", label: "Constants" },
-  { id: "brand", label: "Brand" },
+  { id: "marks", label: "Brand" },
   { id: "banners", label: "Banners" },
   { id: "favicons", label: "Favicons" },
 ];
@@ -508,7 +508,7 @@ function AssetGrid({
   variant,
 }: {
   entries: { url: string; label: string }[];
-  variant: "brand" | "banners" | "favicons";
+  variant: "marks" | "banners" | "favicons";
 }) {
   if (entries.length === 0) return null;
   return (
@@ -1115,15 +1115,15 @@ export default function App() {
         </div>
       )}
 
-      {tab === "brand" && (
+      {tab === "marks" && (
         <div
           className="playground-panel"
           role="tabpanel"
-          id="panel-brand"
-          aria-labelledby="tab-brand"
+          id="panel-marks"
+          aria-labelledby="tab-marks"
         >
-          <section className="section" aria-labelledby="brand-heading">
-            <h2 id="brand-heading">Marks (dist/marks)</h2>
+          <section className="section" aria-labelledby="marks-heading">
+            <h2 id="marks-heading">Marks (dist/marks)</h2>
             {brandEntries.length === 0 ? (
               <p className="empty-note">
                 No files matched. Run <code>pnpm run build</code> at the
@@ -1141,9 +1141,9 @@ export default function App() {
                       <button
                         type="button"
                         role="tab"
-                        id={`tab-brand-${slug}`}
+                        id={`tab-marks-${slug}`}
                         aria-selected={brandProject === slug}
-                        aria-controls="panel-brand-project"
+                        aria-controls="panel-marks-project"
                         tabIndex={0}
                         className="playground-subtab"
                         onClick={() => setBrandProject(slug)}
@@ -1155,14 +1155,14 @@ export default function App() {
                 </ul>
                 <div
                   role="tabpanel"
-                  id="panel-brand-project"
+                  id="panel-marks-project"
                   aria-labelledby={
-                    brandProject ? `tab-brand-${brandProject}` : undefined
+                    brandProject ? `tab-marks-${brandProject}` : undefined
                   }
                 >
                   <AssetGrid
                     entries={brandByProject.get(brandProject) ?? []}
-                    variant="brand"
+                    variant="marks"
                   />
                 </div>
               </>
