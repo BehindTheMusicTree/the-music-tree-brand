@@ -24,7 +24,7 @@ This directory holds **static brand identity** assets: marks (`-mark`), wordmark
 From published package:
 
 ```text
-@themusictree/brand/marks/<project-slug>/<filename>
+@behindthemusictree/brand/marks/<project-slug>/<filename>
 ```
 
 Examples:
