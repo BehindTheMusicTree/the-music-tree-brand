@@ -49,6 +49,12 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 - **ORG_NAME Export**: Added `ORG_NAME` constant exported from build environment, sourced from GitHub repository variable in CI
 - **HTMT_API_GITHUB_URL Export**: Added `HTMT_API_GITHUB_URL`, 'GTMT_FRONT_GITHUB_URL`, `TMD_ADMIN_GITHUB_URL`, and `AUDIOMETA_FRONT_GITHUB_URL` constants exported from build environment, sourced from GitHub repository variable in CI
 
+### Fixed
+
+- **Package scope and publishability**: Renamed the package from `@themusictree/brand` (an org that doesn't exist, so the package could never publish) to `@behindthemusictree/brand`, removed the stray `private: true`, and corrected `repository.url` to point at this repo instead of a nonexistent one.
+- **Release tooling**: `scripts/release.sh` and `.github/workflows/publish.yml` now target `packages/brand/package.json` instead of the private, version-disconnected root `package.json`.
+- **Asset export paths**: Removed the `copy-assets` step, which double-nested marks/favicons/banners/styles under `dist/*/*` and broke every `@behindthemusictree/brand/marks/*`-style import. Exports and `files` now reference `src/` directly.
+
 ## [11.4.3] - 2026-05-26
 
 ### CI
