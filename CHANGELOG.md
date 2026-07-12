@@ -44,6 +44,8 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ## [Unreleased]
 
+## [11.5.0] - 2026-07-12
+
 ### Added
 
 - **ORG_NAME Export**: Added `ORG_NAME` constant exported from build environment, sourced from GitHub repository variable in CI
