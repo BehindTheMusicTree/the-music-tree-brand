@@ -115,7 +115,7 @@ To test in a consuming app locally, use `pnpm link --global`:
 pnpm link --global
 
 # In your React app
-pnpm link --global @themusictree/brand
+pnpm link --global @behindthemusictree/brand
 ```
 
 #### Installing the package in an app

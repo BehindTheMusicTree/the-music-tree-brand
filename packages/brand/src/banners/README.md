@@ -24,13 +24,13 @@ Use banner assets for wide visual surfaces such as hero sections, campaign strip
 From the published package (subpath `./banners/*`, copied to `dist/banners/` on build):
 
 ```text
-@themusictree/brand/banners/<project-slug>/<filename>
+@behindthemusictree/brand/banners/<project-slug>/<filename>
 ```
 
 Example:
 
 ```tsx
-import hero from "@themusictree/brand/banners/grow-the-music-tree/grow-the-music-tree-banner-mobile.webp";
+import hero from "@behindthemusictree/brand/banners/grow-the-music-tree/grow-the-music-tree-banner-mobile.webp";
 ```
 
 Add files under `src/banners/<project-slug>/`, then run a full **`pnpm run build`** so they appear under `dist/banners/`. New project folders are picked up automatically (no per-folder export entry).

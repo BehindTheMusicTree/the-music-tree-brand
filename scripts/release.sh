@@ -24,10 +24,11 @@ if [[ -n "$(git status --porcelain)" ]]; then
   exit 1
 fi
 
-OLD_VERSION=$(node -p "require('./package.json').version")
-npm version "$BUMP" --no-git-tag-version > /dev/null
-NEW_VERSION=$(node -p "require('./package.json').version")
+OLD_VERSION=$(node -p "require('./packages/brand/package.json').version")
+(cd packages/brand && npm version "$BUMP" --no-git-tag-version > /dev/null)
+NEW_VERSION=$(node -p "require('./packages/brand/package.json').version")
 TODAY=$(date +%Y-%m-%d)
+pnpm install --lockfile-only
 
 # Replace only the *changelog entries* ## [Unreleased] (2nd occurrence): the 1st may be inside
 # the fenced contributor example at the top of CHANGELOG.md.
@@ -47,7 +48,7 @@ if (n < 2) { console.error('Error: expected a second ## [Unreleased] in CHANGELO
 fs.writeFileSync('CHANGELOG.md', s);
 " "$NEW_VERSION" "$TODAY"
 
-git add package.json pnpm-lock.yaml CHANGELOG.md
+git add packages/brand/package.json pnpm-lock.yaml CHANGELOG.md
 git commit -m "chore: release $NEW_VERSION"
 git tag -a "v$NEW_VERSION" -m "v$NEW_VERSION"
 git push --follow-tags

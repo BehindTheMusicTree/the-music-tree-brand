@@ -1,11 +1,10 @@
 {
-  "name": "@themusictree/brand",
+  "name": "@behindthemusictree/brand",
   "version": "11.4.3",
   "description": "Shared assets (components, tokens, marks, styles) for React projects",
-  "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/BehindTheMusicTree/the-music-tree-marks.git"
+    "url": "https://github.com/BehindTheMusicTree/the-music-tree-brand.git"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
@@ -18,23 +17,26 @@
     ".": "./dist/index.js",
     "./components": "./dist/components/index.js",
     "./components/*": "./dist/components/*",
-    "./marks/*": "./dist/marks/*",
-    "./favicons/*": "./dist/favicons/*",
-    "./banners/*": "./dist/banners/*",
+    "./marks/*": "./src/marks/*",
+    "./favicons/*": "./src/favicons/*",
+    "./banners/*": "./src/banners/*",
     "./tokens/*": "./dist/tokens/*",
-    "./styles": "./dist/styles/index.css",
-    "./styles/*": "./dist/styles/*"
+    "./styles": "./src/styles/index.css",
+    "./styles/*": "./src/styles/*"
   },
   "files": [
     "dist",
+    "src/marks",
+    "src/styles",
+    "src/favicons",
+    "src/banners",
     "docs",
     "src/banners/README.md",
     "src/marks/README.md"
   ],
   "scripts": {
-    "copy-assets": "cp -r src/marks dist/marks && cp -r src/styles dist/styles && cp -r src/favicons dist/favicons && cp -r src/banners dist/banners",
-    "dev": "pnpm run copy-assets && concurrently \"tsup --watch\" \"chokidar 'src/marks/**' 'src/styles/**' 'src/favicons/**' 'src/banners/**' -c 'pnpm run copy-assets'\"",
-    "build": "tsup && pnpm run copy-assets"
+    "dev": "tsup --watch",
+    "build": "tsup"
   },
   "peerDependencies": {
     "react": ">=18.0.0",
@@ -44,8 +46,6 @@
     "@types/node": "^25.5.0",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
-    "chokidar-cli": "^3.0.0",
-    "concurrently": "^10.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tsup": "^8.0.0",

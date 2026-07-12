@@ -1,4 +1,4 @@
-# @themusictree/brand
+# @behindthemusictree/brand
 
 Shared assets (components, design tokens, marks, styles, hooks, utils) for React projects across the organization.
 
@@ -6,7 +6,7 @@ Shared assets (components, design tokens, marks, styles, hooks, utils) for React
 
 Built inside the **[BehindTheMusicTree](https://github.com/BehindTheMusicTree)** ecosystem.
 
-Want the big picture? Explore the full project universe on **[themusictree.org](https://themusictree.org)**. This package is **`@themusictree/brand`** — the shared components, tokens, and marks used by our web apps.
+Want the big picture? Explore the full project universe on **[themusictree.org](https://themusictree.org)**. This package is **`@behindthemusictree/brand`** — the shared components, tokens, and marks used by our web apps.
 
 The portfolio website content lives in **[the-music-tree-frontend](https://github.com/BehindTheMusicTree/the-music-tree-frontend)**; this README focuses on developing, versioning, and publishing this package.
 
@@ -61,13 +61,13 @@ If you cannot use **`~/.npmrc`**, a **gitignored** **`.npmrc`** in the app repo 
 ### 3. Install
 
 ```bash
-pnpm add @themusictree/brand
+pnpm add @behindthemusictree/brand
 ```
 
 Pin a version when you want an explicit upgrade path:
 
 ```bash
-pnpm add @themusictree/brand@3.0.1
+pnpm add @behindthemusictree/brand@3.0.1
 ```
 
 **pnpm** and **Yarn** can use the same **`@behindthemusictree:registry`** and host auth settings; see their docs for equivalent **`.npmrc`** / **`.yarnrc.yml`** layout if you do not use npm.
@@ -77,15 +77,15 @@ pnpm add @themusictree/brand@3.0.1
 Use subpath imports so apps only pull what they need:
 
 ```tsx
-import { Button } from "@themusictree/brand/components";
+import { Button } from "@behindthemusictree/brand/components";
 import { colors, spacing } from "@themusictree/marks/tokens";
-import "@themusictree/brand/styles";
+import "@behindthemusictree/brand/styles";
 ```
 
-**TheMusicTreeByline** — single clickable **SVG knockout** (transparent outside the horizontal lockup; link and image use **`backgroundColor: transparent`**). The **`href`** is **not a prop**: when **this package** is built for publish, **`ORG_DOMAIN`** (hostname, no protocol) is read from GitHub repository variable **`DOMAIN_NAME`** and **embedded in `dist/`** via **tsup `define`**. **Consuming apps** normally need **no** **`ORG_DOMAIN`** env — they install a pre-built package from GitHub Packages. **Maintainers:** configure GitHub repository variable **`DOMAIN_NAME`** for **`.github/workflows/publish.yml`** (see **Publishing** below); locally, set **`ORG_DOMAIN`** in **`playground/.env`** when running **`pnpm run build`** / **`pnpm run dev`**. **`resolveOrgSiteHref()`** and **`parseOrgSiteHref()`** are exported if you need the same URL string in app code. Default variant uses **`the-music-tree-lockup-horizontal.svg`**; **`variant="onDark"`** uses **`the-music-tree-lockup-horizontal-dark.svg`**. Default display height **56px**, width **auto**. **Web-sized PNGs** (**`the-music-tree-lockup-horizontal.png`** / **`-dark.png`**) ship for raster-only contexts (email, CMS); import from **`@themusictree/brand/marks/the-music-tree/...`**.
+**TheMusicTreeByline** — single clickable **SVG knockout** (transparent outside the horizontal lockup; link and image use **`backgroundColor: transparent`**). The **`href`** is **not a prop**: when **this package** is built for publish, **`ORG_DOMAIN`** (hostname, no protocol) is read from GitHub repository variable **`DOMAIN_NAME`** and **embedded in `dist/`** via **tsup `define`**. **Consuming apps** normally need **no** **`ORG_DOMAIN`** env — they install a pre-built package from GitHub Packages. **Maintainers:** configure GitHub repository variable **`DOMAIN_NAME`** for **`.github/workflows/publish.yml`** (see **Publishing** below); locally, set **`ORG_DOMAIN`** in **`playground/.env`** when running **`pnpm run build`** / **`pnpm run dev`**. **`resolveOrgSiteHref()`** and **`parseOrgSiteHref()`** are exported if you need the same URL string in app code. Default variant uses **`the-music-tree-lockup-horizontal.svg`**; **`variant="onDark"`** uses **`the-music-tree-lockup-horizontal-dark.svg`**. Default display height **56px**, width **auto**. **Web-sized PNGs** (**`the-music-tree-lockup-horizontal.png`** / **`-dark.png`**) ship for raster-only contexts (email, CMS); import from **`@behindthemusictree/brand/marks/the-music-tree/...`**.
 
 ```tsx
-import { TheMusicTreeByline } from "@themusictree/brand/components";
+import { TheMusicTreeByline } from "@behindthemusictree/brand/components";
 
 <TheMusicTreeByline
   variant="onDark"
@@ -96,26 +96,26 @@ import { TheMusicTreeByline } from "@themusictree/brand/components";
 BehindTheMusicTree symbol-only mark (PNG):
 
 ```tsx
-import btmtMark from "@themusictree/brand/marks/behind-the-music-tree/behind-the-music-tree-mark.png";
+import btmtMark from "@behindthemusictree/brand/marks/behind-the-music-tree/behind-the-music-tree-mark.png";
 ```
 
 Project favicon bundle:
 
 ```tsx
-import faviconSvg from "@themusictree/brand/favicons/behind-the-music-tree/favicon.svg";
+import faviconSvg from "@behindthemusictree/brand/favicons/behind-the-music-tree/favicon.svg";
 ```
 
 Naming rules: [`docs/asset-naming.md`](docs/asset-naming.md); mark formats: [`src/marks/README.md`](src/marks/README.md).
 
-**DocLink**, **DiscussionLink**, and **InformationLink** (and `*Colored` variants) are styled icon links for documentation, discussion, and general information. They have **no URL baked in at package build** — pass **`href`** (and optional **`text`**, **`showText`**) from your app. Import **`@themusictree/brand/styles/icon-links.css`** once for the default tile and pill styles.
+**DocLink**, **DiscussionLink**, and **InformationLink** (and `*Colored` variants) are styled icon links for documentation, discussion, and general information. They have **no URL baked in at package build** — pass **`href`** (and optional **`text`**, **`showText`**) from your app. Import **`@behindthemusictree/brand/styles/icon-links.css`** once for the default tile and pill styles.
 
 ```tsx
 import {
   DiscussionLink,
   DocLink,
   InformationLink,
-} from "@themusictree/brand/components";
-import "@themusictree/brand/styles/icon-links.css";
+} from "@behindthemusictree/brand/components";
+import "@behindthemusictree/brand/styles/icon-links.css";
 
 <DocLink href="https://example.com/docs" showText />
 <DiscussionLink href="https://github.com/org/repo/discussions" showText />
@@ -125,10 +125,10 @@ import "@themusictree/brand/styles/icon-links.css";
 Or from the main entry:
 
 ```tsx
-import { Button, colors } from "@themusictree/brand";
+import { Button, colors } from "@behindthemusictree/brand";
 ```
 
-Ensure design tokens are loaded (e.g. import `@themusictree/brand/styles` once in your app root, or import `@themusictree/brand/tokens` and include the tokens CSS in your build).
+Ensure design tokens are loaded (e.g. import `@behindthemusictree/brand/styles` once in your app root, or import `@behindthemusictree/brand/tokens` and include the tokens CSS in your build).
 
 ## Publishing
 
@@ -154,6 +154,6 @@ pnpm run build
 
 ## Local development
 
-From this repo: `pnpm link --global`. In your React app: `pnpm link --global @themusictree/brand`. Use a filled **`playground/.env`** (or export the same keys) for **`pnpm run dev`**—same **`assert-org-url`** gate as **`pnpm run build`**.
+From this repo: `pnpm link --global`. In your React app: `pnpm link --global @behindthemusictree/brand`. Use a filled **`playground/.env`** (or export the same keys) for **`pnpm run dev`**—same **`assert-org-url`** gate as **`pnpm run build`**.
 
 **Playground:** `pnpm run playground` merges **`playground/.env`** into the environment for the root **`pnpm run build`**, then starts the Vite dev server. Every key in **`playground/.env.example`** is required for that root build.

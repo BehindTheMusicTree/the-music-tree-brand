@@ -35,7 +35,7 @@ import {
 } from "./SocialIconsColored";
 import { normalizeHttpUrl, normalizeMailtoHref } from "./socialHrefUtils";
 
-/** Shipped in **`@themusictree/brand/styles/icon-links.css`**. */
+/** Shipped in **`@behindthemusictree/brand/styles/icon-links.css`**. */
 export const BTMT_ICON_LINK_CLASS = "btmt-icon-link";
 /** Modifier when **`showText`** is true (pill + label). */
 export const BTMT_ICON_LINK_WITH_TEXT_CLASS = "btmt-icon-link--with-text";
@@ -70,7 +70,7 @@ export type SocialIconLinkProps = {
   title?: string;
   /**
    * When **`false`** (default), the anchor uses canonical classes; import
-   * **`@themusictree/brand/styles/icon-links.css`** once in your app for the
+   * **`@behindthemusictree/brand/styles/icon-links.css`** once in your app for the
    * intended look. When **`true`**, no default classes are applied—only **`className`** (if any).
    */
   unstyled?: boolean;

@@ -99,7 +99,7 @@ import {
   YouTubeSocialLinkColored,
   socialBrandIconClass,
   type SocialIconLinkProps,
-} from "@themusictree/brand/components";
+} from "@behindthemusictree/brand/components";
 import gtmtLockupFullPng from "@brand-dist/marks/grow-the-music-tree/grow-the-music-tree-lockup-horizontal-full.png?url";
 import gtmtLockupSvg from "@brand-dist/marks/grow-the-music-tree/grow-the-music-tree-lockup-horizontal.svg?url";
 import lockupDarkPng from "@brand-dist/marks/the-music-tree/the-music-tree-lockup-horizontal-dark.png?url";
@@ -565,7 +565,7 @@ export default function App() {
   return (
     <div className="playground">
       <h1>
-        @themusictree/brand{" "}
+        @behindthemusictree/brand{" "}
         <span style={{ fontSize: "0.55em", opacity: 0.6, fontWeight: 400 }}>
           v{__APP_VERSION__}
         </span>
@@ -678,7 +678,7 @@ export default function App() {
                         first—the build fails if{" "}
                         <code>ORG_GITHUB_SPONSOR_BUTTON_URL</code> or any other
                         required key is missing. If the iframe is still absent,{" "}
-                        <code>node_modules/@themusictree/brand</code> is
+                        <code>node_modules/@behindthemusictree/brand</code> is
                         probably stale: run <code>pnpm run build</code> at the
                         repo root, then <code>pnpm -C playground install</code>,
                         and refresh.
@@ -770,7 +770,7 @@ export default function App() {
                   <div className="demo-row">
                     <span className="demo-label">
                       Social*Link + <code>showText</code> — canonical pill from{" "}
-                      <code>@themusictree/brand/styles/icon-links.css</code>{" "}
+                      <code>@behindthemusictree/brand/styles/icon-links.css</code>{" "}
                       (imported in <code>main.tsx</code>); SVG size in that
                       sheet when not using Tailwind on icons
                     </span>
@@ -1182,7 +1182,7 @@ export default function App() {
             <h2 id="env-heading">Build constants (from installed package)</h2>
             <p className="empty-note env-vars-note">
               This table shows constants exported by{" "}
-              <code>@themusictree/brand/components</code>. The rightmost values
+              <code>@behindthemusictree/brand/components</code>. The rightmost values
               are read from built package code, not your runtime process env.
               Org site and sponsor keys are included in the first rows. If any
               value is <code>undefined</code>, rebuild the root package with a
