@@ -44,6 +44,10 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ## [Unreleased]
 
+### CI
+
+- **Build approvals**: Added `allowBuilds: { esbuild: true }` to `pnpm-workspace.yaml` — pnpm 11.5.2 requires this in addition to `onlyBuiltDependencies`, otherwise `pnpm install --frozen-lockfile` fails with `ERR_PNPM_IGNORED_BUILDS` on a clean checkout (this broke the publish workflow).
+
 ## [11.5.0] - 2026-07-12
 
 ### Added
