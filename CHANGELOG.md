@@ -33,6 +33,7 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ### Added
 
+- **Semantic tokens**: `--color-surface`, `--color-surface-muted`, `--color-border`, `--color-focus-ring`, `--color-accent-rating`, a type scale (`--text-xs/sm/base`, `--leading-tight/normal`) and a `[data-theme="dark"]` override of text, surface and border tokens
 - **New Component**: Added `Card` component with variants for outlined and elevated styles
 
 ### Fixed
