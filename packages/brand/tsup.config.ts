@@ -77,6 +77,7 @@ export default defineConfig({
     "components/index": "src/components/index.ts",
     "marks/index": "src/marks/index.ts",
     "tokens/index": "src/tokens/index.ts",
+    "tailwind-preset": "src/tailwind-preset.ts",
     "hooks/index": "src/hooks/index.ts",
     "utils/index": "src/utils/index.ts",
   },
