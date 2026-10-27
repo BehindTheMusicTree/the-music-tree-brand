@@ -45,6 +45,11 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ## [Unreleased]
 
+### Added
+
+- **Column tokens**: `--layout-left-w`, `--layout-band-top` (the top of the center and right columns, below the header), `--layout-center-left` and `--layout-center-right` (the center column's insets), plus matching `layout` exports. Below 64rem the center insets collapse to the gutter.
+- **Preset spacing**: `band`, `center-left` and `center-right`, usable as `top-band`, `left-center-left` and `right-center-right`.
+
 ## [12.2.0] - 2026-10-27
 
 ### Added

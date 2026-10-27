@@ -34,4 +34,8 @@ export const layout = {
   headerHeight: "var(--layout-header-h)",
   detailPanelWidth: "var(--layout-detail-panel-w)",
   playerPanelWidth: "var(--layout-player-panel-w)",
+  leftWidth: "var(--layout-left-w)",
+  bandTop: "var(--layout-band-top)",
+  centerLeft: "var(--layout-center-left)",
+  centerRight: "var(--layout-center-right)",
 } as const;

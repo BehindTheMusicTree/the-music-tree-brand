@@ -7,6 +7,9 @@ export const brandPreset = {
         ...spacing,
         gutter: layout.gutter,
         header: layout.headerHeight,
+        band: layout.bandTop,
+        "center-left": layout.centerLeft,
+        "center-right": layout.centerRight,
       },
       width: {
         "detail-panel": layout.detailPanelWidth,
