@@ -45,6 +45,8 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ## [Unreleased]
 
+## [12.4.0] - 2026-10-27
+
 ### Added
 
 - **Right column token**: `--layout-right-w` (and the `w-right-column` utility, `layout.rightWidth`) names the right column's width, symmetric with `--layout-left-w`, so the header row and the tracklist panel share one edge.
