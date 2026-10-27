@@ -35,6 +35,7 @@ export const layout = {
   detailPanelWidth: "var(--layout-detail-panel-w)",
   playerPanelWidth: "var(--layout-player-panel-w)",
   leftWidth: "var(--layout-left-w)",
+  rightWidth: "var(--layout-right-w)",
   bandTop: "var(--layout-band-top)",
   centerLeft: "var(--layout-center-left)",
   centerRight: "var(--layout-center-right)",

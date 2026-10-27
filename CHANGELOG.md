@@ -45,6 +45,14 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ## [Unreleased]
 
+### Added
+
+- **Right column token**: `--layout-right-w` (and the `w-right-column` utility, `layout.rightWidth`) names the right column's width, symmetric with `--layout-left-w`, so the header row and the tracklist panel share one edge.
+
+### Changed
+
+- **Header row height**: `--layout-header-h` is now the header row's own height (`3rem`) and no longer includes the top gutter. `--layout-band-top` is now `header-h + 2 × gutter`, so the center and right columns still start one gutter below the header. Use `--layout-band-top` (`top-band`) for a top offset, not `--layout-header-h`.
+
 ## [12.3.0] - 2026-10-27
 
 ### Added
