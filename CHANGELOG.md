@@ -45,6 +45,8 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ## [Unreleased]
 
+## [12.2.0] - 2026-10-27
+
 ### Added
 
 - **Tailwind preset** (`@behindthemusictree/brand/tailwind-preset`): extends the host theme with `spacing.{xs,sm,md,lg,gutter,header}` from the `--space-*`/`--layout-*` tokens, `width.{detail-panel,player-panel}`, and `colors.brand.*`. It never overrides Tailwind's defaults.
