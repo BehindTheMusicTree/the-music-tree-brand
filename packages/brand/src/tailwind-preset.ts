@@ -14,6 +14,7 @@ export const brandPreset = {
       width: {
         "detail-panel": layout.detailPanelWidth,
         "player-panel": layout.playerPanelWidth,
+        "right-column": layout.rightWidth,
       },
       colors: { brand: colors },
     },
