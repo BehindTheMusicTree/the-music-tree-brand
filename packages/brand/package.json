@@ -1,6 +1,6 @@
 {
   "name": "@behindthemusictree/brand",
-  "version": "12.4.0",
+  "version": "12.5.0",
   "description": "Shared assets (components, tokens, marks, styles) for React projects",
   "repository": {
     "type": "git",
