@@ -21,15 +21,19 @@
   --space-lg: 1.5rem;
   --layout-gutter: 0.75rem;
   --layout-header-h: 3rem;
-  --layout-detail-panel-w: 17.5rem;
+  --layout-detail-panel-w: 25.5rem;
   --layout-player-panel-w: 22.5rem;
   --layout-left-w: var(--layout-detail-panel-w);
   --layout-right-w: var(--layout-player-panel-w);
   --layout-band-top: calc(var(--layout-gutter) * 2 + var(--layout-header-h));
-  --layout-center-left: calc(var(--layout-gutter) * 2 + var(--layout-detail-panel-w));
-  --layout-center-right: calc(var(--layout-gutter) * 2 + var(--layout-right-w));
+  --layout-panel-inset: 1rem;
+  --layout-search-h: 3rem;
+  --layout-edge-tab-w: 1.5rem;
+  --layout-center-left: calc(var(--layout-gutter) * 2 + var(--layout-left-w) + var(--layout-edge-tab-w));
+  --layout-center-right: calc(var(--layout-gutter) * 2 + var(--layout-right-w) + var(--layout-edge-tab-w));
   --radius-sm: 0.25rem;
   --radius-md: 0.375rem;
+  --radius-panel: 1rem;
   --color-surface: #ffffff;
   --color-surface-muted: var(--color-neutral-100);
   --color-border: var(--color-neutral-200);
@@ -42,7 +46,7 @@
   --leading-normal: 1.45;
 }
 
-@media (max-width: 63.999rem) {
+@media (max-width: 79.999rem) {
   :root {
     --layout-center-left: var(--layout-gutter);
     --layout-center-right: var(--layout-gutter);
