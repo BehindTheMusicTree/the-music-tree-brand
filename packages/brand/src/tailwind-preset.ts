@@ -1,4 +1,4 @@
-import { colors, layout, spacing } from "./tokens";
+import { colors, layout, radius, spacing } from "./tokens";
 
 export const brandPreset = {
   theme: {
@@ -6,6 +6,7 @@ export const brandPreset = {
       spacing: {
         ...spacing,
         gutter: layout.gutter,
+        "panel-inset": layout.panelInset,
         header: layout.headerHeight,
         band: layout.bandTop,
         "center-left": layout.centerLeft,
@@ -15,7 +16,10 @@ export const brandPreset = {
         "detail-panel": layout.detailPanelWidth,
         "player-panel": layout.playerPanelWidth,
         "right-column": layout.rightWidth,
+        "edge-tab": layout.edgeTabWidth,
       },
+      height: { search: layout.searchHeight },
+      borderRadius: { panel: radius.panel },
       colors: { brand: colors },
     },
   },

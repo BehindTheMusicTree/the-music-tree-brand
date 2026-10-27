@@ -27,6 +27,7 @@ export const spacing = {
 export const radius = {
   sm: "var(--radius-sm)",
   md: "var(--radius-md)",
+  panel: "var(--radius-panel)",
 } as const;
 
 export const layout = {
@@ -36,6 +37,9 @@ export const layout = {
   playerPanelWidth: "var(--layout-player-panel-w)",
   leftWidth: "var(--layout-left-w)",
   rightWidth: "var(--layout-right-w)",
+  panelInset: "var(--layout-panel-inset)",
+  searchHeight: "var(--layout-search-h)",
+  edgeTabWidth: "var(--layout-edge-tab-w)",
   bandTop: "var(--layout-band-top)",
   centerLeft: "var(--layout-center-left)",
   centerRight: "var(--layout-center-right)",
