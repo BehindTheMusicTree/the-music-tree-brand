@@ -22,6 +22,7 @@
     "./banners/*": "./src/banners/*",
     "./tokens/theme.css": "./src/tokens/theme.css",
     "./tokens/*": "./dist/tokens/*",
+    "./tailwind-preset": "./dist/tailwind-preset.js",
     "./styles": "./src/styles/index.css",
     "./styles/*": "./src/styles/*"
   },

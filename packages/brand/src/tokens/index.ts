@@ -28,3 +28,10 @@ export const radius = {
   sm: "var(--radius-sm)",
   md: "var(--radius-md)",
 } as const;
+
+export const layout = {
+  gutter: "var(--layout-gutter)",
+  headerHeight: "var(--layout-header-h)",
+  detailPanelWidth: "var(--layout-detail-panel-w)",
+  playerPanelWidth: "var(--layout-player-panel-w)",
+} as const;
