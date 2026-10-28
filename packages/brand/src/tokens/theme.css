@@ -22,7 +22,7 @@
   --layout-gutter: 0.75rem;
   --layout-header-h: 3rem;
   --layout-detail-panel-w: 25.5rem;
-  --layout-player-panel-w: 22.5rem;
+  --layout-player-panel-w: var(--layout-detail-panel-w);
   --layout-left-w: var(--layout-detail-panel-w);
   --layout-right-w: var(--layout-player-panel-w);
   --layout-band-top: calc(var(--layout-gutter) * 2 + var(--layout-header-h));
