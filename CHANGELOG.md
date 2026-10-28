@@ -59,6 +59,10 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 - **Player panel width**: `--layout-player-panel-w` now equals `--layout-detail-panel-w` (`25.5rem`, was `22.5rem`), so the right column is always as wide as the left one. `--layout-right-w` follows it and stays at full width when a consumer collapses `--layout-left-w` to `0px`.
 
+### CI
+
+- **Validate workflow**: pull requests to `main` now run `pnpm test` (Vitest, covering the layout tokens in `theme.css`).
+
 ## [12.5.0] - 2026-10-27
 
 ## [12.4.0] - 2026-10-27

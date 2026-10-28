@@ -11,7 +11,8 @@
   "scripts": {
     "dev": "pnpm --parallel --filter @behindthemusictree/brand --filter brand-playground dev",
     "build": "pnpm -r build",
-    "release": "bash scripts/release.sh"
+    "release": "bash scripts/release.sh",
+    "test": "pnpm --filter @behindthemusictree/brand test"
   },
   "keywords": [
     "react",
