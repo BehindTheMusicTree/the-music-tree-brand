@@ -56,6 +56,8 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ## [Unreleased]
 
+## [12.8.0] - 2026-10-29
+
 ## [12.7.0] - 2026-10-29
 
 ### Added
