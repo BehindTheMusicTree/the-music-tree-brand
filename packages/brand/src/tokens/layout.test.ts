@@ -26,6 +26,12 @@ describe("layout tokens", () => {
     expect(declaration("--layout-right-w")).not.toContain("--layout-left-w");
   });
 
+  it("fits the detail panel inside the viewport below 48rem", () => {
+    const mobile = css.match(/@media \(max-width: 47\.999rem\) \{([\s\S]*?)\n\}/)?.[1];
+    expect(mobile).toBeDefined();
+    expect(mobile).toMatch(/--layout-detail-panel-w:\s*calc\(100vw - 2 \* var\(--layout-gutter\)\);/);
+  });
+
   it("declares every exported layout variable in theme.css", () => {
     for (const value of Object.values(layout)) {
       const name = value.match(/^var\((--[\w-]+)\)$/)?.[1];

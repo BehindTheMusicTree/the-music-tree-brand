@@ -55,6 +55,11 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ## [Unreleased]
 
+### Added
+
+- **Mobile layout tokens**: below `48rem`, `--layout-gutter` and `--layout-panel-inset` drop to `0.5rem` and `--layout-detail-panel-w` becomes `calc(100vw - 2 * var(--layout-gutter))`, so detail/player panels, the right column and the search bar fit a phone screen.
+- **Touch target token**: `--layout-touch-target` (`2.75rem`, 44px minimum hit area), exported as `layout.touchTarget` and the `touch-target` Tailwind spacing utility.
+
 ## [12.6.0] - 2026-10-28
 
 ### Changed

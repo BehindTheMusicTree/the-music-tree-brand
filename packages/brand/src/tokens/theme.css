@@ -29,6 +29,7 @@
   --layout-panel-inset: 1rem;
   --layout-search-h: 3rem;
   --layout-edge-tab-w: 1.5rem;
+  --layout-touch-target: 2.75rem;
   --layout-center-left: calc(var(--layout-gutter) * 2 + var(--layout-left-w) + var(--layout-edge-tab-w));
   --layout-center-right: calc(var(--layout-gutter) * 2 + var(--layout-right-w) + var(--layout-edge-tab-w));
   --radius-sm: 0.25rem;
@@ -50,6 +51,14 @@
   :root {
     --layout-center-left: var(--layout-gutter);
     --layout-center-right: var(--layout-gutter);
+  }
+}
+
+@media (max-width: 47.999rem) {
+  :root {
+    --layout-gutter: 0.5rem;
+    --layout-panel-inset: 0.5rem;
+    --layout-detail-panel-w: calc(100vw - 2 * var(--layout-gutter));
   }
 }
 
