@@ -135,7 +135,7 @@ Ensure design tokens are loaded (e.g. import `@behindthemusictree/brand/styles` 
 A GitHub Actions workflow automatically publishes to GitHub Packages whenever a version tag is pushed. To cut a new version:
 
 ```bash
-pnpm run release -- patch   # or minor / major
+pnpm run release patch   # or minor / major
 ```
 
 This bumps the version, stamps the changelog, commits, tags, and pushes. Publishing starts automatically. See [CONTRIBUTING.md](CONTRIBUTING.md#6-releasing-for-maintainers) for details.
