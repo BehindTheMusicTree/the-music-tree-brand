@@ -1,4 +1,4 @@
-import type { ComponentType } from "react";
+import type { AnchorHTMLAttributes, ComponentType } from "react";
 import {
   IconBookOpen,
   IconEmail,
@@ -49,7 +49,10 @@ function joinClassNames(
   return s || undefined;
 }
 
-export type SocialIconLinkProps = {
+export type SocialIconLinkProps = Omit<
+  AnchorHTMLAttributes<HTMLAnchorElement>,
+  "href" | "children" | "title" | "className" | "aria-label" | "target" | "rel"
+> & {
   /**
    * Link target. When omitted, uses the URL or email **inlined at package build** from the
    * matching **`ORG_*`**, **`CONTACT_EMAIL`**, or **`ORG_DOMAIN`** env var.
@@ -92,6 +95,7 @@ function createSocialIconLink(
     showText = false,
     title: titleProp,
     unstyled = false,
+    ...anchorProps
   }: SocialIconLinkProps) {
     const raw = (hrefProp?.trim() || readDefaultRaw()?.trim()) ?? "";
     if (!raw) return null;
@@ -114,6 +118,7 @@ function createSocialIconLink(
 
     return (
       <a
+        {...anchorProps}
         href={href}
         className={mergedClassName}
         aria-label={label}
