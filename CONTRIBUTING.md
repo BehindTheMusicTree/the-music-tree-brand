@@ -135,7 +135,7 @@ pnpm run playground:install
 
 Copy **`playground/.env.example`** to **`playground/.env`** and set **every** key before **`pnpm run playground`** or **`pnpm run build`**. **`scripts/run-playground.mjs`** merges **`playground/.env`** into the environment for the root **`pnpm run build`** (shell overrides file). **`scripts/assert-org-url.mjs`** requires **`ORG_DOMAIN`**, **`ORG_GITHUB_SPONSOR_BUTTON_URL`**, all playground social URLs, **`HTMT_API_SUBDOMAIN`**, **`GTMT_FRONT_SUBDOMAIN`**, and **`AUDIOMETA_FRONT_SUBDOMAIN`** (same names as **`publish.yml`** / **`.env.example`**). **tsup** inlines those keys into published **`dist/`** (defaults for **`TheMusicTree*Link`**, **`GithubSponsorButton`**, **`Social*Link`**, and **`socialBuildEnv`** subdomain values). Re-run root **`pnpm run build`** after editing **`playground/.env`** so **`node_modules/…/dist/`** picks up new values. If the playground UI stays blank after changing **`dist/`**, remove **`playground/node_modules/.vite`** and restart the dev server.
 
-**Maintainers:** define **all** repository variables listed in **`.cursor/rules/publish-workflow.mdc`** ( **`DOMAIN_NAME`** maps to **`ORG_DOMAIN`**; other keys match **`publish.yml`**). Every workflow **`env`** entry is **required**.
+**Maintainers:** define **all** repository variables read by **`.github/workflows/publish.yml`** (**`DOMAIN_NAME`** maps to **`ORG_DOMAIN`**; other keys match their names there). Every workflow **`env`** entry is **required**.
 
 Run a build and start the dev server (default port **5174**). **`pnpm run playground`** uses **`scripts/run-playground.mjs`**, which merges **`playground/.env`** into the environment before **`pnpm run build`**:
 
@@ -203,7 +203,7 @@ feature/*          ●───●
 
 #### 3.1 Interactive affordances (hover / focus)
 
-Shipped **clickable** UI (`<a>`, `<button>`, and similar) should show a visible **hover** change (and **focus-visible** when the element is focusable). **SVG** marks wired to **`currentColor`** usually inherit this from [`src/styles/icon-links.css`](src/styles/icon-links.css). **Raster** or fixed-color marks need an explicit hover style (for example **Tipeee** uses **`opacity`** on the **`img`** in that stylesheet). Third-party embeds we do not style (for example the **`GithubSponsorButton`** iframe) are exempt. Agent guidance: [`.cursor/rules/interactive-hover.mdc`](.cursor/rules/interactive-hover.mdc).
+Shipped **clickable** UI (`<a>`, `<button>`, and similar) should show a visible **hover** change (and **focus-visible** when the element is focusable). **SVG** marks wired to **`currentColor`** usually inherit this from [`src/styles/icon-links.css`](src/styles/icon-links.css). **Raster** or fixed-color marks need an explicit hover style (for example **Tipeee** uses **`opacity`** on the **`img`** in that stylesheet). Third-party embeds we do not style (for example the **`GithubSponsorButton`** iframe) are exempt.
 
 After structural changes, run a full build to verify:
 
@@ -249,7 +249,7 @@ Before submitting a Pull Request:
 
 - Update README if adding new features or changing behavior
 - Update `CHANGELOG.md` with your changes in the `[Unreleased]` section (see [Changelog Best Practices](CHANGELOG.md#changelog-best-practices))
-- Update documentation when asset conventions change: global guides in `docs/` and colocated specs in `src/*/README.md` (see [`docs/README.md`](docs/README.md)). Any **multi-section** Markdown file in the repo should include a **Table of contents** linking each `##` section ([`CHANGELOG.md`](CHANGELOG.md) and one-section stubs exempt); see [`.cursor/rules/static-assets-and-docs.mdc`](.cursor/rules/static-assets-and-docs.mdc).
+- Update documentation when asset conventions change: global guides in `docs/` and colocated specs in `src/*/README.md` (see [`docs/README.md`](docs/README.md)). Any **multi-section** Markdown file in the repo should include a **Table of contents** linking each `##` section ([`CHANGELOG.md`](CHANGELOG.md) and one-section stubs exempt).
 
 **4. Git Hygiene**
 

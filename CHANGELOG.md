@@ -61,6 +61,7 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ### Documentation
 
+- **CONTRIBUTING**: dropped links to removed Cursor rules (`publish-workflow`, `interactive-hover`, `static-assets-and-docs`); repository variables now point at `publish.yml`.
 - **Release command**: `CONTRIBUTING.md` and `README.md` now show `pnpm run release <patch|minor|major>` — the `--` separator made the script fail.
 
 ## [12.8.0] - 2026-10-29
