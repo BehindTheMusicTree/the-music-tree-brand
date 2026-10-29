@@ -40,6 +40,7 @@ export const layout = {
   panelInset: "var(--layout-panel-inset)",
   searchHeight: "var(--layout-search-h)",
   edgeTabWidth: "var(--layout-edge-tab-w)",
+  touchTarget: "var(--layout-touch-target)",
   bandTop: "var(--layout-band-top)",
   centerLeft: "var(--layout-center-left)",
   centerRight: "var(--layout-center-right)",

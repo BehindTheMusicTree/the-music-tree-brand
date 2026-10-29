@@ -11,6 +11,7 @@ export const brandPreset = {
         band: layout.bandTop,
         "center-left": layout.centerLeft,
         "center-right": layout.centerRight,
+        "touch-target": layout.touchTarget,
       },
       width: {
         "detail-panel": layout.detailPanelWidth,
