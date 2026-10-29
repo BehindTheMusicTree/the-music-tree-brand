@@ -55,6 +55,10 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ## [Unreleased]
 
+### Changed
+
+- **Strict Gitflow**: `develop` is now the default branch; `pnpm run release <bump>` cuts `release/<version>` from `develop` and opens PRs into `main` and `develop`, and the new `pnpm run tag-release` tags `main` after the release PR merges. The `release.sh` usage message no longer shows the `--` separator.
+
 ### Documentation
 
 - **Release command**: `CONTRIBUTING.md` and `README.md` now show `pnpm run release <patch|minor|major>` — the `--` separator made the script fail.
