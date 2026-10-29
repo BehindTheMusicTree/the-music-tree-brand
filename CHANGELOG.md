@@ -33,7 +33,6 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ### Added
 
-- **Components (social)**: Social icon links (`TipeeeSocialLink`, `GithubSocialLink`, …) forward standard anchor props (`onClick`, `data-*`, `id`, …) to the `<a>`; `href`, `target`, `rel`, `aria-label` and `title` stay owned by the component.
 - **Panel tokens**: `--layout-panel-inset` (1rem), `--layout-search-h` (3rem), `--layout-edge-tab-w` (1.5rem) and `--radius-panel` (1rem), with matching `layout`/`radius` exports and Tailwind utilities (`p-panel-inset`, `h-search`, `w-edge-tab`, `rounded-panel`).
 
 ### Changed
@@ -57,6 +56,10 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 ## [Unreleased]
 
 ## [12.8.0] - 2026-10-29
+
+### Added
+
+- **Components (social)**: Social icon links (`TipeeeSocialLink`, `GithubSocialLink`, …) forward standard anchor props (`onClick`, `data-*`, `id`, …) to the `<a>`; `href`, `target`, `rel`, `aria-label` and `title` stay owned by the component.
 
 ## [12.7.0] - 2026-10-29
 
