@@ -55,6 +55,8 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ## [Unreleased]
 
+## [12.7.0] - 2026-10-29
+
 ### Added
 
 - **Mobile layout tokens**: below `48rem`, `--layout-gutter` and `--layout-panel-inset` drop to `0.5rem` and `--layout-detail-panel-w` becomes `calc(100vw - 2 * var(--layout-gutter))`, so detail/player panels, the right column and the search bar fit a phone screen.
