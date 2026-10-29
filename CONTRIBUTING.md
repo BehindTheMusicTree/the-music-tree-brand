@@ -267,9 +267,9 @@ Releases are created from the `main` branch. A GitHub Actions workflow publishes
 Run the release script from `main` with a clean working tree:
 
 ```bash
-pnpm run release -- patch   # 1.0.0 -> 1.0.1
-pnpm run release -- minor   # 1.0.0 -> 1.1.0
-pnpm run release -- major   # 1.0.0 -> 2.0.0
+pnpm run release patch   # 1.0.0 -> 1.0.1
+pnpm run release minor   # 1.0.0 -> 1.1.0
+pnpm run release major   # 1.0.0 -> 2.0.0
 ```
 
 The script (`scripts/release.sh`) does the following in one shot:

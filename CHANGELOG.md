@@ -55,6 +55,10 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ## [Unreleased]
 
+### Documentation
+
+- **Release command**: `CONTRIBUTING.md` and `README.md` now show `pnpm run release <patch|minor|major>` — the `--` separator made the script fail.
+
 ## [12.8.0] - 2026-10-29
 
 ### Added
