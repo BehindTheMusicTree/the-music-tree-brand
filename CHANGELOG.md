@@ -55,6 +55,8 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ## [Unreleased]
 
+## [12.9.0] - 2026-10-30
+
 ### Changed
 
 - **Registry**: published to the public npm registry via trusted publishing (OIDC) with provenance, instead of GitHub Packages. Consumers no longer need a token or a `@behindthemusictree` registry line in `.npmrc`. The playground Vercel sync no longer pushes the unused `GH_PACKAGES_TOKEN`.
