@@ -53,7 +53,7 @@ The maintainer(s) are responsible for:
 
 **Repository automation policies (maintainer-only):**
 
-- Publishing workflows (`.github/workflows/publish.yml`) — handles package publishing to GitHub Packages
+- Publishing workflows (`.github/workflows/publish.yml`) — publishes the package to npm (trusted publishing)
 - Other automation workflows that affect repository management
 
 **What contributors can do:**
@@ -121,7 +121,7 @@ pnpm link --global @behindthemusictree/brand
 
 #### Installing the package in an app
 
-To depend on a **published** version from GitHub Packages (instead of `pnpm link --global`), configure npm scope + authentication, then install. Full steps: **[README — Install](README.md#install)**.
+To depend on a **published** version from npm (instead of `pnpm link --global`), install it — no token needed. See **[README — Install](README.md#install)**.
 
 #### Component and asset preview (playground)
 
@@ -280,7 +280,7 @@ Before submitting a Pull Request:
 
 ### 6. Releasing _(For Maintainers)_
 
-Releases are cut from `develop`. A GitHub Actions workflow publishes to GitHub Packages when a version tag is pushed and **creates a GitHub Release** for that tag (generated notes, for watcher notifications).
+Releases are cut from `develop`. A GitHub Actions workflow publishes to npm (trusted publishing, with provenance) when a version tag is pushed and **creates a GitHub Release** for that tag (generated notes, for watcher notifications).
 
 From a clean `develop`, in sync with `origin/develop`:
 
@@ -305,7 +305,7 @@ git checkout main && git pull
 pnpm run tag-release
 ```
 
-`scripts/tag-release.sh` tags `v<version>` from `packages/brand/package.json` and pushes the tag, which starts publishing to GitHub Packages and creates the GitHub Release. Then merge the companion PR into `develop`.
+`scripts/tag-release.sh` tags `v<version>` from `packages/brand/package.json` and pushes the tag, which starts publishing to npm and creates the GitHub Release. Then merge the companion PR into `develop`.
 
 ### 7. Hotfixing _(For Maintainers)_
 
