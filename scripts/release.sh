@@ -65,7 +65,7 @@ git push -u origin "$RELEASE_BRANCH"
 
 gh pr create --base main --head "$RELEASE_BRANCH" \
   --title "Release v$NEW_VERSION" \
-  --body "Release v$NEW_VERSION ($OLD_VERSION -> $NEW_VERSION). After this merges, run \`pnpm run tag-release\` on \`main\` to tag and trigger the publish workflow, then merge the companion PR into \`develop\`."
+  --body "Release v$NEW_VERSION ($OLD_VERSION -> $NEW_VERSION). After this merges, run \`pnpm run tag-release\` on \`main\` to tag and stage the version on npm, approve it with \`npm stage approve <stage-id>\` (2FA), then merge the companion PR into \`develop\`."
 
 gh pr create --base develop --head "$RELEASE_BRANCH" \
   --title "Release v$NEW_VERSION (merge back into develop)" \
