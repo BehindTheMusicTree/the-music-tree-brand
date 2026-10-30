@@ -21,6 +21,7 @@ This project is currently maintained by a solo developer, but contributions, sug
     - [5.1. Pre-PR Checklist](#51-pre-pr-checklist)
     - [5.2. Opening a Pull Request](#52-opening-a-pull-request)
   - [6. Releasing _(For Maintainers)_](#6-releasing-for-maintainers)
+  - [7. Hotfixing _(For Maintainers)_](#7-hotfixing-for-maintainers)
 - [License & Attribution](#license--attribution)
 
 ## Contributors vs Maintainers
@@ -46,13 +47,13 @@ The maintainer(s) are responsible for:
 - Maintaining the project's infrastructure
 - Moving "Unreleased" changelog entries to versioned sections during releases
 
-**Important:** Even maintainers must go through Pull Requests. No direct commits to `main` are allowed.
+**Important:** Even maintainers must go through Pull Requests. No direct commits to `main` or `develop` are allowed.
 
 ### Infrastructure & Automation Permissions
 
 **Repository automation policies (maintainer-only):**
 
-- Publishing workflows (`.github/workflows/publish.yml`) — handles package publishing to GitHub Packages
+- Publishing workflows (`.github/workflows/publish.yml`) — publishes the package to npm (trusted publishing)
 - Other automation workflows that affect repository management
 
 **What contributors can do:**
@@ -120,7 +121,7 @@ pnpm link --global @behindthemusictree/brand
 
 #### Installing the package in an app
 
-To depend on a **published** version from GitHub Packages (instead of `pnpm link --global`), configure npm scope + authentication, then install. Full steps: **[README — Install](README.md#install)**.
+To depend on a **published** version from npm (instead of `pnpm link --global`), install it — no token needed. See **[README — Install](README.md#install)**.
 
 #### Component and asset preview (playground)
 
@@ -134,7 +135,7 @@ pnpm run playground:install
 
 Copy **`playground/.env.example`** to **`playground/.env`** and set **every** key before **`pnpm run playground`** or **`pnpm run build`**. **`scripts/run-playground.mjs`** merges **`playground/.env`** into the environment for the root **`pnpm run build`** (shell overrides file). **`scripts/assert-org-url.mjs`** requires **`ORG_DOMAIN`**, **`ORG_GITHUB_SPONSOR_BUTTON_URL`**, all playground social URLs, **`HTMT_API_SUBDOMAIN`**, **`GTMT_FRONT_SUBDOMAIN`**, and **`AUDIOMETA_FRONT_SUBDOMAIN`** (same names as **`publish.yml`** / **`.env.example`**). **tsup** inlines those keys into published **`dist/`** (defaults for **`TheMusicTree*Link`**, **`GithubSponsorButton`**, **`Social*Link`**, and **`socialBuildEnv`** subdomain values). Re-run root **`pnpm run build`** after editing **`playground/.env`** so **`node_modules/…/dist/`** picks up new values. If the playground UI stays blank after changing **`dist/`**, remove **`playground/node_modules/.vite`** and restart the dev server.
 
-**Maintainers:** define **all** repository variables listed in **`.cursor/rules/publish-workflow.mdc`** ( **`DOMAIN_NAME`** maps to **`ORG_DOMAIN`**; other keys match **`publish.yml`**). Every workflow **`env`** entry is **required**.
+**Maintainers:** define **all** repository variables read by **`.github/workflows/publish.yml`** (**`DOMAIN_NAME`** maps to **`ORG_DOMAIN`**; other keys match their names there). Every workflow **`env`** entry is **required**.
 
 Run a build and start the dev server (default port **5174**). **`pnpm run playground`** uses **`scripts/run-playground.mjs`**, which merges **`playground/.env`** into the environment before **`pnpm run build`**:
 
@@ -152,26 +153,43 @@ Refresh after `pnpm run build` at the repo root so new static assets appear.
 
 ### 2. Branching
 
+This repo follows strict Gitflow. `develop` is the GitHub default branch: PRs target it unless noted otherwise.
+
+```
+main       ──●───────────────●───────●──   (tagged vX.Y.Z)
+              \             / \     /
+release/*      \       ●───●   \   /
+                \     /     \   \ /
+develop    ──●───●───●───●───●───●───●──
+                  \     /
+feature/*          ●───●
+```
+
 #### Main Branch (`main`)
 
-- The stable, always-deployable branch
-- All changes must go through Pull Requests
-- Releases are tagged from `main`
+- Published versions only; every merge is tagged `vX.Y.Z`
+- Nothing merges here except `release/*` and `hotfix/*` branches
+
+#### Develop Branch (`develop`)
+
+- Integration branch: always reflects the latest delivered changes
+- All `feature/*` branches are cut from and merged back into `develop` via Pull Request
 
 #### Feature Branches (`feature/<name>`)
 
-- Create one for each new feature, component, or bug fix
-- Include issue numbers when applicable: `feature/123-add-card-component`
-- Merge into `main` via Pull Request when complete
+- Any non-release, non-hotfix work: features, components, fixes, chores, docs, CI
+- Branch from `develop`; include issue numbers when applicable: `feature/123-add-card-component`
+- Merge into `develop` via Pull Request when complete
 
-#### Chore Branches (`chore/<name>`)
+#### Release Branches (`release/<version>`) _(For Maintainers)_
 
-- For maintenance, infrastructure, and configuration work
-- Examples: dependency updates, CI/CD changes, documentation infrastructure
+- Cut from `develop` by `pnpm run release` (see [§6](#6-releasing-for-maintainers)); only the version bump and changelog stamp belong here
+- Merged into both `main` (tagged) and `develop`
 
 #### Hotfix Branches (`hotfix/<name>`) _(For Maintainers)_
 
-- For urgent bug fixes on published versions
+- Cut from `main` for urgent fixes on published versions (see [§7](#7-hotfixing-for-maintainers))
+- Merged into both `main` (tagged) and `develop`
 
 ### 3. Developing
 
@@ -185,7 +203,7 @@ Refresh after `pnpm run build` at the repo root so new static assets appear.
 
 #### 3.1 Interactive affordances (hover / focus)
 
-Shipped **clickable** UI (`<a>`, `<button>`, and similar) should show a visible **hover** change (and **focus-visible** when the element is focusable). **SVG** marks wired to **`currentColor`** usually inherit this from [`src/styles/icon-links.css`](src/styles/icon-links.css). **Raster** or fixed-color marks need an explicit hover style (for example **Tipeee** uses **`opacity`** on the **`img`** in that stylesheet). Third-party embeds we do not style (for example the **`GithubSponsorButton`** iframe) are exempt. Agent guidance: [`.cursor/rules/interactive-hover.mdc`](.cursor/rules/interactive-hover.mdc).
+Shipped **clickable** UI (`<a>`, `<button>`, and similar) should show a visible **hover** change (and **focus-visible** when the element is focusable). **SVG** marks wired to **`currentColor`** usually inherit this from [`src/styles/icon-links.css`](src/styles/icon-links.css). **Raster** or fixed-color marks need an explicit hover style (for example **Tipeee** uses **`opacity`** on the **`img`** in that stylesheet). Third-party embeds we do not style (for example the **`GithubSponsorButton`** iframe) are exempt.
 
 After structural changes, run a full build to verify:
 
@@ -231,12 +249,12 @@ Before submitting a Pull Request:
 
 - Update README if adding new features or changing behavior
 - Update `CHANGELOG.md` with your changes in the `[Unreleased]` section (see [Changelog Best Practices](CHANGELOG.md#changelog-best-practices))
-- Update documentation when asset conventions change: global guides in `docs/` and colocated specs in `src/*/README.md` (see [`docs/README.md`](docs/README.md)). Any **multi-section** Markdown file in the repo should include a **Table of contents** linking each `##` section ([`CHANGELOG.md`](CHANGELOG.md) and one-section stubs exempt); see [`.cursor/rules/static-assets-and-docs.mdc`](.cursor/rules/static-assets-and-docs.mdc).
+- Update documentation when asset conventions change: global guides in `docs/` and colocated specs in `src/*/README.md` (see [`docs/README.md`](docs/README.md)). Any **multi-section** Markdown file in the repo should include a **Table of contents** linking each `##` section ([`CHANGELOG.md`](CHANGELOG.md) and one-section stubs exempt).
 
 **4. Git Hygiene**
 
 - Commit messages follow the convention above
-- Branch is up to date with `main`
+- Branch is up to date with `develop`
 - No accidental commits (large files, secrets, personal configs)
 
 #### 5.2. Opening a Pull Request
@@ -262,9 +280,9 @@ Before submitting a Pull Request:
 
 ### 6. Releasing _(For Maintainers)_
 
-Releases are created from the `main` branch. A GitHub Actions workflow publishes to GitHub Packages when a version tag is pushed and **creates a GitHub Release** for that tag (generated notes, for watcher notifications).
+Releases are cut from `develop`. A GitHub Actions workflow publishes to npm (trusted publishing, with provenance) when a version tag is pushed and **creates a GitHub Release** for that tag (generated notes, for watcher notifications).
 
-Run the release script from `main` with a clean working tree:
+From a clean `develop`, in sync with `origin/develop`:
 
 ```bash
 pnpm run release patch   # 1.0.0 -> 1.0.1
@@ -272,16 +290,32 @@ pnpm run release minor   # 1.0.0 -> 1.1.0
 pnpm run release major   # 1.0.0 -> 2.0.0
 ```
 
-The script (`scripts/release.sh`) does the following in one shot:
+The script (`scripts/release.sh`):
 
-1. Validates you're on `main` with a clean working tree
-2. Bumps the version in `package.json`
+1. Validates you're on `develop` with a clean working tree, in sync with `origin/develop`
+2. Creates `release/<version>` and bumps the version in `packages/brand/package.json`
 3. Stamps `CHANGELOG.md` — replaces `[Unreleased]` with the new version and today's date, keeping an empty `[Unreleased]` section for future PRs
-4. Commits `package.json`, `pnpm-lock.yaml`, and `CHANGELOG.md`
-5. Creates a git tag `v<version>`
-6. Pushes the commit and tag
+4. Commits `package.json`, `pnpm-lock.yaml`, and `CHANGELOG.md`, pushes the branch
+5. Opens two PRs: `release/<version>` → `main` and `release/<version>` → `develop`
 
-Publishing to GitHub Packages and creating the GitHub Release start automatically once the tag is pushed.
+Once the `main` PR merges, tag it from an up-to-date `main`:
+
+```bash
+git checkout main && git pull
+pnpm run tag-release
+```
+
+`scripts/tag-release.sh` tags `v<version>` from `packages/brand/package.json` and pushes the tag, which starts publishing to npm and creates the GitHub Release. Then merge the companion PR into `develop`.
+
+### 7. Hotfixing _(For Maintainers)_
+
+For an urgent fix to a published version, without pulling in unreleased `develop` work:
+
+```bash
+git checkout -b hotfix/<name> main
+```
+
+Commit the fix, bump `packages/brand/package.json`'s patch version and stamp `CHANGELOG.md` by hand, then open two PRs: `hotfix/<name>` → `main` and `hotfix/<name>` → `develop`. Once the `main` PR merges, run `pnpm run tag-release` from `main`, then merge the companion `develop` PR.
 
 ## License & Attribution
 

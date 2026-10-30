@@ -22,43 +22,8 @@ The portfolio website content lives in **[the-music-tree-frontend](https://githu
 
 ## Install
 
-The package is published to **[GitHub Packages](https://github.com/orgs/BehindTheMusicTree/packages)** under the scope **`@behindthemusictree`**. npm must use GitHub’s registry for that scope, and you must authenticate (GitHub does not allow anonymous installs for this registry the way the public npm registry does).
+The package is published to the public **[npm registry](https://www.npmjs.com/package/@behindthemusictree/brand)** with [provenance](https://docs.npmjs.com/generating-provenance-statements). No `.npmrc` or token is needed.
 
-### 1. Point the scope at GitHub Packages
-
-Put the **registry mapping** in your **consumer app repository** so teammates and CI get the same scope resolution. In the **app repo root**, add or merge into **`.npmrc`**:
-
-```ini
-@behindthemusictree:registry=https://npm.pkg.github.com
-```
-
-That line has no secrets — **commit** it. Keep tokens out of this file (step 2).
-
-If you truly do not want a committed **`.npmrc`**, you can put only that registry line in **`~/.npmrc`** instead, but then every environment must repeat the same scope config.
-
-### 2. Provide a token
-
-Create a **[classic Personal Access Token](https://github.com/settings/tokens)** with the **`read:packages`** scope. If the package or its repository is private to the org, you may also need **`repo`** (see [GitHub’s npm docs](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)).
-
-Put the **token in a different config file** than the app repo’s **`.npmrc`**, so it never gets committed. The usual choice is your **user-level** **`~/.npmrc`** (npm merges project + user **`.npmrc`**):
-
-```ini
-//npm.pkg.github.com/:_authToken=YOUR_GITHUB_TOKEN_HERE
-```
-
-To avoid a literal token in any file, use an environment variable (works well with **direnv**, local shell exports, and CI) — still typically in **`~/.npmrc`**:
-
-```ini
-//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
-```
-
-Then export **`NODE_AUTH_TOKEN`** (or **`GITHUB_TOKEN`** in some setups) before running **`pnpm add`**.
-
-If you cannot use **`~/.npmrc`**, a **gitignored** **`.npmrc`** in the app repo that contains **only** the **`_authToken`** line is possible, but splitting **registry (committed repo)** and **token (user home or secret store)** is the safer default.
-
-**GitHub Actions:** configure **`actions/setup-node`** with **`registry-url: 'https://npm.pkg.github.com'`** and pass **`NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}`** (or a PAT with **`read:packages`** in **`secrets`**) so the job can install dependencies that pull this package. See [Using packages in Actions](https://docs.github.com/en/packages/learn-github-packages/about-permissions-for-github-packages#about-scopes-and-permissions-for-package-registries).
-
-### 3. Install
 
 ```bash
 pnpm add @behindthemusictree/brand
@@ -82,7 +47,7 @@ import { colors, spacing } from "@themusictree/marks/tokens";
 import "@behindthemusictree/brand/styles";
 ```
 
-**TheMusicTreeByline** — single clickable **SVG knockout** (transparent outside the horizontal lockup; link and image use **`backgroundColor: transparent`**). The **`href`** is **not a prop**: when **this package** is built for publish, **`ORG_DOMAIN`** (hostname, no protocol) is read from GitHub repository variable **`DOMAIN_NAME`** and **embedded in `dist/`** via **tsup `define`**. **Consuming apps** normally need **no** **`ORG_DOMAIN`** env — they install a pre-built package from GitHub Packages. **Maintainers:** configure GitHub repository variable **`DOMAIN_NAME`** for **`.github/workflows/publish.yml`** (see **Publishing** below); locally, set **`ORG_DOMAIN`** in **`playground/.env`** when running **`pnpm run build`** / **`pnpm run dev`**. **`resolveOrgSiteHref()`** and **`parseOrgSiteHref()`** are exported if you need the same URL string in app code. Default variant uses **`the-music-tree-lockup-horizontal.svg`**; **`variant="onDark"`** uses **`the-music-tree-lockup-horizontal-dark.svg`**. Default display height **56px**, width **auto**. **Web-sized PNGs** (**`the-music-tree-lockup-horizontal.png`** / **`-dark.png`**) ship for raster-only contexts (email, CMS); import from **`@behindthemusictree/brand/marks/the-music-tree/...`**.
+**TheMusicTreeByline** — single clickable **SVG knockout** (transparent outside the horizontal lockup; link and image use **`backgroundColor: transparent`**). The **`href`** is **not a prop**: when **this package** is built for publish, **`ORG_DOMAIN`** (hostname, no protocol) is read from GitHub repository variable **`DOMAIN_NAME`** and **embedded in `dist/`** via **tsup `define`**. **Consuming apps** normally need **no** **`ORG_DOMAIN`** env — they install a pre-built package from npm. **Maintainers:** configure GitHub repository variable **`DOMAIN_NAME`** for **`.github/workflows/publish.yml`** (see **Publishing** below); locally, set **`ORG_DOMAIN`** in **`playground/.env`** when running **`pnpm run build`** / **`pnpm run dev`**. **`resolveOrgSiteHref()`** and **`parseOrgSiteHref()`** are exported if you need the same URL string in app code. Default variant uses **`the-music-tree-lockup-horizontal.svg`**; **`variant="onDark"`** uses **`the-music-tree-lockup-horizontal-dark.svg`**. Default display height **56px**, width **auto**. **Web-sized PNGs** (**`the-music-tree-lockup-horizontal.png`** / **`-dark.png`**) ship for raster-only contexts (email, CMS); import from **`@behindthemusictree/brand/marks/the-music-tree/...`**.
 
 ```tsx
 import { TheMusicTreeByline } from "@behindthemusictree/brand/components";
@@ -132,13 +97,13 @@ Ensure design tokens are loaded (e.g. import `@behindthemusictree/brand/styles` 
 
 ## Publishing
 
-A GitHub Actions workflow automatically publishes to GitHub Packages whenever a version tag is pushed. To cut a new version:
+A GitHub Actions workflow automatically publishes to npm (trusted publishing, no token) whenever a version tag is pushed. To cut a new version, from `develop`:
 
 ```bash
 pnpm run release patch   # or minor / major
 ```
 
-This bumps the version, stamps the changelog, commits, tags, and pushes. Publishing starts automatically. See [CONTRIBUTING.md](CONTRIBUTING.md#6-releasing-for-maintainers) for details.
+This creates `release/<version>`, bumps the version, stamps the changelog, and opens PRs into `main` and `develop`. Once the `main` PR merges, run `pnpm run tag-release` on `main` to tag and start publishing. See [CONTRIBUTING.md](CONTRIBUTING.md#6-releasing-for-maintainers) for details.
 
 The **Publish** workflow passes every key in **`publish.yml`**'s **`pnpm run build`** **`env`** block ( **`ORG_DOMAIN`** from GitHub repository variable **`DOMAIN_NAME`**, **`ORG_GITHUB_SPONSOR_BUTTON_URL`**, and all playground social URLs—see **`playground/.env.example`**). Define the matching **GitHub repository variables** or the build fails. **tsup** inlines **`ORG_DOMAIN`**, **`ORG_GITHUB_SPONSOR_BUTTON_URL`**, and those social URLs into **`dist/`** (lockup, **`GithubSponsorButton`** iframe, and **`Social*Link`** defaults); **`scripts/assert-org-url.mjs`** enforces the same keys locally and in CI.
 

@@ -12,6 +12,7 @@
     "dev": "pnpm --parallel --filter @behindthemusictree/brand --filter brand-playground dev",
     "build": "pnpm -r build",
     "release": "bash scripts/release.sh",
+    "tag-release": "bash scripts/tag-release.sh",
     "test": "pnpm --filter @behindthemusictree/brand test"
   },
   "keywords": [

@@ -1,13 +1,14 @@
 {
   "name": "@behindthemusictree/brand",
-  "version": "12.8.0",
+  "version": "12.9.0",
   "description": "Shared assets (components, tokens, marks, styles) for React projects",
   "repository": {
     "type": "git",
     "url": "https://github.com/BehindTheMusicTree/the-music-tree-brand.git"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
   },
   "type": "module",
   "main": "./dist/index.js",

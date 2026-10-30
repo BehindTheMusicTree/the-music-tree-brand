@@ -4,7 +4,7 @@ set -euo pipefail
 BUMP="${1:-}"
 
 if [[ -z "$BUMP" ]]; then
-  echo "Usage: pnpm run release -- <patch|minor|major>"
+  echo "Usage: pnpm run release <patch|minor|major>"
   exit 1
 fi
 
@@ -14,8 +14,8 @@ if [[ "$BUMP" != "patch" && "$BUMP" != "minor" && "$BUMP" != "major" ]]; then
 fi
 
 BRANCH=$(git rev-parse --abbrev-ref HEAD)
-if [[ "$BRANCH" != "main" ]]; then
-  echo "Error: releases must be cut from main (currently on '$BRANCH')"
+if [[ "$BRANCH" != "develop" ]]; then
+  echo "Error: releases must be cut from develop (currently on '$BRANCH')"
   exit 1
 fi
 
@@ -24,10 +24,20 @@ if [[ -n "$(git status --porcelain)" ]]; then
   exit 1
 fi
 
+git fetch origin main develop
+if [[ "$(git rev-parse develop)" != "$(git rev-parse origin/develop)" ]]; then
+  echo "Error: local develop is not in sync with origin/develop — pull first"
+  exit 1
+fi
+
 OLD_VERSION=$(node -p "require('./packages/brand/package.json').version")
 (cd packages/brand && npm version "$BUMP" --no-git-tag-version > /dev/null)
 NEW_VERSION=$(node -p "require('./packages/brand/package.json').version")
 TODAY=$(date +%Y-%m-%d)
+
+RELEASE_BRANCH="release/$NEW_VERSION"
+git checkout -b "$RELEASE_BRANCH"
+
 pnpm install --lockfile-only
 
 # Replace only the *changelog entries* ## [Unreleased] (2nd occurrence): the 1st may be inside
@@ -50,9 +60,19 @@ fs.writeFileSync('CHANGELOG.md', s);
 
 git add packages/brand/package.json pnpm-lock.yaml CHANGELOG.md
 git commit -m "chore: release $NEW_VERSION"
-git tag -a "v$NEW_VERSION" -m "v$NEW_VERSION"
-git push --follow-tags
+
+git push -u origin "$RELEASE_BRANCH"
+
+gh pr create --base main --head "$RELEASE_BRANCH" \
+  --title "Release v$NEW_VERSION" \
+  --body "Release v$NEW_VERSION ($OLD_VERSION -> $NEW_VERSION). After this merges, run \`pnpm run tag-release\` on \`main\` to tag and trigger the publish workflow, then merge the companion PR into \`develop\`."
+
+gh pr create --base develop --head "$RELEASE_BRANCH" \
+  --title "Release v$NEW_VERSION (merge back into develop)" \
+  --body "Merges release/$NEW_VERSION back into develop alongside the main PR."
+
+git checkout develop
 
 echo ""
-echo "Released v$NEW_VERSION ($OLD_VERSION -> $NEW_VERSION)"
-echo "Publishing to GitHub Packages will start automatically."
+echo "Opened PRs for v$NEW_VERSION ($OLD_VERSION -> $NEW_VERSION) into main and develop."
+echo "Once the main PR merges, run: pnpm run tag-release"
