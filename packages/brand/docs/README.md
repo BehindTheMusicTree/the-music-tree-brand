@@ -13,7 +13,7 @@ Start here for naming, formats, and where specs live.
 
 ## Installing the package
 
-**`@behindthemusictree/brand`** is published to GitHub Packages. Registry configuration, authentication (local machine and GitHub Actions), and **`pnpm add`** commands are documented in the repository root **[README — Install](../README.md#install)**.
+**`@behindthemusictree/brand`** is published to the public npm registry. **`pnpm add`** commands are documented in the repository root **[README — Install](../README.md#install)**.
 
 ## Naming
 

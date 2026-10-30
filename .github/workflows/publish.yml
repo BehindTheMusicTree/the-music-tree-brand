@@ -1,4 +1,4 @@
-name: Publish to GitHub Packages
+name: Publish to npm
 
 on:
   push:
@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      packages: write
+      id-token: write
     steps:
       - uses: actions/checkout@v5
 
@@ -18,8 +18,7 @@ jobs:
 
       - uses: actions/setup-node@v5
         with:
-          node-version: 22
-          registry-url: https://npm.pkg.github.com
+          node-version: 24
 
       - run: pnpm install --frozen-lockfile
 
@@ -50,9 +49,10 @@ jobs:
           TMD_GAME_SUBDOMAIN: ${{ vars.TMD_GAME_SUBDOMAIN }}
           TMD_SHOWCASE_SUBDOMAIN: ${{ vars.TMD_SHOWCASE_SUBDOMAIN }}
 
-      - run: pnpm --filter @behindthemusictree/brand publish --no-git-checks
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # pnpm pack rewrites workspace:/catalog: specifiers; npm >= 11.5.1 publishes via trusted publishing (OIDC).
+      - run: npm install -g npm@11.6.2
+      - run: pnpm --filter @behindthemusictree/brand pack --pack-destination "$RUNNER_TEMP"
+      - run: npm publish "$RUNNER_TEMP"/behindthemusictree-brand-*.tgz --provenance --access public
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2

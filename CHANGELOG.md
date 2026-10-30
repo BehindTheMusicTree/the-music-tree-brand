@@ -57,6 +57,7 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ### Changed
 
+- **Registry**: published to the public npm registry via trusted publishing (OIDC) with provenance, instead of GitHub Packages. Consumers no longer need a token or a `@behindthemusictree` registry line in `.npmrc`. The playground Vercel sync no longer pushes the unused `GH_PACKAGES_TOKEN`.
 - **Strict Gitflow**: `develop` is now the default branch; `pnpm run release <bump>` cuts `release/<version>` from `develop` and opens PRs into `main` and `develop`, and the new `pnpm run tag-release` tags `main` after the release PR merges. The `release.sh` usage message no longer shows the `--` separator.
 
 ### Documentation
