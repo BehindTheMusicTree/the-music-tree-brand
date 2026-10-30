@@ -280,7 +280,7 @@ Before submitting a Pull Request:
 
 ### 6. Releasing _(For Maintainers)_
 
-Releases are cut from `develop`. A GitHub Actions workflow publishes to npm (trusted publishing, with provenance) when a version tag is pushed and **creates a GitHub Release** for that tag (generated notes, for watcher notifications).
+Releases are cut from `develop`. A GitHub Actions workflow **stages** the version on npm (trusted publishing, with provenance) when a version tag is pushed and **creates a GitHub Release** for that tag (generated notes, for watcher notifications). The staged version goes live only once a maintainer approves it with 2FA: `npm stage list @behindthemusictree/brand`, then `npm stage approve <stage-id>` (or the package's page on npmjs.com).
 
 From a clean `develop`, in sync with `origin/develop`:
 

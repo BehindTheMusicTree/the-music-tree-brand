@@ -55,6 +55,10 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ## [Unreleased]
 
+### CI
+
+- **Staged publishing**: the publish workflow now stages each version on npm (`npm stage publish`, npm 11.21.1) and a maintainer approves it with 2FA, so a compromised workflow or tag push can't ship a version on its own. Workflow actions are pinned by commit SHA. 12.9.0 was never published to npm: its run used direct publish, which the trusted publisher rejects.
+
 ## [12.9.0] - 2026-10-30
 
 ### Changed
