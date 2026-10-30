@@ -55,6 +55,10 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ## [Unreleased]
 
+### CI
+
+- **Release scripts**: `tag-release` and the release PR body now remind the maintainer to approve the staged npm version; the validate and playground-env workflows pin their actions by commit SHA. CONTRIBUTING covers the approval retry and rejecting a duplicate stage.
+
 ## [12.9.1] - 2026-10-30
 
 ### CI
