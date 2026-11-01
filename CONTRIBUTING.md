@@ -146,8 +146,8 @@ catalog reads marks, banners and favicons from `packages/brand/src` through the
 The package build embeds environment values into `packages/brand/dist`. It can
 build with missing values, which are embedded as empty strings; export the values
 needed for the component being previewed before building or starting the watcher.
-The example `packages/brand/.env.example` includes keys that are not all embedded;
-consult `packages/brand/tsup.config.ts` for the values actually passed to tsup. Restart the watcher after
+See `packages/brand/.env.example` for example keys and
+`packages/brand/tsup.config.ts` for the values embedded by the build. Restart the watcher after
 changing shell variables. Published builds get their values from the repository
 variables mapped in `.github/workflows/publish.yml`.
 

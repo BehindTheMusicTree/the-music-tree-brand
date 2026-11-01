@@ -55,6 +55,10 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ## [Unreleased]
 
+### Fixed
+
+- Embed GitHub repository names in the published package so repository URLs work in browser consumers.
+
 ### Documentation
 
 - Update setup and playground guides for the current workspace and build-time configuration.
