@@ -11,9 +11,7 @@ PRs. Record changes under `[Unreleased]` in `CHANGELOG.md`.
 
 The current pnpm workspace contains the library in `packages/brand` and a Vite
 playground in `apps/playground`. Use the scripts in the root `package.json`:
-`pnpm build`, `pnpm test` and `pnpm dev`. The existing README and contributing
-setup sections also describe an older `playground/` layout and commands that no
-longer exist; check the workspace scripts and package configuration before
-following those setup instructions. Package build configuration embeds selected
-environment values into `dist`; inspect `packages/brand/tsup.config.ts` and the
-publish workflow when changes affect those values.
+`pnpm build`, `pnpm test` and `pnpm dev`. See the README for build-time
+environment values and playground setup. Package build configuration embeds
+selected environment values into `dist`; inspect `packages/brand/tsup.config.ts`
+and the publish workflow when changes affect those values.

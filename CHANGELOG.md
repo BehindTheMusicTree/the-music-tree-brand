@@ -57,6 +57,7 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ### Documentation
 
+- Update setup and playground guides for the current workspace and build-time configuration.
 - Share project guidance across Claude and Codex and check adapter consistency in CI.
 
 ### CI
