@@ -14,7 +14,7 @@ The portfolio website content lives in **[the-music-tree-frontend](https://githu
 
 - **components** – Reusable brand-identity React components (e.g. `TheMusicTreeByline`, `GithubSponsorButton`). Generic UI primitives (buttons, inputs, tables...) live in [`@behindthemusictree/ui`](https://github.com/BehindTheMusicTree/ui) instead.
 - **tokens** – Design tokens (colors, spacing, radius) as CSS vars and JS
-- **marks** – Static marks, lockups, and wordmarks ([`docs/asset-naming.md`](docs/asset-naming.md), [`src/marks/README.md`](src/marks/README.md))
+- **marks** – Static marks, lockups, and wordmarks ([`packages/brand/docs/asset-naming.md`](packages/brand/docs/asset-naming.md), [`packages/brand/src/marks/README.md`](packages/brand/src/marks/README.md))
 - **favicons** – Per-project favicon bundles (`src/favicons/<project>/`)
 - **styles** – Global resets and shared CSS (import tokens)
 - **hooks** – Shared React hooks
@@ -43,11 +43,11 @@ Use subpath imports so apps only pull what they need:
 
 ```tsx
 import { TheMusicTreeByline } from "@behindthemusictree/brand/components";
-import { colors, spacing } from "@themusictree/marks/tokens";
+import { colors, spacing } from "@behindthemusictree/brand";
 import "@behindthemusictree/brand/styles";
 ```
 
-**TheMusicTreeByline** — single clickable **SVG knockout** (transparent outside the horizontal lockup; link and image use **`backgroundColor: transparent`**). The **`href`** is **not a prop**: when **this package** is built for publish, **`ORG_DOMAIN`** (hostname, no protocol) is read from GitHub repository variable **`DOMAIN_NAME`** and **embedded in `dist/`** via **tsup `define`**. **Consuming apps** normally need **no** **`ORG_DOMAIN`** env — they install a pre-built package from npm. **Maintainers:** configure GitHub repository variable **`DOMAIN_NAME`** for **`.github/workflows/publish.yml`** (see **Publishing** below); locally, set **`ORG_DOMAIN`** in **`playground/.env`** when running **`pnpm run build`** / **`pnpm run dev`**. **`resolveOrgSiteHref()`** and **`parseOrgSiteHref()`** are exported if you need the same URL string in app code. Default variant uses **`the-music-tree-lockup-horizontal.svg`**; **`variant="onDark"`** uses **`the-music-tree-lockup-horizontal-dark.svg`**. Default display height **56px**, width **auto**. **Web-sized PNGs** (**`the-music-tree-lockup-horizontal.png`** / **`-dark.png`**) ship for raster-only contexts (email, CMS); import from **`@behindthemusictree/brand/marks/the-music-tree/...`**.
+**TheMusicTreeByline** — single clickable **SVG knockout** (transparent outside the horizontal lockup; link and image use **`backgroundColor: transparent`**). The **`href`** is **not a prop**: when **this package** is built for publish, **`ORG_DOMAIN`** (hostname, no protocol) is read from GitHub repository variable **`DOMAIN_NAME`** and **embedded in `dist/`** via **tsup `define`**. **Consuming apps** normally need **no** **`ORG_DOMAIN`** env — they install a pre-built package from npm. **Maintainers:** configure GitHub repository variable **`DOMAIN_NAME`** for **`.github/workflows/publish.yml`** (see **Publishing** below); locally, export **`ORG_DOMAIN`** before running **`pnpm build`** or **`pnpm dev`**. **`resolveOrgSiteHref()`** and **`parseOrgSiteHref()`** are exported if you need the same URL string in app code. Default variant uses **`the-music-tree-lockup-horizontal.svg`**; **`variant="onDark"`** uses **`the-music-tree-lockup-horizontal-dark.svg`**. Default display height **56px**, width **auto**. **Web-sized PNGs** (**`the-music-tree-lockup-horizontal.png`** / **`-dark.png`**) ship for raster-only contexts (email, CMS); import from **`@behindthemusictree/brand/marks/the-music-tree/...`**.
 
 ```tsx
 import { TheMusicTreeByline } from "@behindthemusictree/brand/components";
@@ -70,7 +70,7 @@ Project favicon bundle:
 import faviconSvg from "@behindthemusictree/brand/favicons/behind-the-music-tree/favicon.svg";
 ```
 
-Naming rules: [`docs/asset-naming.md`](docs/asset-naming.md); mark formats: [`src/marks/README.md`](src/marks/README.md).
+Naming rules: [`packages/brand/docs/asset-naming.md`](packages/brand/docs/asset-naming.md); mark formats: [`packages/brand/src/marks/README.md`](packages/brand/src/marks/README.md).
 
 **DocLink**, **DiscussionLink**, and **InformationLink** (and `*Colored` variants) are styled icon links for documentation, discussion, and general information. They have **no URL baked in at package build** — pass **`href`** (and optional **`text`**, **`showText`**) from your app. Import **`@behindthemusictree/brand/styles/icon-links.css`** once for the default tile and pill styles.
 
@@ -93,7 +93,7 @@ Or from the main entry:
 import { TheMusicTreeByline, colors } from "@behindthemusictree/brand";
 ```
 
-Ensure design tokens are loaded (e.g. import `@behindthemusictree/brand/styles` once in your app root, or import `@behindthemusictree/brand/tokens` and include the tokens CSS in your build).
+Ensure design tokens are loaded (e.g. import `@behindthemusictree/brand/styles` once in your app root, or import `@behindthemusictree/brand/tokens/theme.css` directly).
 
 ## Publishing
 
@@ -105,20 +105,43 @@ pnpm run release patch   # or minor / major
 
 This creates `release/<version>`, bumps the version, stamps the changelog, and opens PRs into `main` and `develop`. Once the `main` PR merges, run `pnpm run tag-release` on `main` to tag and stage the version on npm, then approve it with `npm stage approve <stage-id>` (2FA). See [CONTRIBUTING.md](CONTRIBUTING.md#6-releasing-for-maintainers) for details.
 
-The **Publish** workflow passes every key in **`publish.yml`**'s **`pnpm run build`** **`env`** block ( **`ORG_DOMAIN`** from GitHub repository variable **`DOMAIN_NAME`**, **`ORG_GITHUB_SPONSOR_BUTTON_URL`**, and all playground social URLs—see **`playground/.env.example`**). Define the matching **GitHub repository variables** or the build fails. **tsup** inlines **`ORG_DOMAIN`**, **`ORG_GITHUB_SPONSOR_BUTTON_URL`**, and those social URLs into **`dist/`** (lockup, **`GithubSponsorButton`** iframe, and **`Social*Link`** defaults); **`scripts/assert-org-url.mjs`** enforces the same keys locally and in CI.
+The [publish workflow](.github/workflows/publish.yml) supplies the build-time
+variables from GitHub repository variables (including `DOMAIN_NAME` as
+`ORG_DOMAIN`). `packages/brand/tsup.config.ts` embeds selected values into the
+package. Check the workflow and build configuration when updating those values.
 
 ## Build
 
+From the repository root:
+
 ```bash
 pnpm install
-cp playground/.env.example playground/.env   # then edit values
-pnpm run build
+pnpm build
+pnpm test
 ```
 
-**`scripts/assert-org-url.mjs`** requires **`playground/.env`** (or equivalent shell exports) to define **`ORG_DOMAIN`**, **`ORG_GITHUB_SPONSOR_BUTTON_URL`**, and every playground social key listed in **`playground/.env.example`**. None of these are needed in downstream apps that install the published package. Output is in **`dist/`**.
+The workspace builds the package into `packages/brand/dist` and then builds the
+playground. The build does not require an environment file, but missing build-time
+values are embedded as empty strings. Export the values needed for the components
+you are testing before building. `packages/brand/.env.example` shows example
+keys; only values configured in `packages/brand/tsup.config.ts` are embedded.
+For example, `ORG_DOMAIN` is needed for the byline's default link. Consumers of a
+published package do not need these variables to use its prebuilt output.
 
 ## Local development
 
-From this repo: `pnpm link --global`. In your React app: `pnpm link --global @behindthemusictree/brand`. Use a filled **`playground/.env`** (or export the same keys) for **`pnpm run dev`**—same **`assert-org-url`** gate as **`pnpm run build`**.
+After installing dependencies, export the organization domain, build once and
+start the library watcher and Vite playground together. Without `ORG_DOMAIN`,
+the organization link components throw when rendered:
 
-**Playground:** `pnpm run playground` merges **`playground/.env`** into the environment for the root **`pnpm run build`**, then starts the Vite dev server. Every key in **`playground/.env.example`** is required for that root build.
+```bash
+export ORG_DOMAIN=themusictree.org
+pnpm build
+pnpm dev
+```
+
+The playground lives in `apps/playground` and serves on port 5174 with a strict
+port setting. The library watcher rebuilds `packages/brand/dist` as source changes;
+static asset previews read the package's `src` directories. Set the build-time
+variables in the shell before starting the watcher, and restart it after changing
+them so the package is rebuilt with the new values.
