@@ -24,12 +24,16 @@ jobs:
 
       - run: pnpm --filter @behindthemusictree/brand run build
         env:
-          # Required repository variables — enforced by scripts/assert-org-url.mjs (CI: env only; local: merge with playground/.env)
+          # Build-time values are embedded in the published package.
           ORG_DOMAIN: ${{ vars.DOMAIN_NAME }}
           ORG_NAME: ${{ vars.ORG_NAME }}
           ORG_GITHUB_SPONSOR_BUTTON_URL: ${{ vars.ORG_GITHUB_SPONSOR_BUTTON_URL }}
           ORG_GITHUB_URL: ${{ vars.ORG_GITHUB_URL }}
           HTMT_API_REPO_NAME: ${{ vars.HTMT_API_REPO_NAME }}
+          GTMT_API_REPO_NAME: ${{ vars.GTMT_API_REPO_NAME }}
+          GTMT_FRONT_REPO_NAME: grow-the-music-tree-frontend
+          TMD_ADMIN_API_REPO_NAME: ${{ vars.TMD_ADMIN_REPO_NAME }}
+          TMD_ADMIN_REPO_NAME: ${{ vars.TMD_ADMIN_REPO_NAME }}
           ORG_PYPI_URL: ${{ vars.ORG_PYPI_URL }}
           ORG_LINKEDIN_URL: ${{ vars.ORG_LINKEDIN_URL }}
           ORG_X_URL: ${{ vars.ORG_X_URL }}

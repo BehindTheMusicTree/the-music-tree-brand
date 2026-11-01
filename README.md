@@ -124,7 +124,7 @@ The workspace builds the package into `packages/brand/dist` and then builds the
 playground. The build does not require an environment file, but missing build-time
 values are embedded as empty strings. Export the values needed for the components
 you are testing before building. `packages/brand/.env.example` shows example
-keys; only values configured in `packages/brand/tsup.config.ts` are embedded.
+keys; values read by the package are embedded by `packages/brand/tsup.config.ts`.
 For example, `ORG_DOMAIN` is needed for the byline's default link. Consumers of a
 published package do not need these variables to use its prebuilt output.
 
