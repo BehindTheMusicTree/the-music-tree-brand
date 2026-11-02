@@ -103,7 +103,7 @@ A GitHub Actions workflow automatically publishes to npm (trusted publishing, no
 pnpm run release patch   # or minor / major
 ```
 
-This creates `release/<version>`, bumps the version, stamps the changelog, and opens PRs into `main` and `develop`. Once the `main` PR merges, run `pnpm run tag-release` on `main` to tag and stage the version on npm, then approve it with `npm stage approve <stage-id>` (2FA). See [CONTRIBUTING.md](CONTRIBUTING.md#6-releasing-for-maintainers) for details.
+This creates `release/<version>`, bumps the version, stamps the changelog, and opens PRs into `main` and `develop`. Once the `main` PR merges, run `pnpm run tag-release` on `main` to tag and publish the version on npm. See [CONTRIBUTING.md](CONTRIBUTING.md#6-releasing-for-maintainers) for details.
 
 The [publish workflow](.github/workflows/publish.yml) supplies the build-time
 variables from GitHub repository variables (including `DOMAIN_NAME` as

@@ -55,6 +55,10 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ## [Unreleased]
 
+### Changed
+
+- Publish workflow: publish directly with `npm publish` instead of staging, so releases need no manual 2FA approval.
+
 ### Fixed
 
 - Embed GitHub repository names in the published package so repository URLs work in browser consumers.
