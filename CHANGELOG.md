@@ -55,6 +55,8 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ## [Unreleased]
 
+## [12.9.2] - 2026-11-03
+
 ### Changed
 
 - Publish workflow: publish directly with `npm publish` instead of staging, so releases need no manual 2FA approval.
@@ -70,7 +72,7 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ### CI
 
-- **Release scripts**: `tag-release` and the release PR body now remind the maintainer to approve the staged npm version; the validate and playground-env workflows pin their actions by commit SHA. CONTRIBUTING covers the approval retry and rejecting a duplicate stage.
+- **Release scripts**: `tag-release` and the release PR body no longer ask for approving a staged npm version, since publishing is direct; the validate and playground-env workflows pin their actions by commit SHA. CONTRIBUTING no longer describes the approval retry.
 
 ## [12.9.1] - 2026-10-30
 
