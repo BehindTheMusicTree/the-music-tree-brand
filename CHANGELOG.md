@@ -41,6 +41,10 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 - **Center insets**: `--layout-center-left` / `--layout-center-right` now derive from `--layout-left-w` / `--layout-right-w` plus the edge tab width, so a consumer can collapse a column by setting its width to `0px`.
 - **Center collapse breakpoint**: the center insets collapse to the gutter below `80rem` (was `64rem`).
 
+### Fixed
+
+- `.env.example`: `GTMT_FRONT_REPO_NAME` now matches the real repository name (`grow-the-music-tree-frontend`).
+
 ### Added
 
 - **Semantic tokens**: `--color-surface`, `--color-surface-muted`, `--color-border`, `--color-focus-ring`, `--color-accent-rating`, a type scale (`--text-xs/sm/base`, `--leading-tight/normal`) and a `[data-theme="dark"]` override of text, surface and border tokens
