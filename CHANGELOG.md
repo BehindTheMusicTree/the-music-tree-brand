@@ -55,6 +55,8 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ## [Unreleased]
 
+## [12.9.2] - 2026-11-03
+
 ### Changed
 
 - Publish workflow: publish directly with `npm publish` instead of staging, so releases need no manual 2FA approval.
