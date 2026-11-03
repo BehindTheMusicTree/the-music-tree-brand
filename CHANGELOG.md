@@ -55,6 +55,25 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ## [Unreleased]
 
+## [12.9.2] - 2026-11-03
+
+### Changed
+
+- Publish workflow: publish directly with `npm publish` instead of staging, so releases need no manual 2FA approval.
+
+### Fixed
+
+- Embed GitHub repository names in the published package so repository URLs work in browser consumers.
+
+### Documentation
+
+- Update setup and playground guides for the current workspace and build-time configuration.
+- Share project guidance across Claude and Codex and check adapter consistency in CI.
+
+### CI
+
+- **Release scripts**: `tag-release` and the release PR body no longer ask for approving a staged npm version, since publishing is direct; the validate and playground-env workflows pin their actions by commit SHA. CONTRIBUTING no longer describes the approval retry.
+
 ## [12.9.1] - 2026-10-30
 
 ### CI

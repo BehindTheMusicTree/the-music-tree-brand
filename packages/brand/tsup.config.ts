@@ -102,18 +102,11 @@ export default defineConfig({
     "process.env.HTMT_API_GITHUB_URL": JSON.stringify(
       buildEnv.HTMT_API_GITHUB_URL ?? "",
     ),
-    "process.env.TMD_ADMIN_API_GITHUB_URL": JSON.stringify(
-      buildEnv.TMD_ADMIN_API_GITHUB_URL ?? "",
-    ),
-    "process.env.GTMT_API_GITHUB_URL": JSON.stringify(
-      buildEnv.ORG_GITHUB_URL ?? "",
-    ),
-    "process.env.GTMT_FRONT_GITHUB_URL": JSON.stringify(
-      buildEnv.ORG_GITHUB_URL ?? "",
-    ),
-    "process.env.TMD_ADMIN_GITHUB_URL": JSON.stringify(
-      buildEnv.ORG_GITHUB_URL ?? "",
-    ),
+    "process.env.HTMT_API_REPO_NAME": JSON.stringify(buildEnv.HTMT_API_REPO_NAME ?? ""),
+    "process.env.TMD_ADMIN_API_REPO_NAME": JSON.stringify(buildEnv.TMD_ADMIN_API_REPO_NAME ?? ""),
+    "process.env.GTMT_API_REPO_NAME": JSON.stringify(buildEnv.GTMT_API_REPO_NAME ?? ""),
+    "process.env.GTMT_FRONT_REPO_NAME": JSON.stringify(buildEnv.GTMT_FRONT_REPO_NAME ?? ""),
+    "process.env.TMD_ADMIN_REPO_NAME": JSON.stringify(buildEnv.TMD_ADMIN_REPO_NAME ?? ""),
     "process.env.ORG_PYPI_URL": orgPypiUrlLiteral,
     "process.env.ORG_LINKEDIN_URL": orgLinkedinUrlLiteral,
     "process.env.ORG_X_URL": orgXUrlLiteral,

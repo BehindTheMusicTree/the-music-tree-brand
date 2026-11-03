@@ -30,5 +30,5 @@ git tag -a "$TAG" -m "$TAG"
 git push origin "$TAG"
 
 echo ""
-echo "Tagged and pushed $TAG — the publish workflow will run and publish to npm."
+echo "Tagged and pushed $TAG — the publish workflow will publish it on npm."
 echo "Don't forget to merge the release PR into develop if you haven't already."

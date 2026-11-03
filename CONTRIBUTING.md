@@ -72,7 +72,7 @@ The maintainer(s) are responsible for:
 
    ```bash
    git clone https://github.com/YOUR-USERNAME/the-music-tree-brand.git
-   cd the-music-tree-marks
+   cd the-music-tree-brand
    ```
 
 **For maintainers:**
@@ -125,31 +125,31 @@ To depend on a **published** version from npm (instead of `pnpm link --global`),
 
 #### Component and asset preview (playground)
 
-The `playground/` app is a dev-only Vite catalog of published components and files under `dist/` (marks, banners, favicons). It is not part of the npm package `files` list.
-
-One-time setup after clone (or when `playground/package.json` dependencies change):
-
-```bash
-pnpm run playground:install
-```
-
-Copy **`playground/.env.example`** to **`playground/.env`** and set **every** key before **`pnpm run playground`** or **`pnpm run build`**. **`scripts/run-playground.mjs`** merges **`playground/.env`** into the environment for the root **`pnpm run build`** (shell overrides file). **`scripts/assert-org-url.mjs`** requires **`ORG_DOMAIN`**, **`ORG_GITHUB_SPONSOR_BUTTON_URL`**, all playground social URLs, **`HTMT_API_SUBDOMAIN`**, **`GTMT_FRONT_SUBDOMAIN`**, and **`AUDIOMETA_FRONT_SUBDOMAIN`** (same names as **`publish.yml`** / **`.env.example`**). **tsup** inlines those keys into published **`dist/`** (defaults for **`TheMusicTree*Link`**, **`GithubSponsorButton`**, **`Social*Link`**, and **`socialBuildEnv`** subdomain values). Re-run root **`pnpm run build`** after editing **`playground/.env`** so **`node_modules/…/dist/`** picks up new values. If the playground UI stays blank after changing **`dist/`**, remove **`playground/node_modules/.vite`** and restart the dev server.
-
-**Maintainers:** define **all** repository variables read by **`.github/workflows/publish.yml`** (**`DOMAIN_NAME`** maps to **`ORG_DOMAIN`**; other keys match their names there). Every workflow **`env`** entry is **required**.
-
-Run a build and start the dev server (default port **5174**). **`pnpm run playground`** uses **`scripts/run-playground.mjs`**, which merges **`playground/.env`** into the environment before **`pnpm run build`**:
+The Vite catalog in `apps/playground` previews components and static assets from
+the workspace package. Install dependencies once from the repository root, then
+set the organization domain, then build and run the package watcher and
+playground together. The organization link components throw when rendered if
+`ORG_DOMAIN` is missing:
 
 ```bash
-pnpm run playground
+pnpm install
+export ORG_DOMAIN=themusictree.org
+pnpm build
+pnpm dev
 ```
 
-To run only the playground Vite dev server (after `dist/` is current from a recent root `pnpm run build`). **`pnpm -C playground dev`** runs **`scripts/assert-org-url.mjs`** first (same as playground **`build`**), so the command fails if **`playground/.env`** is incomplete:
+The playground uses port 5174 with strict port checking. Its package dependency is
+linked through the workspace. Component imports use the built package; the asset
+catalog reads marks, banners and favicons from `packages/brand/src` through the
+`@brand-dist` Vite alias.
 
-```bash
-pnpm run playground:dev
-```
-
-Refresh after `pnpm run build` at the repo root so new static assets appear.
+The package build embeds environment values into `packages/brand/dist`. It can
+build with missing values, which are embedded as empty strings; export the values
+needed for the component being previewed before building or starting the watcher.
+See `packages/brand/.env.example` for example keys and
+`packages/brand/tsup.config.ts` for the values embedded by the build. Restart the watcher after
+changing shell variables. Published builds get their values from the repository
+variables mapped in `.github/workflows/publish.yml`.
 
 ### 2. Branching
 
@@ -193,17 +193,15 @@ feature/*          ●───●
 
 ### 3. Developing
 
-- **New TS entry points**: add or extend an entry in `tsup.config.ts` and matching `exports` in `package.json`.
-- **New static brand assets** under `src/brand/<folder>/`: add the corresponding `./brand/<folder>/*` export in `package.json` and extend the build script `cp` so files land in `dist/brand/`.
-- **New favicons** under `src/favicons/<project>/`: expose via `"./favicons/*"` export and ensure the build copies them.
-- **Banner assets** under `src/banners/<project-slug>/`: add files in a project subfolder (not loose under `src/banners/`). `"./banners/*"` and the build’s `dist/banners/` copy pick up new folders automatically; run a full build after adding binaries.
-- **Components**: follow existing component patterns and import style; prefer minimal, focused diffs. This package does not contain generic interactive UI primitives (buttons, inputs, tables...) — those live in [`@behindthemusictree/ui`](https://github.com/BehindTheMusicTree/ui). `brand` is limited to design tokens, marks/favicons, and brand-identity components (byline, sponsor button, social icons).
-- **Playground (required)**: any **new exported component** or **published static asset** must be visible in the playground in the same change (before merge). Add a demo in [`playground/src/App.tsx`](playground/src/App.tsx) for components. For assets, run a full [`pnpm run build`](README.md#build) so files land under `dist/`; the catalog globs in [`playground/src/distAssetGlobs.ts`](playground/src/distAssetGlobs.ts) list matching files under `dist/marks`, `dist/banners`, and `dist/favicons`. Extend those globs or add an explicit preview import if needed. See [Component and asset preview (playground)](#component-and-asset-preview-playground).
+- **New TS entry points**: add or extend an entry in `packages/brand/tsup.config.ts` and the matching `exports` in `packages/brand/package.json`.
+- **Static assets**: add marks, favicons and banners under `packages/brand/src/marks`, `packages/brand/src/favicons` or `packages/brand/src/banners`. The package exports those source directories; update exports and the package `files` list if adding a new asset category.
+- **Components**: follow existing component patterns and import style; generic interactive UI primitives live in [`@behindthemusictree/ui`](https://github.com/BehindTheMusicTree/ui).
+- **Playground (required)**: preview new exported components and published assets in the same change. Add component demos in [`apps/playground/src/App.tsx`](apps/playground/src/App.tsx); the asset globs in [`apps/playground/src/distAssetGlobs.ts`](apps/playground/src/distAssetGlobs.ts) read the package source asset directories. Extend them or add an explicit preview if needed.
 - **TypeScript**: `tsconfig.json` uses `"moduleResolution": "bundler"` — keep it compatible with tsup.
 
 #### 3.1 Interactive affordances (hover / focus)
 
-Shipped **clickable** UI (`<a>`, `<button>`, and similar) should show a visible **hover** change (and **focus-visible** when the element is focusable). **SVG** marks wired to **`currentColor`** usually inherit this from [`src/styles/icon-links.css`](src/styles/icon-links.css). **Raster** or fixed-color marks need an explicit hover style (for example **Tipeee** uses **`opacity`** on the **`img`** in that stylesheet). Third-party embeds we do not style (for example the **`GithubSponsorButton`** iframe) are exempt.
+Shipped **clickable** UI (`<a>`, `<button>`, and similar) should show a visible **hover** change (and **focus-visible** when the element is focusable). **SVG** marks wired to **`currentColor`** usually inherit this from [`packages/brand/src/styles/icon-links.css`](packages/brand/src/styles/icon-links.css). **Raster** or fixed-color marks need an explicit hover style (for example **Tipeee** uses **`opacity`** on the **`img`** in that stylesheet). Third-party embeds we do not style (for example the **`GithubSponsorButton`** iframe) are exempt.
 
 After structural changes, run a full build to verify:
 
@@ -243,13 +241,13 @@ Before submitting a Pull Request:
 
 - `pnpm run build` completes successfully
 - New exports are accessible from the built package
-- **Playground (required):** Anything new or changed that ships in **`dist/`** (components, marks, favicons, banners, or any new copied **`dist/`** tree) must be visible in **`playground/`** in this PR—update [`playground/src/distAssetGlobs.ts`](playground/src/distAssetGlobs.ts) and/or [`playground/src/App.tsx`](playground/src/App.tsx), run a full build, then confirm in the dev server. See [Component and asset preview (playground)](#component-and-asset-preview-playground).
+- **Playground (required):** Preview new or changed exported components and published assets in `apps/playground`; update [`apps/playground/src/distAssetGlobs.ts`](apps/playground/src/distAssetGlobs.ts) and/or [`apps/playground/src/App.tsx`](apps/playground/src/App.tsx), build, then confirm in the dev server.
 
 **3. Documentation**
 
 - Update README if adding new features or changing behavior
 - Update `CHANGELOG.md` with your changes in the `[Unreleased]` section (see [Changelog Best Practices](CHANGELOG.md#changelog-best-practices))
-- Update documentation when asset conventions change: global guides in `docs/` and colocated specs in `src/*/README.md` (see [`docs/README.md`](docs/README.md)). Any **multi-section** Markdown file in the repo should include a **Table of contents** linking each `##` section ([`CHANGELOG.md`](CHANGELOG.md) and one-section stubs exempt).
+- Update documentation when asset conventions change: global guides in `packages/brand/docs/` and colocated specs in `packages/brand/src/*/README.md` (see [`packages/brand/docs/README.md`](packages/brand/docs/README.md)). Any **multi-section** Markdown file in the repo should include a **Table of contents** linking each `##` section ([`CHANGELOG.md`](CHANGELOG.md) and one-section stubs exempt).
 
 **4. Git Hygiene**
 
@@ -280,7 +278,7 @@ Before submitting a Pull Request:
 
 ### 6. Releasing _(For Maintainers)_
 
-Releases are cut from `develop`. A GitHub Actions workflow **stages** the version on npm (trusted publishing, with provenance) when a version tag is pushed and **creates a GitHub Release** for that tag (generated notes, for watcher notifications). The staged version goes live only once a maintainer approves it with 2FA: `npm stage list @behindthemusictree/brand`, then `npm stage approve <stage-id>` (or the package's page on npmjs.com).
+Releases are cut from `develop`. A GitHub Actions workflow **publishes** the version on npm (trusted publishing, with provenance) when a version tag is pushed and **creates a GitHub Release** for that tag (generated notes, for watcher notifications). npm may take a few minutes to serve the new version.
 
 From a clean `develop`, in sync with `origin/develop`:
 
