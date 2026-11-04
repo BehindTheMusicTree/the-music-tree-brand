@@ -6,6 +6,7 @@ export const brandPreset = {
       spacing: {
         ...spacing,
         gutter: layout.gutter,
+        "panel-edge": layout.panelEdge,
         "panel-inset": layout.panelInset,
         header: layout.headerHeight,
         band: layout.bandTop,
@@ -18,6 +19,7 @@ export const brandPreset = {
         "player-panel": layout.playerPanelWidth,
         "right-column": layout.rightWidth,
         "edge-tab": layout.edgeTabWidth,
+        "panel-aside": layout.panelAsideWidth,
       },
       height: { search: layout.searchHeight },
       borderRadius: { panel: radius.panel },
