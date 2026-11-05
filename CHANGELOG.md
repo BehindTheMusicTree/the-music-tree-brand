@@ -41,6 +41,10 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 - **Center insets**: `--layout-center-left` / `--layout-center-right` now derive from `--layout-left-w` / `--layout-right-w` plus the edge tab width, so a consumer can collapse a column by setting its width to `0px`.
 - **Center collapse breakpoint**: the center insets collapse to the gutter below `80rem` (was `64rem`).
 
+### Fixed
+
+- `.env.example`: `GTMT_FRONT_REPO_NAME` now matches the real repository name (`grow-the-music-tree-frontend`).
+
 ### Added
 
 - **Semantic tokens**: `--color-surface`, `--color-surface-muted`, `--color-border`, `--color-focus-ring`, `--color-accent-rating`, a type scale (`--text-xs/sm/base`, `--leading-tight/normal`) and a `[data-theme="dark"]` override of text, surface and border tokens
@@ -54,6 +58,17 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 **Note:** During releases, maintainers will move entries from `[Unreleased]` to a versioned section (e.g., `## [1.1.0] - 2026-04-01`).
 
 ## [Unreleased]
+
+## [12.10.0] - 2026-11-05
+
+### Added
+
+- **Detail panel shell tokens**: `--layout-panel-edge` (distance from the host edge to the panel, defaults to the gutter), `--layout-sheet-peek` (40%) and `--layout-panel-aside-w` (20rem), with `layout` exports and Tailwind utilities (`panel-edge` spacing, `w-panel-aside`).
+- **Scoped panel visibility**: `[data-left-panel="hidden"]` and `[data-right-panel="hidden"]` zero the column width and reset the matching center offset.
+
+### Changed
+
+- **Center offsets**: `--layout-center-left/right` are now `panel-edge + column width + edge tab + gutter`; the value is unchanged while the panel edge equals the gutter.
 
 ## [12.9.2] - 2026-11-03
 

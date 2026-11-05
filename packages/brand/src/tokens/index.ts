@@ -32,6 +32,9 @@ export const radius = {
 
 export const layout = {
   gutter: "var(--layout-gutter)",
+  panelEdge: "var(--layout-panel-edge)",
+  sheetPeek: "var(--layout-sheet-peek)",
+  panelAsideWidth: "var(--layout-panel-aside-w)",
   headerHeight: "var(--layout-header-h)",
   detailPanelWidth: "var(--layout-detail-panel-w)",
   playerPanelWidth: "var(--layout-player-panel-w)",
