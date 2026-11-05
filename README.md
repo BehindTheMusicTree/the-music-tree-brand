@@ -145,3 +145,9 @@ port setting. The library watcher rebuilds `packages/brand/dist` as source chang
 static asset previews read the package's `src` directories. Set the build-time
 variables in the shell before starting the watcher, and restart it after changing
 them so the package is rebuilt with the new values.
+
+## License
+
+The code is licensed under the [ISC License](LICENSE). Names, logos,
+marks, favicons, and banners are not covered by it: see
+[TRADEMARKS.md](TRADEMARKS.md).
