@@ -61,6 +61,8 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ### CI
 
+- Preserve complete release notes when Markdown examples contain version headings.
+
 - Prepare release changes on a release branch; CI owns version tags and resumes npm publication only when existing archive integrity matches. GitHub release notes come from the changelog after npm succeeds.
 
 ### Documentation
