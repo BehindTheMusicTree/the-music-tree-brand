@@ -59,6 +59,10 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ## [Unreleased]
 
+### Documentation
+
+- **License**: an ISC `LICENSE` file matching the license already declared in `package.json`, and `TRADEMARKS.md`, which excludes the project names, marks, favicons and banners from it. Both ship in the npm package.
+
 ## [12.10.0] - 2026-11-05
 
 ### Added

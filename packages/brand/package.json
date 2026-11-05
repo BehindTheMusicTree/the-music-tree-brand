@@ -36,11 +36,13 @@
     "src/banners",
     "docs",
     "src/banners/README.md",
-    "src/marks/README.md"
+    "src/marks/README.md",
+    "TRADEMARKS.md"
   ],
   "scripts": {
     "dev": "tsup --watch",
     "build": "tsup",
+    "prepack": "cp ../../LICENSE ../../TRADEMARKS.md .",
     "test": "vitest run"
   },
   "peerDependencies": {

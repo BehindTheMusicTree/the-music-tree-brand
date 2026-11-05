@@ -37,3 +37,5 @@ The repo includes a dev-only Vite app under [`playground/`](../playground/) to p
 ## Published package contents
 
 Published installs include this `docs/` tree (including [`asset-naming.md`](asset-naming.md)), `src/banners/README.md`, and `src/marks/README.md` (see `package.json` `files`). Favicon guidance is also available under `dist/favicons/README.md` after a build.
+
+The code is licensed under ISC (`LICENSE`). Names, logos, marks, favicons, and banners are not covered: see `TRADEMARKS.md`, copied with `LICENSE` from the repository root into the package at pack time.
