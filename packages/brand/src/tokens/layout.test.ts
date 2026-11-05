@@ -39,4 +39,23 @@ describe("layout tokens", () => {
       expect(() => declaration(name as string)).not.toThrow();
     }
   });
+
+  it("defaults the panel edge to the gutter", () => {
+    expect(declaration("--layout-panel-edge")).toBe("var(--layout-gutter)");
+  });
+
+  it("derives the center offsets from the panel edge", () => {
+    expect(declaration("--layout-center-left")).toBe(
+      "calc(var(--layout-panel-edge) + var(--layout-left-w) + var(--layout-edge-tab-w) + var(--layout-gutter))",
+    );
+    expect(declaration("--layout-center-right")).toBe(
+      "calc(var(--layout-panel-edge) + var(--layout-right-w) + var(--layout-edge-tab-w) + var(--layout-gutter))",
+    );
+  });
+
+  it.each(["left", "right"])("collapses the %s column and its center offset when the panel is hidden", (side) => {
+    const block = css.match(new RegExp(`\\[data-${side}-panel="hidden"\\] \\{([\\s\\S]*?)\\}`))?.[1];
+    expect(block).toContain(`--layout-${side}-w: 0px;`);
+    expect(block).toContain(`--layout-center-${side}: var(--layout-gutter);`);
+  });
 });
