@@ -59,6 +59,8 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ## [Unreleased]
 
+## [12.10.0] - 2026-11-05
+
 ### Added
 
 - **Detail panel shell tokens**: `--layout-panel-edge` (distance from the host edge to the panel, defaults to the gutter), `--layout-sheet-peek` (40%) and `--layout-panel-aside-w` (20rem), with `layout` exports and Tailwind utilities (`panel-edge` spacing, `w-panel-aside`).
