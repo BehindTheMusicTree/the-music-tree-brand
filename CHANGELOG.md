@@ -59,6 +59,8 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ## [Unreleased]
 
+## [12.10.1] - 2026-11-06
+
 ### CI
 
 - Preserve complete release notes when Markdown examples contain version headings.
