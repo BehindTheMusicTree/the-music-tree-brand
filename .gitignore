@@ -6,3 +6,7 @@ playground/.env
 .DS_Store
 **/.DS_Store
 .local/
+
+# Copied from the repository root at pack time
+packages/brand/LICENSE
+packages/brand/TRADEMARKS.md

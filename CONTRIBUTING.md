@@ -183,7 +183,7 @@ feature/*          ●───●
 
 #### Release Branches (`release/<version>`) _(For Maintainers)_
 
-- Cut from `develop` by `pnpm run release` (see [§6](#6-releasing-for-maintainers)); only the version bump and changelog stamp belong here
+- Create from current `develop` before running `pnpm run release` (see [§6](#6-releasing-for-maintainers)); only release preparation belongs here
 - Merged into both `main` (tagged) and `develop`
 
 #### Hotfix Branches (`hotfix/<name>`) _(For Maintainers)_
@@ -278,9 +278,9 @@ Before submitting a Pull Request:
 
 ### 6. Releasing _(For Maintainers)_
 
-Releases are cut from `develop`. A GitHub Actions workflow **publishes** the version on npm (trusted publishing, with provenance) when a version tag is pushed and **creates a GitHub Release** for that tag (generated notes, for watcher notifications). npm may take a few minutes to serve the new version.
+Releases are cut from `develop`. A GitHub Actions workflow **publishes** the version on npm (trusted publishing, with provenance) when a version tag is pushed and **creates a GitHub Release** for that tag from the changelog. npm may take a few minutes to serve the new version.
 
-From a clean `develop`, in sync with `origin/develop`:
+From a clean `release/<version>` branch created from current `origin/develop`:
 
 ```bash
 pnpm run release patch   # 1.0.0 -> 1.0.1
@@ -288,24 +288,11 @@ pnpm run release minor   # 1.0.0 -> 1.1.0
 pnpm run release major   # 1.0.0 -> 2.0.0
 ```
 
-The script (`scripts/release.sh`):
+Create a `release/<version>` branch from current `develop` before running the command. The script requires a clean release or hotfix branch, validates nonempty changelog notes outside code examples, bumps the package and lockfile, and stamps the changelog. It leaves the changes for review and commit; it does not commit, open PRs, tag or push.
 
-1. Validates you're on `develop` with a clean working tree, in sync with `origin/develop`
-2. Creates `release/<version>` and bumps the version in `packages/brand/package.json`
-3. Stamps `CHANGELOG.md` — replaces `[Unreleased]` with the new version and today's date, keeping an empty `[Unreleased]` section for future PRs
-4. Commits `package.json`, `pnpm-lock.yaml`, and `CHANGELOG.md`, pushes the branch
-5. Opens two PRs: `release/<version>` → `main` and `release/<version>` → `develop`
+Open the release PR against `main`. After merge, CI validates the canonical package version, matching changelog and main ancestry, then creates the annotated tag. The existing `publish.yml` retains npm OIDC publication and all build-time values. It validates tag provenance, skips an identical existing npm archive, and creates the changelog-based GitHub Release after npm succeeds. A registry error or different archive fails; rerun the failed workflow to recover without moving the tag. Local `tag-release` is refused.
 
-Once the `main` PR merges, tag it from an up-to-date `main`:
-
-```bash
-git checkout main && git pull
-pnpm run tag-release
-```
-
-`scripts/tag-release.sh` tags `v<version>` from `packages/brand/package.json` and pushes the tag, which starts publishing to npm and creates the GitHub Release. Then merge the companion PR into `develop`.
-
-### 7. Hotfixing _(For Maintainers)_
+Integrate the released `main` back into `develop` after publication through a reviewed back-merge. Initial adoption preserves version 12.10.0 and creates no tag; App access and protections are activated separately in `github-config` after this contract reaches `main`.
 
 For an urgent fix to a published version, without pulling in unreleased `develop` work:
 
@@ -313,7 +300,7 @@ For an urgent fix to a published version, without pulling in unreleased `develop
 git checkout -b hotfix/<name> main
 ```
 
-Commit the fix, bump `packages/brand/package.json`'s patch version and stamp `CHANGELOG.md` by hand, then open two PRs: `hotfix/<name>` → `main` and `hotfix/<name>` → `develop`. Once the `main` PR merges, run `pnpm run tag-release` from `main`, then merge the companion `develop` PR.
+Commit the fix, bump `packages/brand/package.json`'s patch version and stamp `CHANGELOG.md` by hand, then open a PR: `hotfix/<name>` → `main`. Once the `main` PR merges, CI creates the tag and publishes. Integrate released `main` back into `develop` afterward.
 
 ## License & Attribution
 
