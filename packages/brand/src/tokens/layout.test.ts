@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { layout } from "./index";
+import { layout, typography } from "./index";
 
 const css = readFileSync(join(__dirname, "theme.css"), "utf8");
 
@@ -57,5 +57,22 @@ describe("layout tokens", () => {
     const block = css.match(new RegExp(`\\[data-${side}-panel="hidden"\\] \\{([\\s\\S]*?)\\}`))?.[1];
     expect(block).toContain(`--layout-${side}-w: 0px;`);
     expect(block).toContain(`--layout-center-${side}: var(--layout-gutter);`);
+  });
+
+  it("declares the font size and line height of every typography role", () => {
+    for (const [size, { lineHeight }] of Object.values(typography)) {
+      for (const value of [size, lineHeight]) {
+        const name = value.match(/^var\((--[\w-]+)\)$/)?.[1];
+        expect(name, value).toBeDefined();
+        expect(() => declaration(name as string)).not.toThrow();
+      }
+    }
+  });
+
+  it("raises input and search text to 16px on coarse pointers so iOS does not zoom on focus", () => {
+    const coarse = css.match(/@media \(pointer: coarse\) \{\s*:root \{([\s\S]*?)\}/)?.[1];
+    expect(coarse).toBeDefined();
+    expect(coarse).toMatch(/--text-input:\s*1rem;/);
+    expect(coarse).toMatch(/--text-search:\s*1rem;/);
   });
 });

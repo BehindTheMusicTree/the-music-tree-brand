@@ -42,9 +42,21 @@ export const layout = {
   rightWidth: "var(--layout-right-w)",
   panelInset: "var(--layout-panel-inset)",
   searchHeight: "var(--layout-search-h)",
+  searchWidth: "var(--layout-search-w)",
+  searchInset: "var(--layout-search-inset)",
+  searchClear: "var(--layout-search-clear)",
   edgeTabWidth: "var(--layout-edge-tab-w)",
   touchTarget: "var(--layout-touch-target)",
   bandTop: "var(--layout-band-top)",
   centerLeft: "var(--layout-center-left)",
   centerRight: "var(--layout-center-right)",
 } as const;
+
+export const typography: Record<string, [string, { lineHeight: string }]> = {
+  title: ["var(--text-title)", { lineHeight: "var(--text-title-lh)" }],
+  heading: ["var(--text-heading)", { lineHeight: "var(--text-heading-lh)" }],
+  body: ["var(--text-body)", { lineHeight: "var(--text-body-lh)" }],
+  caption: ["var(--text-caption)", { lineHeight: "var(--text-caption-lh)" }],
+  input: ["var(--text-input)", { lineHeight: "var(--text-input-lh)" }],
+  search: ["var(--text-search)", { lineHeight: "var(--text-search-lh)" }],
+};
