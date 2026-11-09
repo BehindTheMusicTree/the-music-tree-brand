@@ -34,9 +34,12 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 ### Added
 
 - **Panel tokens**: `--layout-panel-inset` (1rem), `--layout-search-h` (3rem), `--layout-edge-tab-w` (1.5rem) and `--radius-panel` (1rem), with matching `layout`/`radius` exports and Tailwind utilities (`p-panel-inset`, `h-search`, `w-edge-tab`, `rounded-panel`).
+- **Typography scale**: `--text-title/heading/body/caption/input/search` with line heights, a `typography` export and the `text-title`, `text-heading`, `text-body`, `text-caption`, `text-input` and `text-search` Tailwind sizes. Input and search text rise to 16px on coarse pointers so iOS does not zoom on focus.
+- **Search tokens**: `--layout-search-w`, `--layout-search-inset` and `--layout-search-clear`, with `w-search` and the `search-inset` / `search-clear` spacing keys.
 
 ### Changed
 
+- **Removed type tokens**: `--text-xs/sm/base` and `--leading-tight/normal` are replaced by the typography scale.
 - **Detail panel width**: `--layout-detail-panel-w` is now `25.5rem` (was `17.5rem`).
 - **Center insets**: `--layout-center-left` / `--layout-center-right` now derive from `--layout-left-w` / `--layout-right-w` plus the edge tab width, so a consumer can collapse a column by setting its width to `0px`.
 - **Center collapse breakpoint**: the center insets collapse to the gutter below `80rem` (was `64rem`).
