@@ -59,6 +59,17 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ## [Unreleased]
 
+## [12.11.0] - 2026-11-09
+
+### Added
+
+- **Typography scale**: `--text-title/heading/body/caption/input/search` with line heights, a `typography` export and the `text-title`, `text-heading`, `text-body`, `text-caption`, `text-input` and `text-search` Tailwind sizes. Input and search text rise to 16px on coarse pointers so iOS does not zoom on focus.
+- **Search tokens**: `--layout-search-w`, `--layout-search-inset` and `--layout-search-clear`, with `w-search` and the `search-inset` / `search-clear` spacing keys.
+
+### Changed
+
+- **Removed type tokens**: `--text-xs/sm/base` and `--leading-tight/normal` are replaced by the typography scale.
+
 ## [12.10.1] - 2026-11-06
 
 ### CI
