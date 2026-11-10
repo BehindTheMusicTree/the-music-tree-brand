@@ -8,6 +8,8 @@ export const brandPreset = {
         gutter: layout.gutter,
         "panel-edge": layout.panelEdge,
         "panel-inset": layout.panelInset,
+        "panel-x": layout.panelPadX,
+        "panel-gap": layout.panelGap,
         header: layout.headerHeight,
         band: layout.bandTop,
         "center-left": layout.centerLeft,

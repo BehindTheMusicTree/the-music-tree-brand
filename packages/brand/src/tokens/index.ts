@@ -41,6 +41,8 @@ export const layout = {
   leftWidth: "var(--layout-left-w)",
   rightWidth: "var(--layout-right-w)",
   panelInset: "var(--layout-panel-inset)",
+  panelPadX: "var(--layout-panel-pad-x)",
+  panelGap: "var(--layout-panel-gap)",
   searchHeight: "var(--layout-search-h)",
   searchWidth: "var(--layout-search-w)",
   searchInset: "var(--layout-search-inset)",

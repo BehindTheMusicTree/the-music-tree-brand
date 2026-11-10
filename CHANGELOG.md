@@ -59,6 +59,12 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ## [Unreleased]
 
+## [12.12.0] - 2026-11-10
+
+### Added
+
+- **Panel body tokens**: `--layout-panel-pad-x` (1.5rem) and `--layout-panel-gap` (1.25rem), with `layout.panelPadX` / `layout.panelGap` and the `panel-x` / `panel-gap` spacing keys. The detail panel body owns the horizontal margin and the vertical spacing between sections.
+
 ## [12.11.0] - 2026-11-09
 
 ### Added

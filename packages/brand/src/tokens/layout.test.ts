@@ -40,6 +40,11 @@ describe("layout tokens", () => {
     }
   });
 
+  it("declares the panel body padding and gap", () => {
+    expect(declaration("--layout-panel-pad-x")).toBe("1.5rem");
+    expect(declaration("--layout-panel-gap")).toBe("1.25rem");
+  });
+
   it("defaults the panel edge to the gutter", () => {
     expect(declaration("--layout-panel-edge")).toBe("var(--layout-gutter)");
   });
