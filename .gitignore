@@ -10,3 +10,6 @@ playground/.env
 # Copied from the repository root at pack time
 packages/brand/LICENSE
 packages/brand/TRADEMARKS.md
+
+# graphify
+graphify-out/
