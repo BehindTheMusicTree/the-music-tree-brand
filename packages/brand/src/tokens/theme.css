@@ -30,6 +30,8 @@
   --layout-right-w: var(--layout-player-panel-w);
   --layout-band-top: calc(var(--layout-gutter) * 2 + var(--layout-header-h));
   --layout-panel-inset: 1rem;
+  --layout-panel-pad-x: 1.5rem;
+  --layout-panel-gap: 1.25rem;
   --layout-search-h: 3rem;
   --layout-edge-tab-w: 1.5rem;
   --layout-touch-target: 2.75rem;
