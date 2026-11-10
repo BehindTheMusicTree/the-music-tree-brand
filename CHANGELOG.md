@@ -33,10 +33,6 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ### Added
 
-- **Panel body tokens**: `--layout-panel-pad-x` (1.5rem) and `--layout-panel-gap` (1.25rem), with `layout.panelPadX` / `layout.panelGap` and the `panel-x` / `panel-gap` spacing keys. The detail panel body owns the horizontal margin and the vertical spacing between sections.
-
-### Added
-
 - **Panel tokens**: `--layout-panel-inset` (1rem), `--layout-search-h` (3rem), `--layout-edge-tab-w` (1.5rem) and `--radius-panel` (1rem), with matching `layout`/`radius` exports and Tailwind utilities (`p-panel-inset`, `h-search`, `w-edge-tab`, `rounded-panel`).
 
 ### Changed
@@ -62,6 +58,10 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 **Note:** During releases, maintainers will move entries from `[Unreleased]` to a versioned section (e.g., `## [1.1.0] - 2026-04-01`).
 
 ## [Unreleased]
+
+### Added
+
+- **Panel body tokens**: `--layout-panel-pad-x` (1.5rem) and `--layout-panel-gap` (1.25rem), with `layout.panelPadX` / `layout.panelGap` and the `panel-x` / `panel-gap` spacing keys. The detail panel body owns the horizontal margin and the vertical spacing between sections.
 
 ## [12.11.0] - 2026-11-09
 
