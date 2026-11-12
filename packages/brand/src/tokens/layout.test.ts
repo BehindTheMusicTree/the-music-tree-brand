@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
+import { brandPreset } from "../tailwind-preset";
 import { layout, typography } from "./index";
 
 const css = readFileSync(join(__dirname, "theme.css"), "utf8");
@@ -79,5 +80,17 @@ describe("layout tokens", () => {
     expect(coarse).toBeDefined();
     expect(coarse).toMatch(/--text-input:\s*1rem;/);
     expect(coarse).toMatch(/--text-search:\s*1rem;/);
+  });
+
+  it("declares the page max widths", () => {
+    expect(declaration("--layout-page-max-w")).toBe("64rem");
+    expect(declaration("--layout-page-max-w-narrow")).toBe("42rem");
+  });
+
+  it("exposes the page max widths as Tailwind maxWidth utilities", () => {
+    expect(brandPreset.theme.extend.maxWidth).toEqual({
+      page: "var(--layout-page-max-w)",
+      "page-narrow": "var(--layout-page-max-w-narrow)",
+    });
   });
 });
