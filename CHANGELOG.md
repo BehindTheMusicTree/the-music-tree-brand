@@ -33,9 +33,6 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ### Added
 
-- **Page base styles**: `@behindthemusictree/brand/styles` now sets `body` background, text colour, font size and line height from tokens, plus `color-scheme` (light, dark under `[data-theme="dark"]`).
-- **Page width tokens**: `--layout-page-max-w` (64rem) and `--layout-page-max-w-narrow` (42rem), exposed as `layout.pageMaxWidth` / `pageMaxWidthNarrow` and Tailwind `max-w-page` / `max-w-page-narrow`.
-- **Colour exports**: `colors.surface`, `surfaceMuted`, `border`, `focusRing` and `accentRating` (Tailwind `brand-*` colours).
 - **Panel tokens**: `--layout-panel-inset` (1rem), `--layout-search-h` (3rem), `--layout-edge-tab-w` (1.5rem) and `--radius-panel` (1rem), with matching `layout`/`radius` exports and Tailwind utilities (`p-panel-inset`, `h-search`, `w-edge-tab`, `rounded-panel`).
 
 ### Changed
@@ -61,6 +58,12 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 **Note:** During releases, maintainers will move entries from `[Unreleased]` to a versioned section (e.g., `## [1.1.0] - 2026-04-01`).
 
 ## [Unreleased]
+
+### Added
+
+- **Page base styles**: `@behindthemusictree/brand/styles` now sets `body` background, text colour, font size and line height from tokens, plus `color-scheme` (light, dark under `[data-theme="dark"]`).
+- **Page width tokens**: `--layout-page-max-w` (64rem) and `--layout-page-max-w-narrow` (42rem), exposed as `layout.pageMaxWidth` / `pageMaxWidthNarrow` and Tailwind `max-w-page` / `max-w-page-narrow`.
+- **Colour exports**: `colors.surface`, `surfaceMuted`, `border`, `focusRing` and `accentRating` (Tailwind `brand-*` colours).
 
 ### CI
 
