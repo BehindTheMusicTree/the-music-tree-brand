@@ -26,6 +26,7 @@ export const brandPreset = {
         "panel-aside": layout.panelAsideWidth,
         search: layout.searchWidth,
       },
+      maxWidth: { page: layout.pageMaxWidth, "page-narrow": layout.pageMaxWidthNarrow },
       height: { search: layout.searchHeight },
       fontSize: typography,
       borderRadius: { panel: radius.panel },
