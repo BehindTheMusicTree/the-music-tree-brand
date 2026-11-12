@@ -59,6 +59,8 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ## [Unreleased]
 
+## [12.13.0] - 2026-11-12
+
 ### Added
 
 - **Page base styles**: `@behindthemusictree/brand/styles` now sets `body` background, text colour, font size and line height from tokens, plus `color-scheme` (light, dark under `[data-theme="dark"]`).
