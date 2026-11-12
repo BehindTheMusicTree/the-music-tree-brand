@@ -15,6 +15,11 @@ export const colors = {
   green500: "var(--color-green-500)",
   green600: "var(--color-green-600)",
   blue500: "var(--color-blue-500)",
+  surface: "var(--color-surface)",
+  surfaceMuted: "var(--color-surface-muted)",
+  border: "var(--color-border)",
+  focusRing: "var(--color-focus-ring)",
+  accentRating: "var(--color-accent-rating)",
 } as const;
 
 export const spacing = {
@@ -52,6 +57,8 @@ export const layout = {
   bandTop: "var(--layout-band-top)",
   centerLeft: "var(--layout-center-left)",
   centerRight: "var(--layout-center-right)",
+  pageMaxWidth: "var(--layout-page-max-w)",
+  pageMaxWidthNarrow: "var(--layout-page-max-w-narrow)",
 } as const;
 
 export const typography: Record<string, [string, { lineHeight: string }]> = {

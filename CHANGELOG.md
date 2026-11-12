@@ -59,6 +59,18 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ## [Unreleased]
 
+## [12.13.0] - 2026-11-12
+
+### Added
+
+- **Page base styles**: `@behindthemusictree/brand/styles` now sets `body` background, text colour, font size and line height from tokens, plus `color-scheme` (light, dark under `[data-theme="dark"]`).
+- **Page width tokens**: `--layout-page-max-w` (64rem) and `--layout-page-max-w-narrow` (42rem), exposed as `layout.pageMaxWidth` / `pageMaxWidthNarrow` and Tailwind `max-w-page` / `max-w-page-narrow`.
+- **Colour exports**: `colors.surface`, `surfaceMuted`, `border`, `focusRing` and `accentRating` (Tailwind `brand-*` colours).
+
+### CI
+
+- Pin the shared release workflows to the lag-tolerant github-workflows commit 79c1362, so tag creation tolerates GitHub read-after-write delays.
+
 ## [12.12.0] - 2026-11-10
 
 ### Added

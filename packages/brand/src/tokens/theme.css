@@ -35,6 +35,8 @@
   --layout-search-h: 3rem;
   --layout-edge-tab-w: 1.5rem;
   --layout-touch-target: 2.75rem;
+  --layout-page-max-w: 64rem;
+  --layout-page-max-w-narrow: 42rem;
   --layout-center-left: calc(var(--layout-panel-edge) + var(--layout-left-w) + var(--layout-edge-tab-w) + var(--layout-gutter));
   --layout-center-right: calc(var(--layout-panel-edge) + var(--layout-right-w) + var(--layout-edge-tab-w) + var(--layout-gutter));
   --radius-sm: 0.25rem;
