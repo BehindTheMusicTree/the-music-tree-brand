@@ -5,59 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## Changelog Best Practices
-
-### General Principles
-
-- Changelogs are for humans, not machines.
-- Include an entry for every version, with the latest first.
-- Group similar changes under: Added, Changed, Improved, Deprecated, Removed, Fixed, Documentation, Performance, CI.
-- Use an "Unreleased" section for upcoming changes.
-- Follow Semantic Versioning where possible.
-- Use ISO 8601 date format: YYYY-MM-DD.
-- Avoid dumping raw git logs; summarize notable changes clearly.
-
-### Guidelines for Contributors
-
-All contributors (including maintainers) should update `CHANGELOG.md` when creating PRs:
-
-1. **Add entries to the `[Unreleased]` section** - Add your changes under the appropriate category (Added, Changed, Improved, Deprecated, Removed, Fixed, Documentation, Performance, CI)
-2. **Follow the changelog format** - See examples below
-3. **Group related changes** - Similar changes should be grouped together
-4. **Be descriptive** - Write clear, user-focused descriptions of what changed
-
-**Example:**
-
-```markdown
 ## [Unreleased]
 
-### Added
+### Documentation
 
-- **Panel tokens**: `--layout-panel-inset` (1rem), `--layout-search-h` (3rem), `--layout-edge-tab-w` (1.5rem) and `--radius-panel` (1rem), with matching `layout`/`radius` exports and Tailwind utilities (`p-panel-inset`, `h-search`, `w-edge-tab`, `rounded-panel`).
-
-### Changed
-
-- **Detail panel width**: `--layout-detail-panel-w` is now `25.5rem` (was `17.5rem`).
-- **Center insets**: `--layout-center-left` / `--layout-center-right` now derive from `--layout-left-w` / `--layout-right-w` plus the edge tab width, so a consumer can collapse a column by setting its width to `0px`.
-- **Center collapse breakpoint**: the center insets collapse to the gutter below `80rem` (was `64rem`).
-
-### Fixed
-
-- `.env.example`: `GTMT_FRONT_REPO_NAME` now matches the real repository name (`grow-the-music-tree-frontend`).
-
-### Added
-
-- **Semantic tokens**: `--color-surface`, `--color-surface-muted`, `--color-border`, `--color-focus-ring`, `--color-accent-rating`, a type scale (`--text-xs/sm/base`, `--leading-tight/normal`) and a `[data-theme="dark"]` override of text, surface and border tokens
-- **New Component**: Added `Card` component with variants for outlined and elevated styles
-
-### Fixed
-
-- **Token Export**: Fixed missing CSS custom property for `--color-surface`
-```
-
-**Note:** During releases, maintainers will move entries from `[Unreleased]` to a versioned section (e.g., `## [1.1.0] - 2026-04-01`).
-
-## [Unreleased]
+- Removed the contributor guidelines and example entry from `CHANGELOG.md`: the example duplicated the `[Unreleased]` heading and led agents to write entries in the wrong place, and the conventions now live in the shared `create-pr` skill.
 
 ## [12.13.0] - 2026-11-12
 
