@@ -26,7 +26,7 @@ export function AssetFigure({ url, label, variant }: AssetFigureProps) {
   }, [url]);
   const [dims, setDims] = useState<string | null>(null);
   const [loadError, setLoadError] = useState<string | null>(null);
-  const metadata = catalog.files.find((file) => url.split("?")[0].endsWith(file.path));
+  const metadata = catalog.files.find((file) => label === file.path);
   const svgPreview = isSvgAssetUrl(url);
 
   return (

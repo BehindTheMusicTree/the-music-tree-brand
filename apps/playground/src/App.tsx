@@ -453,7 +453,7 @@ const COMPONENT_SUBTABS: { id: ComponentsSubTab; label: string }[] = [
 
 function labelFromGlobKey(key: string): string {
   // keys are "@brand-dist/<subfolder>/..." — strip the alias prefix
-  return key.replace(/^@brand-dist\//, "");
+  return key.replace(/^@brand-dist\/|^.*\/brand\/src\//, "");
 }
 
 function sortedEntries(map: Record<string, string>) {
@@ -466,9 +466,10 @@ type AssetEntry = { key: string; url: string; label: string };
 
 function projectSlugFromDistKey(key: string, distSubfolder: string): string {
   // keys are "@brand-dist/<distSubfolder>/<project-slug>/..."
-  const prefix = `@brand-dist/${distSubfolder}/`;
-  if (!key.startsWith(prefix)) return "_other";
-  const rest = key.slice(prefix.length);
+  const prefix = `${distSubfolder}/`;
+  const assetPath = labelFromGlobKey(key);
+  if (!assetPath.startsWith(prefix)) return "_other";
+  const rest = assetPath.slice(prefix.length);
   const slash = rest.indexOf("/");
   if (slash === -1) return rest || "_other";
   return rest.slice(0, slash) || "_other";

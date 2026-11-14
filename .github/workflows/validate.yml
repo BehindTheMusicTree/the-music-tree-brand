@@ -36,3 +36,4 @@ jobs:
       - run: pnpm assets:check
       - run: pnpm build
       - run: pnpm assets:package-check
+      - run: node scripts/assets/browser-check.mjs
