@@ -14,7 +14,7 @@ Per-project favicon and PWA icon bundles live under `src/favicons/<project-slug>
 
 - **Source:** `src/favicons/<project-slug>/`
 - **Published:** `@behindthemusictree/brand/favicons/<project-slug>/<file>`
-- After `pnpm run build`, the same tree is under `dist/favicons/` in the package.
+- After `pnpm run build`, the same tree is under `src/favicons/` in the package.
 
 ### Example
 
@@ -25,7 +25,7 @@ Per-project favicon and PWA icon bundles live under `src/favicons/<project-slug>
 - `src/favicons/behind-the-music-tree/icon-512.png`
 
 ```tsx
-import faviconSvg from "@themusictree/marks/favicons/behind-the-music-tree/favicon.svg";
+import faviconSvg from "@behindthemusictree/brand/favicons/behind-the-music-tree/favicon.svg";
 ```
 
 ## Recommended files per bundle

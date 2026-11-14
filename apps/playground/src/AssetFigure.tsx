@@ -1,4 +1,5 @@
-import { useState } from "react";
+import catalog from "../../../assets.catalog.json";
+import { useEffect, useState } from "react";
 
 type AssetFigureProps = {
   url: string;
@@ -11,8 +12,21 @@ function isSvgAssetUrl(url: string): boolean {
 }
 
 export function AssetFigure({ url, label, variant }: AssetFigureProps) {
+  const [bytes, setBytes] = useState<number | null>(null);
+  useEffect(() => {
+    const controller = new AbortController();
+    setBytes(null);
+    fetch(url, { signal: controller.signal }).then(response => {
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      return response.blob();
+    }).then(blob => setBytes(blob.size)).catch(error => {
+      if (error.name !== "AbortError") setLoadError("Asset metadata failed to load");
+    });
+    return () => controller.abort();
+  }, [url]);
   const [dims, setDims] = useState<string | null>(null);
   const [loadError, setLoadError] = useState<string | null>(null);
+  const metadata = catalog.files.find((file) => url.split("?")[0].endsWith(file.path));
   const svgPreview = isSvgAssetUrl(url);
 
   return (
@@ -61,6 +75,9 @@ export function AssetFigure({ url, label, variant }: AssetFigureProps) {
           />
         )}
       </div>
+      {variant === "favicons" ? <div style={{ display: "flex", gap: 16, padding: 12, background: "#fff" }}>
+        {[16, 24, 32].map(size => <img key={size} src={url} width={size} height={size} alt={`${label} at ${size}px`} />)}
+      </div> : null}
       <figcaption>
         <div className="asset-card-title">{label}</div>
         {loadError ? (
@@ -68,6 +85,7 @@ export function AssetFigure({ url, label, variant }: AssetFigureProps) {
             {loadError}
           </div>
         ) : null}
+        {metadata ? <div>{metadata.metadata.format.toUpperCase()} · {bytes === null ? "Loading size…" : `${bytes.toLocaleString()} bytes`} · {metadata.maxBytes.toLocaleString()} byte budget</div> : null}
         {dims ? <div className="asset-card-dims">{dims}</div> : null}
       </figcaption>
     </figure>

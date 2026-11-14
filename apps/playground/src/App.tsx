@@ -590,6 +590,7 @@ export default function App() {
         <strong>Components</strong> → <strong>Org &amp; lockups</strong>.
       </p>
 
+      <p><a href="/assets/comparison.html" target="_blank" rel="noreferrer">Original, optimized and compact proposal comparison (light/dark, 16–512 px)</a></p>
       <ul className="playground-tablist" role="tablist" aria-label="Catalog">
         {TABS.map(({ id, label }) => (
           <li key={id} role="presentation">

@@ -4,6 +4,7 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   plugins: [react()],
+  publicDir: path.resolve(import.meta.dirname, "../../docs"),
   resolve: {
     alias: {
       "@brand-dist": path.resolve(
