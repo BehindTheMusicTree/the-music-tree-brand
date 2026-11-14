@@ -8,6 +8,7 @@ This directory holds **static brand identity** assets: marks (`-mark`), wordmark
 
 ## Table of contents
 
+- [Radial identity](#radial-identity)
 - [Imports](#imports)
 - [Role suffixes (mark, wordmark, lockup orientation)](#role-suffixes-mark-wordmark-lockup-orientation)
 - [Preferred formats (in order)](#preferred-formats-in-order)
@@ -18,6 +19,15 @@ This directory holds **static brand identity** assets: marks (`-mark`), wordmark
 - [Color, transparency, and background](#color-transparency-and-background)
 - [File size (practical targets)](#file-size-practical-targets)
 - [Checklist for new marks files](#checklist-for-new-marks-files)
+
+## Radial identity
+
+Grow is the color reference (`grow-the-music-tree-mark.svg` / `.png`);
+`grow-the-music-tree-mark-white.svg` / `.png` is the white alternate. Hear
+uses white branches on blue; Behind uses dark branches on white. Both badge
+variants clip branches at the circle edge. These SVGs embed lossless raster
+artwork and retain its resolution limit. Existing lockups keep their previous
+artwork. Audiometa and The Music Deck retain their separate identities.
 
 ## Imports
 

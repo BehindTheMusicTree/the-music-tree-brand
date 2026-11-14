@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Adopt the approved radial identity for Grow (color reference and white variant), Hear and Behind, including regenerated favicons.
+
 - Catalogued asset budgets, reproducible favicon generation, installed-package checks and an explicit versioned npm-to-R2 synchronization workflow.
 
 ### Fixed
