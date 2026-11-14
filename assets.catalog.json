@@ -1,0 +1,938 @@
+{
+  "schemaVersion": 1,
+  "rendering": {
+    "node": "22",
+    "sharp": "0.34.5",
+    "ico": "png-to-ico@3.0.1",
+    "note": "CI Ubuntu; lockfile pins native renderer. Compact proposals require visual approval before selecting a new source."
+  },
+  "families": [
+    {
+      "id": "audiometa",
+      "source": "marks/audiometa/audiometa-mark.svg",
+      "approvedVariant": "detailed",
+      "outputs": [
+        {
+          "path": "favicons/audiometa/favicon.svg",
+          "kind": "copy"
+        },
+        {
+          "path": "favicons/audiometa/apple-touch-icon.png",
+          "kind": "png",
+          "size": 180
+        },
+        {
+          "path": "favicons/audiometa/icon-192.png",
+          "kind": "png",
+          "size": 192
+        },
+        {
+          "path": "favicons/audiometa/icon-512.png",
+          "kind": "png",
+          "size": 512
+        },
+        {
+          "path": "favicons/audiometa/favicon.ico",
+          "kind": "ico",
+          "sizes": [
+            16,
+            32,
+            48
+          ]
+        }
+      ]
+    },
+    {
+      "id": "behind-the-music-tree",
+      "source": "marks/behind-the-music-tree/behind-the-music-tree-mark.svg",
+      "approvedVariant": "radial",
+      "outputs": [
+        {
+          "path": "favicons/behind-the-music-tree/favicon.svg",
+          "kind": "copy"
+        },
+        {
+          "path": "favicons/behind-the-music-tree/apple-touch-icon.png",
+          "kind": "png",
+          "size": 180
+        },
+        {
+          "path": "favicons/behind-the-music-tree/icon-192.png",
+          "kind": "png",
+          "size": 192
+        },
+        {
+          "path": "favicons/behind-the-music-tree/icon-512.png",
+          "kind": "png",
+          "size": 512
+        },
+        {
+          "path": "favicons/behind-the-music-tree/favicon.ico",
+          "kind": "ico",
+          "sizes": [
+            16,
+            32,
+            48
+          ]
+        }
+      ]
+    },
+    {
+      "id": "grow-the-music-tree",
+      "source": "marks/grow-the-music-tree/grow-the-music-tree-mark.svg",
+      "approvedVariant": "radial",
+      "outputs": [
+        {
+          "path": "favicons/grow-the-music-tree/favicon.svg",
+          "kind": "copy"
+        },
+        {
+          "path": "favicons/grow-the-music-tree/apple-touch-icon.png",
+          "kind": "png",
+          "size": 180
+        },
+        {
+          "path": "favicons/grow-the-music-tree/icon-192.png",
+          "kind": "png",
+          "size": 192
+        },
+        {
+          "path": "favicons/grow-the-music-tree/icon-512.png",
+          "kind": "png",
+          "size": 512
+        },
+        {
+          "path": "favicons/grow-the-music-tree/favicon.ico",
+          "kind": "ico",
+          "sizes": [
+            16,
+            32,
+            48
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hear-the-music-tree",
+      "source": "marks/hear-the-music-tree/hear-the-music-tree-mark.svg",
+      "approvedVariant": "radial",
+      "outputs": [
+        {
+          "path": "favicons/hear-the-music-tree/favicon.svg",
+          "kind": "copy"
+        },
+        {
+          "path": "favicons/hear-the-music-tree/apple-touch-icon.png",
+          "kind": "png",
+          "size": 180
+        },
+        {
+          "path": "favicons/hear-the-music-tree/icon-192.png",
+          "kind": "png",
+          "size": 192
+        },
+        {
+          "path": "favicons/hear-the-music-tree/icon-512.png",
+          "kind": "png",
+          "size": 512
+        },
+        {
+          "path": "favicons/hear-the-music-tree/favicon.ico",
+          "kind": "ico",
+          "sizes": [
+            16,
+            32,
+            48
+          ]
+        }
+      ]
+    },
+    {
+      "id": "the-music-deck",
+      "source": "marks/the-music-deck/the-music-deck-mark.svg",
+      "approvedVariant": "detailed",
+      "outputs": [
+        {
+          "path": "favicons/the-music-deck/favicon.svg",
+          "kind": "copy"
+        },
+        {
+          "path": "favicons/the-music-deck/apple-touch-icon.png",
+          "kind": "png",
+          "size": 180
+        },
+        {
+          "path": "favicons/the-music-deck/icon-192.png",
+          "kind": "png",
+          "size": 192
+        },
+        {
+          "path": "favicons/the-music-deck/icon-512.png",
+          "kind": "png",
+          "size": 512
+        },
+        {
+          "path": "favicons/the-music-deck/favicon.ico",
+          "kind": "ico",
+          "sizes": [
+            16,
+            32,
+            48
+          ]
+        }
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "marks/audio-fingerprinter/audio-fingerprinter-mark-dark.png",
+      "role": "historical",
+      "maxBytes": 395062,
+      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "metadata": {
+        "format": "png",
+        "width": 1024,
+        "height": 1024,
+        "alpha": true
+      }
+    },
+    {
+      "path": "marks/audio-fingerprinter/audio-fingerprinter-mark-dark.svg",
+      "role": "source",
+      "maxBytes": 10904,
+      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "metadata": {
+        "format": "svg",
+        "width": 1024,
+        "height": 1024,
+        "alpha": true,
+        "embeddedRaster": false
+      }
+    },
+    {
+      "path": "marks/audio-fingerprinter/audio-fingerprinter-mark.png",
+      "role": "historical",
+      "maxBytes": 126783,
+      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "metadata": {
+        "format": "png",
+        "width": 1024,
+        "height": 1024,
+        "alpha": true
+      }
+    },
+    {
+      "path": "marks/audio-fingerprinter/audio-fingerprinter-mark.svg",
+      "role": "source",
+      "maxBytes": 7347,
+      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "metadata": {
+        "format": "svg",
+        "width": 1024,
+        "height": 1024,
+        "alpha": true,
+        "embeddedRaster": false
+      }
+    },
+    {
+      "path": "marks/audiometa/audiometa-mark-greyscale.svg",
+      "role": "source",
+      "maxBytes": 28991,
+      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "metadata": {
+        "format": "svg",
+        "width": 368,
+        "height": 368,
+        "alpha": true,
+        "embeddedRaster": false
+      }
+    },
+    {
+      "path": "marks/audiometa/audiometa-mark.png",
+      "role": "historical",
+      "maxBytes": 92852,
+      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "metadata": {
+        "format": "png",
+        "width": 368,
+        "height": 368,
+        "alpha": true
+      }
+    },
+    {
+      "path": "marks/audiometa/audiometa-mark.svg",
+      "role": "source",
+      "maxBytes": 28725,
+      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "metadata": {
+        "format": "svg",
+        "width": 368,
+        "height": 368,
+        "alpha": true,
+        "embeddedRaster": false
+      }
+    },
+    {
+      "path": "marks/behind-the-music-tree/behind-the-music-tree-mark.png",
+      "role": "source",
+      "maxBytes": 118643,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
+      "metadata": {
+        "format": "png",
+        "width": 1000,
+        "height": 1000,
+        "alpha": true
+      }
+    },
+    {
+      "path": "marks/behind-the-music-tree/behind-the-music-tree-mark.svg",
+      "role": "source",
+      "maxBytes": 29432,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
+      "metadata": {
+        "format": "svg",
+        "width": 1000,
+        "height": 1000,
+        "alpha": true,
+        "embeddedRaster": true
+      }
+    },
+    {
+      "path": "marks/grow-the-music-tree/grow-the-music-tree-lockup-horizontal-full.png",
+      "role": "historical",
+      "maxBytes": 157579,
+      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "metadata": {
+        "format": "png",
+        "width": 1920,
+        "height": 600,
+        "alpha": true
+      }
+    },
+    {
+      "path": "marks/grow-the-music-tree/grow-the-music-tree-lockup-horizontal.svg",
+      "role": "source",
+      "maxBytes": 416858,
+      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "metadata": {
+        "format": "svg",
+        "width": 1920,
+        "height": 600,
+        "alpha": true,
+        "embeddedRaster": false
+      }
+    },
+    {
+      "path": "marks/grow-the-music-tree/grow-the-music-tree-mark.png",
+      "role": "source",
+      "maxBytes": 329822,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
+      "metadata": {
+        "format": "png",
+        "width": 946,
+        "height": 954,
+        "alpha": true
+      }
+    },
+    {
+      "path": "marks/grow-the-music-tree/grow-the-music-tree-mark.svg",
+      "role": "source",
+      "maxBytes": 439972,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
+      "metadata": {
+        "format": "svg",
+        "width": 946,
+        "height": 954,
+        "alpha": true,
+        "embeddedRaster": true
+      }
+    },
+    {
+      "path": "marks/hear-the-music-tree/hear-the-music-tree-mark.png",
+      "role": "source",
+      "maxBytes": 113318,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
+      "metadata": {
+        "format": "png",
+        "width": 1000,
+        "height": 1000,
+        "alpha": true
+      }
+    },
+    {
+      "path": "marks/hear-the-music-tree/hear-the-music-tree-mark.svg",
+      "role": "source",
+      "maxBytes": 29421,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
+      "metadata": {
+        "format": "svg",
+        "width": 1000,
+        "height": 1000,
+        "alpha": true,
+        "embeddedRaster": true
+      }
+    },
+    {
+      "path": "marks/the-music-deck/the-music-deck-mark-full.png",
+      "role": "historical",
+      "maxBytes": 3191660,
+      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "metadata": {
+        "format": "png",
+        "width": 1254,
+        "height": 1254,
+        "alpha": true
+      }
+    },
+    {
+      "path": "marks/the-music-deck/the-music-deck-mark.png",
+      "role": "historical",
+      "maxBytes": 472064,
+      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "metadata": {
+        "format": "png",
+        "width": 512,
+        "height": 512,
+        "alpha": true
+      }
+    },
+    {
+      "path": "marks/the-music-deck/the-music-deck-mark.svg",
+      "role": "source",
+      "maxBytes": 5847,
+      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "metadata": {
+        "format": "svg",
+        "width": 512,
+        "height": 512,
+        "alpha": true,
+        "embeddedRaster": false
+      }
+    },
+    {
+      "path": "marks/the-music-tree/the-music-tree-lockup-horizontal-dark.png",
+      "role": "historical",
+      "maxBytes": 70779,
+      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "metadata": {
+        "format": "png",
+        "width": 800,
+        "height": 250,
+        "alpha": true
+      }
+    },
+    {
+      "path": "marks/the-music-tree/the-music-tree-lockup-horizontal-dark.svg",
+      "role": "source",
+      "maxBytes": 27999,
+      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "metadata": {
+        "format": "svg",
+        "width": 1920,
+        "height": 600,
+        "alpha": true,
+        "embeddedRaster": false
+      }
+    },
+    {
+      "path": "marks/the-music-tree/the-music-tree-lockup-horizontal-full.png",
+      "role": "historical",
+      "maxBytes": 161019,
+      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "metadata": {
+        "format": "png",
+        "width": 1920,
+        "height": 600,
+        "alpha": true
+      }
+    },
+    {
+      "path": "marks/the-music-tree/the-music-tree-lockup-horizontal.png",
+      "role": "historical",
+      "maxBytes": 69750,
+      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "metadata": {
+        "format": "png",
+        "width": 800,
+        "height": 250,
+        "alpha": true
+      }
+    },
+    {
+      "path": "marks/the-music-tree/the-music-tree-lockup-horizontal.svg",
+      "role": "source",
+      "maxBytes": 28000,
+      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "metadata": {
+        "format": "svg",
+        "width": 1920,
+        "height": 600,
+        "alpha": true,
+        "embeddedRaster": false
+      }
+    },
+    {
+      "path": "marks/the-music-tree/the-music-tree-lockup-stacked.png",
+      "role": "historical",
+      "maxBytes": 136738,
+      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "metadata": {
+        "format": "png",
+        "width": 551,
+        "height": 567,
+        "alpha": true
+      }
+    },
+    {
+      "path": "marks/the-music-tree/the-music-tree-lockup-stacked.svg",
+      "role": "source",
+      "maxBytes": 23251,
+      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "metadata": {
+        "format": "svg",
+        "width": 551,
+        "height": 567,
+        "alpha": true,
+        "embeddedRaster": false
+      }
+    },
+    {
+      "path": "marks/the-music-tree/the-music-tree-mark-dark.png",
+      "role": "historical",
+      "maxBytes": 188451,
+      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "metadata": {
+        "format": "png",
+        "width": 551,
+        "height": 567,
+        "alpha": true
+      }
+    },
+    {
+      "path": "marks/the-music-tree/the-music-tree-mark-dark.svg",
+      "role": "source",
+      "maxBytes": 277,
+      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "metadata": {
+        "format": "svg",
+        "width": 551,
+        "height": 567,
+        "alpha": true,
+        "embeddedRaster": false
+      }
+    },
+    {
+      "path": "marks/the-music-tree/the-music-tree-mark.png",
+      "role": "historical",
+      "maxBytes": 73651,
+      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "metadata": {
+        "format": "png",
+        "width": 551,
+        "height": 567,
+        "alpha": true
+      }
+    },
+    {
+      "path": "marks/the-music-tree/the-music-tree-mark.svg",
+      "role": "source",
+      "maxBytes": 26283,
+      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "metadata": {
+        "format": "svg",
+        "width": 551,
+        "height": 567,
+        "alpha": true,
+        "embeddedRaster": false
+      }
+    },
+    {
+      "path": "favicons/audiometa/apple-touch-icon.png",
+      "role": "derived",
+      "maxBytes": 11994,
+      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "metadata": {
+        "format": "png",
+        "width": 180,
+        "height": 180,
+        "alpha": true
+      }
+    },
+    {
+      "path": "favicons/audiometa/favicon.ico",
+      "role": "derived",
+      "maxBytes": 15086,
+      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "metadata": {
+        "format": "ico",
+        "sizes": [
+          16,
+          32,
+          48
+        ]
+      }
+    },
+    {
+      "path": "favicons/audiometa/favicon.svg",
+      "role": "derived",
+      "maxBytes": 28725,
+      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "metadata": {
+        "format": "svg",
+        "width": 368,
+        "height": 368,
+        "alpha": true,
+        "embeddedRaster": false
+      }
+    },
+    {
+      "path": "favicons/audiometa/icon-192.png",
+      "role": "derived",
+      "maxBytes": 12948,
+      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "metadata": {
+        "format": "png",
+        "width": 192,
+        "height": 192,
+        "alpha": true
+      }
+    },
+    {
+      "path": "favicons/audiometa/icon-512.png",
+      "role": "derived",
+      "maxBytes": 36731,
+      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "metadata": {
+        "format": "png",
+        "width": 512,
+        "height": 512,
+        "alpha": true
+      }
+    },
+    {
+      "path": "favicons/behind-the-music-tree/apple-touch-icon.png",
+      "role": "derived",
+      "maxBytes": 17640,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
+      "metadata": {
+        "format": "png",
+        "width": 180,
+        "height": 180,
+        "alpha": true
+      }
+    },
+    {
+      "path": "favicons/behind-the-music-tree/favicon.ico",
+      "role": "derived",
+      "maxBytes": 16595,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
+      "metadata": {
+        "format": "ico",
+        "sizes": [
+          16,
+          32,
+          48
+        ]
+      }
+    },
+    {
+      "path": "favicons/behind-the-music-tree/favicon.svg",
+      "role": "derived",
+      "maxBytes": 29432,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
+      "metadata": {
+        "format": "svg",
+        "width": 1000,
+        "height": 1000,
+        "alpha": true,
+        "embeddedRaster": true
+      }
+    },
+    {
+      "path": "favicons/behind-the-music-tree/icon-192.png",
+      "role": "derived",
+      "maxBytes": 18843,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
+      "metadata": {
+        "format": "png",
+        "width": 192,
+        "height": 192,
+        "alpha": true
+      }
+    },
+    {
+      "path": "favicons/behind-the-music-tree/icon-512.png",
+      "role": "derived",
+      "maxBytes": 55015,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
+      "metadata": {
+        "format": "png",
+        "width": 512,
+        "height": 512,
+        "alpha": true
+      }
+    },
+    {
+      "path": "favicons/grow-the-music-tree/apple-touch-icon.png",
+      "role": "derived",
+      "maxBytes": 28872,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
+      "metadata": {
+        "format": "png",
+        "width": 180,
+        "height": 180,
+        "alpha": true
+      }
+    },
+    {
+      "path": "favicons/grow-the-music-tree/favicon.ico",
+      "role": "derived",
+      "maxBytes": 16595,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
+      "metadata": {
+        "format": "ico",
+        "sizes": [
+          16,
+          32,
+          48
+        ]
+      }
+    },
+    {
+      "path": "favicons/grow-the-music-tree/favicon.svg",
+      "role": "derived",
+      "maxBytes": 439972,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
+      "metadata": {
+        "format": "svg",
+        "width": 946,
+        "height": 954,
+        "alpha": true,
+        "embeddedRaster": true
+      }
+    },
+    {
+      "path": "favicons/grow-the-music-tree/icon-192.png",
+      "role": "derived",
+      "maxBytes": 31763,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
+      "metadata": {
+        "format": "png",
+        "width": 192,
+        "height": 192,
+        "alpha": true
+      }
+    },
+    {
+      "path": "favicons/grow-the-music-tree/icon-512.png",
+      "role": "derived",
+      "maxBytes": 138517,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
+      "metadata": {
+        "format": "png",
+        "width": 512,
+        "height": 512,
+        "alpha": true
+      }
+    },
+    {
+      "path": "favicons/hear-the-music-tree/apple-touch-icon.png",
+      "role": "derived",
+      "maxBytes": 17213,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
+      "metadata": {
+        "format": "png",
+        "width": 180,
+        "height": 180,
+        "alpha": true
+      }
+    },
+    {
+      "path": "favicons/hear-the-music-tree/favicon.ico",
+      "role": "derived",
+      "maxBytes": 16595,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
+      "metadata": {
+        "format": "ico",
+        "sizes": [
+          16,
+          32,
+          48
+        ]
+      }
+    },
+    {
+      "path": "favicons/hear-the-music-tree/favicon.svg",
+      "role": "derived",
+      "maxBytes": 29421,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
+      "metadata": {
+        "format": "svg",
+        "width": 1000,
+        "height": 1000,
+        "alpha": true,
+        "embeddedRaster": true
+      }
+    },
+    {
+      "path": "favicons/hear-the-music-tree/icon-192.png",
+      "role": "derived",
+      "maxBytes": 18344,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
+      "metadata": {
+        "format": "png",
+        "width": 192,
+        "height": 192,
+        "alpha": true
+      }
+    },
+    {
+      "path": "favicons/hear-the-music-tree/icon-512.png",
+      "role": "derived",
+      "maxBytes": 53151,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
+      "metadata": {
+        "format": "png",
+        "width": 512,
+        "height": 512,
+        "alpha": true
+      }
+    },
+    {
+      "path": "favicons/the-music-deck/apple-touch-icon.png",
+      "role": "derived",
+      "maxBytes": 20976,
+      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "metadata": {
+        "format": "png",
+        "width": 180,
+        "height": 180,
+        "alpha": true
+      }
+    },
+    {
+      "path": "favicons/the-music-deck/favicon.ico",
+      "role": "derived",
+      "maxBytes": 15086,
+      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "metadata": {
+        "format": "ico",
+        "sizes": [
+          16,
+          32,
+          48
+        ]
+      }
+    },
+    {
+      "path": "favicons/the-music-deck/favicon.svg",
+      "role": "derived",
+      "maxBytes": 5847,
+      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "metadata": {
+        "format": "svg",
+        "width": 512,
+        "height": 512,
+        "alpha": true,
+        "embeddedRaster": false
+      }
+    },
+    {
+      "path": "favicons/the-music-deck/icon-192.png",
+      "role": "derived",
+      "maxBytes": 23823,
+      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "metadata": {
+        "format": "png",
+        "width": 192,
+        "height": 192,
+        "alpha": true
+      }
+    },
+    {
+      "path": "favicons/the-music-deck/icon-512.png",
+      "role": "derived",
+      "maxBytes": 90055,
+      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "metadata": {
+        "format": "png",
+        "width": 512,
+        "height": 512,
+        "alpha": true
+      }
+    },
+    {
+      "path": "banners/audiometa/audiometa-banner.png",
+      "role": "historical",
+      "maxBytes": 55446,
+      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "metadata": {
+        "format": "png",
+        "width": 1024,
+        "height": 448,
+        "alpha": false
+      }
+    },
+    {
+      "path": "banners/the-music-tree/the-music-tree-banner-linkedin-personal.jpg",
+      "role": "historical",
+      "maxBytes": 80490,
+      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "metadata": {
+        "format": "jpeg",
+        "width": 1584,
+        "height": 396,
+        "alpha": false
+      }
+    },
+    {
+      "path": "banners/the-music-tree/the-music-tree-banner-linkedin-personal.png",
+      "role": "historical",
+      "maxBytes": 82606,
+      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "metadata": {
+        "format": "png",
+        "width": 1584,
+        "height": 396,
+        "alpha": false
+      }
+    },
+    {
+      "path": "banners/the-music-tree/the-music-tree-banner-linkedin-personal.webp",
+      "role": "historical",
+      "maxBytes": 62800,
+      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "metadata": {
+        "format": "webp",
+        "width": 1584,
+        "height": 396,
+        "alpha": false
+      }
+    },
+    {
+      "path": "marks/grow-the-music-tree/grow-the-music-tree-mark-white.svg",
+      "role": "source",
+      "maxBytes": 29253,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
+      "metadata": {
+        "format": "svg",
+        "width": 1000,
+        "height": 1000,
+        "alpha": true,
+        "embeddedRaster": true
+      }
+    },
+    {
+      "path": "marks/grow-the-music-tree/grow-the-music-tree-mark-white.png",
+      "role": "source",
+      "maxBytes": 23037,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
+      "metadata": {
+        "format": "png",
+        "width": 1000,
+        "height": 1000,
+        "alpha": true
+      }
+    }
+  ]
+}

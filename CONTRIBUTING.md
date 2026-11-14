@@ -246,7 +246,7 @@ Before submitting a Pull Request:
 **3. Documentation**
 
 - Update README if adding new features or changing behavior
-- Update `CHANGELOG.md` with your changes in the `[Unreleased]` section (see [Changelog Best Practices](CHANGELOG.md#changelog-best-practices))
+- Update `CHANGELOG.md` with your changes in the `[Unreleased]` section
 - Update documentation when asset conventions change: global guides in `packages/brand/docs/` and colocated specs in `packages/brand/src/*/README.md` (see [`packages/brand/docs/README.md`](packages/brand/docs/README.md)). Any **multi-section** Markdown file in the repo should include a **Table of contents** linking each `##` section ([`CHANGELOG.md`](CHANGELOG.md) and one-section stubs exempt).
 
 **4. Git Hygiene**
