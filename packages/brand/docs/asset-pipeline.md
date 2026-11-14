@@ -17,9 +17,14 @@ reviewed explanation; generation never recalculates budgets. Run
 frozen lockfile. The package check installs an actual tarball into an isolated
 Vite consumer and verifies emitted asset bytes and embedded SVGs.
 
-Detailed marks remain the favicon sources. Compact drawings in
-`docs/assets/proposals` are proposals pending visual approval; they are not
-published. The optimization inventory records per-file changes. SVG optimization
+Grow, Hear and Behind use the approved radial marks as favicon sources. Grow
+is the color reference, with a separate white variant; Hear and Behind use trees
+clipped to their colored discs. Their SVGs embed lossless PNG artwork rather
+than traced vector paths. Audiometa and The Music Deck retain their detailed
+marks. Older compact drawings in `docs/assets/proposals` remain unselected.
+The approved comparison is `docs/assets/proposals/radial-reference/index.html`.
+Legacy horizontal lockups retain their previous artwork; use the standalone
+radial marks for the new identity. The optimization inventory records per-file changes. SVG optimization
 retains geometry and compares rendered pixels; PNG recompression retains pixels.
 The Audiometa `.png` banner previously contained JPEG and was converted to PNG.
 The LinkedIn `.jpg` banner previously contained PNG and was encoded as quality

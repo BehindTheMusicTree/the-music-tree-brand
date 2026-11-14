@@ -45,7 +45,7 @@
     {
       "id": "behind-the-music-tree",
       "source": "marks/behind-the-music-tree/behind-the-music-tree-mark.svg",
-      "approvedVariant": "detailed",
+      "approvedVariant": "radial",
       "outputs": [
         {
           "path": "favicons/behind-the-music-tree/favicon.svg",
@@ -80,7 +80,7 @@
     {
       "id": "grow-the-music-tree",
       "source": "marks/grow-the-music-tree/grow-the-music-tree-mark.svg",
-      "approvedVariant": "detailed",
+      "approvedVariant": "radial",
       "outputs": [
         {
           "path": "favicons/grow-the-music-tree/favicon.svg",
@@ -115,7 +115,7 @@
     {
       "id": "hear-the-music-tree",
       "source": "marks/hear-the-music-tree/hear-the-music-tree-mark.svg",
-      "approvedVariant": "detailed",
+      "approvedVariant": "radial",
       "outputs": [
         {
           "path": "favicons/hear-the-music-tree/favicon.svg",
@@ -274,27 +274,27 @@
     },
     {
       "path": "marks/behind-the-music-tree/behind-the-music-tree-mark.png",
-      "role": "historical",
-      "maxBytes": 149340,
-      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "role": "source",
+      "maxBytes": 118643,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
       "metadata": {
         "format": "png",
-        "width": 551,
-        "height": 567,
+        "width": 1000,
+        "height": 1000,
         "alpha": true
       }
     },
     {
       "path": "marks/behind-the-music-tree/behind-the-music-tree-mark.svg",
       "role": "source",
-      "maxBytes": 349127,
-      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "maxBytes": 29432,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
       "metadata": {
         "format": "svg",
-        "width": 551,
-        "height": 567,
+        "width": 1000,
+        "height": 1000,
         "alpha": true,
-        "embeddedRaster": false
+        "embeddedRaster": true
       }
     },
     {
@@ -324,52 +324,52 @@
     },
     {
       "path": "marks/grow-the-music-tree/grow-the-music-tree-mark.png",
-      "role": "historical",
-      "maxBytes": 143344,
-      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "role": "source",
+      "maxBytes": 329822,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
       "metadata": {
         "format": "png",
-        "width": 551,
-        "height": 567,
+        "width": 946,
+        "height": 954,
         "alpha": true
       }
     },
     {
       "path": "marks/grow-the-music-tree/grow-the-music-tree-mark.svg",
       "role": "source",
-      "maxBytes": 357521,
-      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "maxBytes": 439972,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
       "metadata": {
         "format": "svg",
-        "width": 551,
-        "height": 567,
+        "width": 946,
+        "height": 954,
         "alpha": true,
-        "embeddedRaster": false
+        "embeddedRaster": true
       }
     },
     {
       "path": "marks/hear-the-music-tree/hear-the-music-tree-mark.png",
-      "role": "historical",
-      "maxBytes": 167183,
-      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "role": "source",
+      "maxBytes": 113318,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
       "metadata": {
         "format": "png",
-        "width": 551,
-        "height": 567,
+        "width": 1000,
+        "height": 1000,
         "alpha": true
       }
     },
     {
       "path": "marks/hear-the-music-tree/hear-the-music-tree-mark.svg",
       "role": "source",
-      "maxBytes": 309558,
-      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "maxBytes": 29421,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
       "metadata": {
         "format": "svg",
-        "width": 551,
-        "height": 567,
+        "width": 1000,
+        "height": 1000,
         "alpha": true,
-        "embeddedRaster": false
+        "embeddedRaster": true
       }
     },
     {
@@ -612,8 +612,8 @@
     {
       "path": "favicons/behind-the-music-tree/apple-touch-icon.png",
       "role": "derived",
-      "maxBytes": 31829,
-      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "maxBytes": 17640,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
       "metadata": {
         "format": "png",
         "width": 180,
@@ -624,8 +624,8 @@
     {
       "path": "favicons/behind-the-music-tree/favicon.ico",
       "role": "derived",
-      "maxBytes": 15086,
-      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "maxBytes": 16595,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
       "metadata": {
         "format": "ico",
         "sizes": [
@@ -638,21 +638,21 @@
     {
       "path": "favicons/behind-the-music-tree/favicon.svg",
       "role": "derived",
-      "maxBytes": 349127,
-      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "maxBytes": 29432,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
       "metadata": {
         "format": "svg",
-        "width": 551,
-        "height": 567,
+        "width": 1000,
+        "height": 1000,
         "alpha": true,
-        "embeddedRaster": false
+        "embeddedRaster": true
       }
     },
     {
       "path": "favicons/behind-the-music-tree/icon-192.png",
       "role": "derived",
-      "maxBytes": 34838,
-      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "maxBytes": 18843,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
       "metadata": {
         "format": "png",
         "width": 192,
@@ -663,8 +663,8 @@
     {
       "path": "favicons/behind-the-music-tree/icon-512.png",
       "role": "derived",
-      "maxBytes": 113738,
-      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "maxBytes": 55015,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
       "metadata": {
         "format": "png",
         "width": 512,
@@ -675,8 +675,8 @@
     {
       "path": "favicons/grow-the-music-tree/apple-touch-icon.png",
       "role": "derived",
-      "maxBytes": 31268,
-      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "maxBytes": 28872,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
       "metadata": {
         "format": "png",
         "width": 180,
@@ -687,8 +687,8 @@
     {
       "path": "favicons/grow-the-music-tree/favicon.ico",
       "role": "derived",
-      "maxBytes": 15086,
-      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "maxBytes": 16595,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
       "metadata": {
         "format": "ico",
         "sizes": [
@@ -701,21 +701,21 @@
     {
       "path": "favicons/grow-the-music-tree/favicon.svg",
       "role": "derived",
-      "maxBytes": 357521,
-      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "maxBytes": 439972,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
       "metadata": {
         "format": "svg",
-        "width": 551,
-        "height": 567,
+        "width": 946,
+        "height": 954,
         "alpha": true,
-        "embeddedRaster": false
+        "embeddedRaster": true
       }
     },
     {
       "path": "favicons/grow-the-music-tree/icon-192.png",
       "role": "derived",
-      "maxBytes": 34172,
-      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "maxBytes": 31763,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
       "metadata": {
         "format": "png",
         "width": 192,
@@ -726,8 +726,8 @@
     {
       "path": "favicons/grow-the-music-tree/icon-512.png",
       "role": "derived",
-      "maxBytes": 113982,
-      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "maxBytes": 138517,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
       "metadata": {
         "format": "png",
         "width": 512,
@@ -738,8 +738,8 @@
     {
       "path": "favicons/hear-the-music-tree/apple-touch-icon.png",
       "role": "derived",
-      "maxBytes": 28460,
-      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "maxBytes": 17213,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
       "metadata": {
         "format": "png",
         "width": 180,
@@ -750,8 +750,8 @@
     {
       "path": "favicons/hear-the-music-tree/favicon.ico",
       "role": "derived",
-      "maxBytes": 15086,
-      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "maxBytes": 16595,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
       "metadata": {
         "format": "ico",
         "sizes": [
@@ -764,21 +764,21 @@
     {
       "path": "favicons/hear-the-music-tree/favicon.svg",
       "role": "derived",
-      "maxBytes": 309558,
-      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "maxBytes": 29421,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
       "metadata": {
         "format": "svg",
-        "width": 551,
-        "height": 567,
+        "width": 1000,
+        "height": 1000,
         "alpha": true,
-        "embeddedRaster": false
+        "embeddedRaster": true
       }
     },
     {
       "path": "favicons/hear-the-music-tree/icon-192.png",
       "role": "derived",
-      "maxBytes": 30936,
-      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "maxBytes": 18344,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
       "metadata": {
         "format": "png",
         "width": 192,
@@ -789,8 +789,8 @@
     {
       "path": "favicons/hear-the-music-tree/icon-512.png",
       "role": "derived",
-      "maxBytes": 99587,
-      "budgetReason": "Initial optimized baseline; increases require an explicit reviewed explanation.",
+      "maxBytes": 53151,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
       "metadata": {
         "format": "png",
         "width": 512,
@@ -907,6 +907,31 @@
         "width": 1584,
         "height": 396,
         "alpha": false
+      }
+    },
+    {
+      "path": "marks/grow-the-music-tree/grow-the-music-tree-mark-white.svg",
+      "role": "source",
+      "maxBytes": 29253,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
+      "metadata": {
+        "format": "svg",
+        "width": 1000,
+        "height": 1000,
+        "alpha": true,
+        "embeddedRaster": true
+      }
+    },
+    {
+      "path": "marks/grow-the-music-tree/grow-the-music-tree-mark-white.png",
+      "role": "source",
+      "maxBytes": 23037,
+      "budgetReason": "Approved radial identity; embedded PNG preserves reference contours and alpha. Budget includes 10% renderer headroom.",
+      "metadata": {
+        "format": "png",
+        "width": 1000,
+        "height": 1000,
+        "alpha": true
       }
     }
   ]
