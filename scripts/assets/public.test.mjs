@@ -74,3 +74,26 @@ test('archive rejects traversal, links, duplicate files and excessive sizes', as
     }
   } finally { await rm(dir, { recursive: true, force: true }); }
 });
+
+test('HTTPS verification requests identity bytes and rejects altered headers or content', async () => {
+  const originalFetch = globalThis.fetch;
+  const expected = bundle.files[0];
+  let changes = {};
+  globalThis.fetch = async (_url, options) => {
+    assert.equal(options.headers['Accept-Encoding'], 'identity');
+    assert.equal(options.redirect, 'error');
+    return new Response(expected.body, { headers: {
+      'content-type': expected.contentType,
+      'content-length': String(expected.bytes),
+      'cache-control': cacheControl,
+      ...changes,
+    } });
+  };
+  try {
+    await verifyHttps('https://example.com', expected);
+    for (const bad of [{ 'content-type': 'text/plain' }, { 'cache-control': 'no-cache' }, { 'content-length': '99' }, { 'content-encoding': 'gzip' }]) {
+      changes = bad;
+      await assert.rejects(verifyHttps('https://example.com', expected), /invalid public/);
+    }
+  } finally { globalThis.fetch = originalFetch; }
+});

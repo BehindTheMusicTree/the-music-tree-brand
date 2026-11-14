@@ -93,8 +93,9 @@ export async function synchronize(bundle, storage, verifyPublic) {
 export async function verifyHttps(base, object) {
   const origin = new URL(base);
   if (origin.protocol !== 'https:' || origin.pathname !== '/' || origin.search || origin.hash || origin.username || origin.password) throw new Error('Public base URL must be an HTTPS origin');
-  const response = await fetch(new URL(object.path, origin), { redirect: 'error' });
+  const response = await fetch(new URL(object.path, origin), { redirect: 'error', headers: { 'Accept-Encoding': 'identity' } });
   if (!response.ok) throw new Error(`${object.path}: public HTTP ${response.status}`);
+  if (response.headers.get('content-encoding') && response.headers.get('content-encoding') !== 'identity') throw new Error(`${object.path}: invalid public content encoding`);
   const body = Buffer.from(await response.arrayBuffer());
   if (body.length !== object.bytes || sha256(body) !== object.sha256 || response.headers.get('content-type')?.split(';')[0] !== object.contentType || response.headers.get('cache-control') !== cacheControl || Number(response.headers.get('content-length')) !== object.bytes) throw new Error(`${object.path}: invalid public bytes or metadata`);
 }
