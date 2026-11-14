@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Catalogued asset budgets, reproducible favicon generation, installed-package checks and an explicit versioned npm-to-R2 synchronization workflow.
+
+### Fixed
+
+- Optimize existing artwork without changing public paths; correct two banner extension/format mismatches and regenerate favicons from their declared sources.
+
 ### Documentation
 
 - Removed the contributor guidelines and example entry from `CHANGELOG.md`: the example duplicated the `[Unreleased]` heading and led agents to write entries in the wrong place, and the conventions now live in the shared `create-pr` skill.

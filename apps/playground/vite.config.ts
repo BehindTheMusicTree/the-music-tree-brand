@@ -1,9 +1,12 @@
 import path from "node:path";
+import brandPackage from "../../packages/brand/package.json";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 
 export default defineConfig({
   plugins: [react()],
+  define: { __APP_VERSION__: JSON.stringify(brandPackage.version) },
+  publicDir: path.resolve(import.meta.dirname, "../../docs"),
   resolve: {
     alias: {
       "@brand-dist": path.resolve(
