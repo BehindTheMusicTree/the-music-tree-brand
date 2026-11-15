@@ -61,6 +61,8 @@ All contributors (including maintainers) should update `CHANGELOG.md` when creat
 
 ### Added
 
+- **The Music Map**: Add the full-color mark and square app icon sizes.
+
 - **Detail panel shell tokens**: `--layout-panel-edge` (distance from the host edge to the panel, defaults to the gutter), `--layout-sheet-peek` (40%) and `--layout-panel-aside-w` (20rem), with `layout` exports and Tailwind utilities (`panel-edge` spacing, `w-panel-aside`).
 - **Scoped panel visibility**: `[data-left-panel="hidden"]` and `[data-right-panel="hidden"]` zero the column width and reset the matching center offset.
 
