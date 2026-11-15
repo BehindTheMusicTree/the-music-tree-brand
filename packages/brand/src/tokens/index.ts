@@ -15,6 +15,11 @@ export const colors = {
   green500: "var(--color-green-500)",
   green600: "var(--color-green-600)",
   blue500: "var(--color-blue-500)",
+  surface: "var(--color-surface)",
+  surfaceMuted: "var(--color-surface-muted)",
+  border: "var(--color-border)",
+  focusRing: "var(--color-focus-ring)",
+  accentRating: "var(--color-accent-rating)",
 } as const;
 
 export const spacing = {
@@ -41,10 +46,26 @@ export const layout = {
   leftWidth: "var(--layout-left-w)",
   rightWidth: "var(--layout-right-w)",
   panelInset: "var(--layout-panel-inset)",
+  panelPadX: "var(--layout-panel-pad-x)",
+  panelGap: "var(--layout-panel-gap)",
   searchHeight: "var(--layout-search-h)",
+  searchWidth: "var(--layout-search-w)",
+  searchInset: "var(--layout-search-inset)",
+  searchClear: "var(--layout-search-clear)",
   edgeTabWidth: "var(--layout-edge-tab-w)",
   touchTarget: "var(--layout-touch-target)",
   bandTop: "var(--layout-band-top)",
   centerLeft: "var(--layout-center-left)",
   centerRight: "var(--layout-center-right)",
+  pageMaxWidth: "var(--layout-page-max-w)",
+  pageMaxWidthNarrow: "var(--layout-page-max-w-narrow)",
 } as const;
+
+export const typography: Record<string, [string, { lineHeight: string }]> = {
+  title: ["var(--text-title)", { lineHeight: "var(--text-title-lh)" }],
+  heading: ["var(--text-heading)", { lineHeight: "var(--text-heading-lh)" }],
+  body: ["var(--text-body)", { lineHeight: "var(--text-body-lh)" }],
+  caption: ["var(--text-caption)", { lineHeight: "var(--text-caption-lh)" }],
+  input: ["var(--text-input)", { lineHeight: "var(--text-input-lh)" }],
+  search: ["var(--text-search)", { lineHeight: "var(--text-search-lh)" }],
+};

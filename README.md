@@ -97,13 +97,13 @@ Ensure design tokens are loaded (e.g. import `@behindthemusictree/brand/styles` 
 
 ## Publishing
 
-A GitHub Actions workflow automatically publishes to npm (trusted publishing, no token) whenever a version tag is pushed. To cut a new version, from `develop`:
+A GitHub Actions workflow automatically publishes to npm (trusted publishing, no token) whenever a version tag is pushed. To prepare a new version, first create a clean `release/<version>` branch from current `develop`:
 
 ```bash
 pnpm run release patch   # or minor / major
 ```
 
-This creates `release/<version>`, bumps the version, stamps the changelog, and opens PRs into `main` and `develop`. Once the `main` PR merges, run `pnpm run tag-release` on `main` to tag and publish the version on npm. See [CONTRIBUTING.md](CONTRIBUTING.md#6-releasing-for-maintainers) for details.
+This updates the package version, lockfile and changelog for review. Commit the changes and open a PR against `main`. After merge, CI validates and creates the tag, publishes npm with provenance, and creates the GitHub Release from the changelog. Integrate released `main` back into `develop` afterward. Local tagging is refused. See [CONTRIBUTING.md](CONTRIBUTING.md#6-releasing-for-maintainers) for details.
 
 The [publish workflow](.github/workflows/publish.yml) supplies the build-time
 variables from GitHub repository variables (including `DOMAIN_NAME` as
@@ -145,3 +145,9 @@ port setting. The library watcher rebuilds `packages/brand/dist` as source chang
 static asset previews read the package's `src` directories. Set the build-time
 variables in the shell before starting the watcher, and restart it after changing
 them so the package is rebuilt with the new values.
+
+## License
+
+The code is licensed under the [ISC License](LICENSE). Names, logos,
+marks, favicons, and banners are not covered by it: see
+[TRADEMARKS.md](TRADEMARKS.md).

@@ -1,7 +1,8 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { layout } from "./index";
+import { brandPreset } from "../tailwind-preset";
+import { layout, typography } from "./index";
 
 const css = readFileSync(join(__dirname, "theme.css"), "utf8");
 
@@ -40,6 +41,11 @@ describe("layout tokens", () => {
     }
   });
 
+  it("declares the panel body padding and gap", () => {
+    expect(declaration("--layout-panel-pad-x")).toBe("1.5rem");
+    expect(declaration("--layout-panel-gap")).toBe("1.25rem");
+  });
+
   it("defaults the panel edge to the gutter", () => {
     expect(declaration("--layout-panel-edge")).toBe("var(--layout-gutter)");
   });
@@ -57,5 +63,34 @@ describe("layout tokens", () => {
     const block = css.match(new RegExp(`\\[data-${side}-panel="hidden"\\] \\{([\\s\\S]*?)\\}`))?.[1];
     expect(block).toContain(`--layout-${side}-w: 0px;`);
     expect(block).toContain(`--layout-center-${side}: var(--layout-gutter);`);
+  });
+
+  it("declares the font size and line height of every typography role", () => {
+    for (const [size, { lineHeight }] of Object.values(typography)) {
+      for (const value of [size, lineHeight]) {
+        const name = value.match(/^var\((--[\w-]+)\)$/)?.[1];
+        expect(name, value).toBeDefined();
+        expect(() => declaration(name as string)).not.toThrow();
+      }
+    }
+  });
+
+  it("raises input and search text to 16px on coarse pointers so iOS does not zoom on focus", () => {
+    const coarse = css.match(/@media \(pointer: coarse\) \{\s*:root \{([\s\S]*?)\}/)?.[1];
+    expect(coarse).toBeDefined();
+    expect(coarse).toMatch(/--text-input:\s*1rem;/);
+    expect(coarse).toMatch(/--text-search:\s*1rem;/);
+  });
+
+  it("declares the page max widths", () => {
+    expect(declaration("--layout-page-max-w")).toBe("64rem");
+    expect(declaration("--layout-page-max-w-narrow")).toBe("42rem");
+  });
+
+  it("exposes the page max widths as Tailwind maxWidth utilities", () => {
+    expect(brandPreset.theme.extend.maxWidth).toEqual({
+      page: "var(--layout-page-max-w)",
+      "page-narrow": "var(--layout-page-max-w-narrow)",
+    });
   });
 });

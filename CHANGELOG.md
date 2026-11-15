@@ -5,59 +5,66 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## Changelog Best Practices
-
-### General Principles
-
-- Changelogs are for humans, not machines.
-- Include an entry for every version, with the latest first.
-- Group similar changes under: Added, Changed, Improved, Deprecated, Removed, Fixed, Documentation, Performance, CI.
-- Use an "Unreleased" section for upcoming changes.
-- Follow Semantic Versioning where possible.
-- Use ISO 8601 date format: YYYY-MM-DD.
-- Avoid dumping raw git logs; summarize notable changes clearly.
-
-### Guidelines for Contributors
-
-All contributors (including maintainers) should update `CHANGELOG.md` when creating PRs:
-
-1. **Add entries to the `[Unreleased]` section** - Add your changes under the appropriate category (Added, Changed, Improved, Deprecated, Removed, Fixed, Documentation, Performance, CI)
-2. **Follow the changelog format** - See examples below
-3. **Group related changes** - Similar changes should be grouped together
-4. **Be descriptive** - Write clear, user-focused descriptions of what changed
-
-**Example:**
-
-```markdown
 ## [Unreleased]
+
+## [12.14.0] - 2026-11-14
 
 ### Added
 
-- **Panel tokens**: `--layout-panel-inset` (1rem), `--layout-search-h` (3rem), `--layout-edge-tab-w` (1.5rem) and `--radius-panel` (1rem), with matching `layout`/`radius` exports and Tailwind utilities (`p-panel-inset`, `h-search`, `w-edge-tab`, `rounded-panel`).
+- Adopt the approved radial identity for Grow (color reference and white variant), Hear and Behind, including regenerated favicons.
+
+- Catalogued asset budgets, reproducible favicon generation, installed-package checks and an explicit versioned npm-to-R2 synchronization workflow.
+
+### Fixed
+
+- Optimize existing artwork without changing public paths; correct two banner extension/format mismatches and regenerate favicons from their declared sources.
+
+### Documentation
+
+- Removed the contributor guidelines and example entry from `CHANGELOG.md`: the example duplicated the `[Unreleased]` heading and led agents to write entries in the wrong place, and the conventions now live in the shared `create-pr` skill.
+
+## [12.13.0] - 2026-11-12
+
+### Added
+
+- **Page base styles**: `@behindthemusictree/brand/styles` now sets `body` background, text colour, font size and line height from tokens, plus `color-scheme` (light, dark under `[data-theme="dark"]`).
+- **Page width tokens**: `--layout-page-max-w` (64rem) and `--layout-page-max-w-narrow` (42rem), exposed as `layout.pageMaxWidth` / `pageMaxWidthNarrow` and Tailwind `max-w-page` / `max-w-page-narrow`.
+- **Colour exports**: `colors.surface`, `surfaceMuted`, `border`, `focusRing` and `accentRating` (Tailwind `brand-*` colours).
+
+### CI
+
+- Pin the shared release workflows to the lag-tolerant github-workflows commit 79c1362, so tag creation tolerates GitHub read-after-write delays.
+
+## [12.12.0] - 2026-11-10
+
+### Added
+
+- **Panel body tokens**: `--layout-panel-pad-x` (1.5rem) and `--layout-panel-gap` (1.25rem), with `layout.panelPadX` / `layout.panelGap` and the `panel-x` / `panel-gap` spacing keys. The detail panel body owns the horizontal margin and the vertical spacing between sections.
+
+## [12.11.0] - 2026-11-09
+
+### Added
+
+- **Typography scale**: `--text-title/heading/body/caption/input/search` with line heights, a `typography` export and the `text-title`, `text-heading`, `text-body`, `text-caption`, `text-input` and `text-search` Tailwind sizes. Input and search text rise to 16px on coarse pointers so iOS does not zoom on focus.
+- **Search tokens**: `--layout-search-w`, `--layout-search-inset` and `--layout-search-clear`, with `w-search` and the `search-inset` / `search-clear` spacing keys.
 
 ### Changed
 
-- **Detail panel width**: `--layout-detail-panel-w` is now `25.5rem` (was `17.5rem`).
-- **Center insets**: `--layout-center-left` / `--layout-center-right` now derive from `--layout-left-w` / `--layout-right-w` plus the edge tab width, so a consumer can collapse a column by setting its width to `0px`.
-- **Center collapse breakpoint**: the center insets collapse to the gutter below `80rem` (was `64rem`).
+- **Removed type tokens**: `--text-xs/sm/base` and `--leading-tight/normal` are replaced by the typography scale.
 
-### Fixed
+## [12.10.1] - 2026-11-06
 
-- `.env.example`: `GTMT_FRONT_REPO_NAME` now matches the real repository name (`grow-the-music-tree-frontend`).
+### CI
 
-### Added
+- Preserve complete release notes when Markdown examples contain version headings.
 
-- **Semantic tokens**: `--color-surface`, `--color-surface-muted`, `--color-border`, `--color-focus-ring`, `--color-accent-rating`, a type scale (`--text-xs/sm/base`, `--leading-tight/normal`) and a `[data-theme="dark"]` override of text, surface and border tokens
-- **New Component**: Added `Card` component with variants for outlined and elevated styles
+- Prepare release changes on a release branch; CI owns version tags and resumes npm publication only when existing archive integrity matches. GitHub release notes come from the changelog after npm succeeds.
 
-### Fixed
+### Documentation
 
-- **Token Export**: Fixed missing CSS custom property for `--color-surface`
-```
+- **License**: an ISC `LICENSE` file matching the license already declared in `package.json`, and `TRADEMARKS.md`, which excludes the project names, marks, favicons and banners from it. Both ship in the npm package.
 
-**Note:** During releases, maintainers will move entries from `[Unreleased]` to a versioned section (e.g., `## [1.1.0] - 2026-04-01`).
-
-## [Unreleased]
+## [12.10.0] - 2026-11-05
 
 ### Added
 

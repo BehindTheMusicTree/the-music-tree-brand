@@ -1,6 +1,6 @@
 {
   "name": "@behindthemusictree/brand",
-  "version": "12.9.2",
+  "version": "12.14.0",
   "description": "Shared assets (components, tokens, marks, styles) for React projects",
   "repository": {
     "type": "git",
@@ -36,11 +36,13 @@
     "src/banners",
     "docs",
     "src/banners/README.md",
-    "src/marks/README.md"
+    "src/marks/README.md",
+    "TRADEMARKS.md"
   ],
   "scripts": {
     "dev": "tsup --watch",
     "build": "tsup",
+    "prepack": "cp ../../LICENSE ../../TRADEMARKS.md .",
     "test": "vitest run"
   },
   "peerDependencies": {
