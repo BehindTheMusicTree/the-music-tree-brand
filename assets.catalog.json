@@ -181,6 +181,41 @@
           ]
         }
       ]
+    },
+    {
+      "id": "the-music-map",
+      "source": "marks/the-music-map/the-music-map-mark.svg",
+      "approvedVariant": "full-color",
+      "outputs": [
+        {
+          "path": "favicons/the-music-map/favicon.svg",
+          "kind": "copy"
+        },
+        {
+          "path": "favicons/the-music-map/apple-touch-icon.png",
+          "kind": "png",
+          "size": 180
+        },
+        {
+          "path": "favicons/the-music-map/icon-192.png",
+          "kind": "png",
+          "size": 192
+        },
+        {
+          "path": "favicons/the-music-map/icon-512.png",
+          "kind": "png",
+          "size": 512
+        },
+        {
+          "path": "favicons/the-music-map/favicon.ico",
+          "kind": "ico",
+          "sizes": [
+            16,
+            32,
+            48
+          ]
+        }
+      ]
     }
   ],
   "files": [
@@ -932,6 +967,94 @@
         "width": 1000,
         "height": 1000,
         "alpha": true
+      }
+    },
+    {
+      "path": "marks/the-music-map/the-music-map-mark.svg",
+      "role": "source",
+      "maxBytes": 1096704,
+      "budgetReason": "Full-color supplied artwork and its generated derivatives.",
+      "metadata": {
+        "format": "svg",
+        "width": 926,
+        "height": 1132,
+        "alpha": true,
+        "embeddedRaster": true
+      }
+    },
+    {
+      "path": "marks/the-music-map/the-music-map-mark.png",
+      "role": "historical",
+      "maxBytes": 822272,
+      "budgetReason": "Full-color supplied artwork and its generated derivatives.",
+      "metadata": {
+        "format": "png",
+        "width": 926,
+        "height": 1132,
+        "alpha": true
+      }
+    },
+    {
+      "path": "favicons/the-music-map/favicon.svg",
+      "role": "derived",
+      "maxBytes": 1096704,
+      "budgetReason": "Full-color supplied artwork and its generated derivatives.",
+      "metadata": {
+        "format": "svg",
+        "width": 926,
+        "height": 1132,
+        "alpha": true,
+        "embeddedRaster": true
+      }
+    },
+    {
+      "path": "favicons/the-music-map/apple-touch-icon.png",
+      "role": "derived",
+      "maxBytes": 34816,
+      "budgetReason": "Full-color supplied artwork and its generated derivatives.",
+      "metadata": {
+        "format": "png",
+        "width": 180,
+        "height": 180,
+        "alpha": true
+      }
+    },
+    {
+      "path": "favicons/the-music-map/icon-192.png",
+      "role": "derived",
+      "maxBytes": 38912,
+      "budgetReason": "Full-color supplied artwork and its generated derivatives.",
+      "metadata": {
+        "format": "png",
+        "width": 192,
+        "height": 192,
+        "alpha": true
+      }
+    },
+    {
+      "path": "favicons/the-music-map/icon-512.png",
+      "role": "derived",
+      "maxBytes": 176128,
+      "budgetReason": "Full-color supplied artwork and its generated derivatives.",
+      "metadata": {
+        "format": "png",
+        "width": 512,
+        "height": 512,
+        "alpha": true
+      }
+    },
+    {
+      "path": "favicons/the-music-map/favicon.ico",
+      "role": "derived",
+      "maxBytes": 17408,
+      "budgetReason": "Full-color supplied artwork and its generated derivatives.",
+      "metadata": {
+        "format": "ico",
+        "sizes": [
+          16,
+          32,
+          48
+        ]
       }
     }
   ]

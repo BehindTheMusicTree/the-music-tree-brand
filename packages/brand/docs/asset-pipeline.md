@@ -20,8 +20,8 @@ Vite consumer and verifies emitted asset bytes and embedded SVGs.
 Grow, Hear and Behind use the approved radial marks as favicon sources. Grow
 is the color reference, with a separate white variant; Hear and Behind use trees
 clipped to their colored discs. Their SVGs embed lossless PNG artwork rather
-than traced vector paths. Audiometa and The Music Deck retain their detailed
-marks. Older compact drawings in `docs/assets/proposals` remain unselected.
+than traced vector paths. The Music Map uses the supplied full-color PNG embedded in its SVG source.
+Audiometa and The Music Deck retain their detailed marks. Older compact drawings in `docs/assets/proposals` remain unselected.
 The approved comparison is `docs/assets/proposals/radial-reference/index.html`.
 Legacy horizontal lockups retain their previous artwork; use the standalone
 radial marks for the new identity. The optimization inventory records per-file changes. SVG optimization
