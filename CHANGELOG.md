@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **The Music Map**: Add the full-color mark and favicon bundle.
 
+### Fixed
+
+- **Agent directories**: Keep plans and scratch data out of Git while tracking the directory ignore rules.
+
 ## [12.14.0] - 2026-11-14
 
 ### Added
