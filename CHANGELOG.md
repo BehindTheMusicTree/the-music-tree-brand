@@ -15,6 +15,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **Agent directories**: Keep plans and scratch data out of Git while tracking the directory ignore rules.
 
+### Removed
+
+- Drop the tracked `.agent-plans/.gitignore`: plans now live in the common git directory.
+
 ## [12.14.0] - 2026-11-14
 
 ### Added
