@@ -34,6 +34,10 @@ Grow also ships transparent circled marks in full color
 (`grow-the-music-tree-mark-circled-white.svg` / `.png`). Both enclose
 the branches in a ring and use a square canvas.
 
+The Music Map ships the full-color `the-music-map-mark` and solid black
+(`the-music-map-mark-black`) and white (`the-music-map-mark-white`) variants,
+each in SVG and PNG. All three share the same silhouette and transparent cutouts.
+
 ## Imports
 
 From published package:
