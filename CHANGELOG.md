@@ -13,7 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- **The Music Map**: Add the full-color mark and favicon bundle.
+- **The Music Map**: Add the full-color mark, black and white mark variants, and favicon bundle.
 - Add transparent full-color and white circled Grow marks in SVG and PNG.
 
 ### Fixed
