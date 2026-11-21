@@ -29,6 +29,11 @@ variants clip branches at the circle edge. These SVGs embed lossless raster
 artwork and retain its resolution limit. Existing lockups keep their previous
 artwork. Audiometa and The Music Deck retain their separate identities.
 
+Grow also ships transparent circled marks in full color
+(`grow-the-music-tree-mark-circled.svg` / `.png`) and white
+(`grow-the-music-tree-mark-circled-white.svg` / `.png`). Both enclose
+the branches in a ring and use a square canvas.
+
 ## Imports
 
 From published package:

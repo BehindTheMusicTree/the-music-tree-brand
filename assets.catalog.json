@@ -216,6 +216,30 @@
           ]
         }
       ]
+    },
+    {
+      "id": "grow-circled",
+      "source": "marks/grow-the-music-tree/grow-the-music-tree-mark-circled.svg",
+      "approvedVariant": "circled",
+      "outputs": [
+        {
+          "path": "marks/grow-the-music-tree/grow-the-music-tree-mark-circled.png",
+          "kind": "png",
+          "size": 1000
+        }
+      ]
+    },
+    {
+      "id": "grow-circled-white",
+      "source": "marks/grow-the-music-tree/grow-the-music-tree-mark-circled-white.svg",
+      "approvedVariant": "circled-white",
+      "outputs": [
+        {
+          "path": "marks/grow-the-music-tree/grow-the-music-tree-mark-circled-white.png",
+          "kind": "png",
+          "size": 1000
+        }
+      ]
     }
   ],
   "files": [
@@ -380,6 +404,56 @@
         "height": 954,
         "alpha": true,
         "embeddedRaster": true
+      }
+    },
+    {
+      "path": "marks/grow-the-music-tree/grow-the-music-tree-mark-circled.svg",
+      "role": "source",
+      "maxBytes": 443948,
+      "budgetReason": "Embedded Grow artwork and SVG ring. Budget includes 10% headroom.",
+      "metadata": {
+        "format": "svg",
+        "width": 1000,
+        "height": 1000,
+        "alpha": true,
+        "embeddedRaster": true
+      }
+    },
+    {
+      "path": "marks/grow-the-music-tree/grow-the-music-tree-mark-circled.png",
+      "role": "derived",
+      "maxBytes": 330148,
+      "budgetReason": "Full-resolution transparent export of the circled mark. Budget includes 10% renderer headroom.",
+      "metadata": {
+        "format": "png",
+        "width": 1000,
+        "height": 1000,
+        "alpha": true
+      }
+    },
+    {
+      "path": "marks/grow-the-music-tree/grow-the-music-tree-mark-circled-white.svg",
+      "role": "source",
+      "maxBytes": 31187,
+      "budgetReason": "Embedded Grow artwork and SVG ring. Budget includes 10% headroom.",
+      "metadata": {
+        "format": "svg",
+        "width": 1000,
+        "height": 1000,
+        "alpha": true,
+        "embeddedRaster": true
+      }
+    },
+    {
+      "path": "marks/grow-the-music-tree/grow-the-music-tree-mark-circled-white.png",
+      "role": "derived",
+      "maxBytes": 80056,
+      "budgetReason": "Full-resolution transparent export of the circled mark. Budget includes 10% renderer headroom.",
+      "metadata": {
+        "format": "png",
+        "width": 1000,
+        "height": 1000,
+        "alpha": true
       }
     },
     {
