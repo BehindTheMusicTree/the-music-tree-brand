@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### CI
+
+- Add the canonical workflow-level `concurrency` to `agent-drift.yml`, `release-tag.yml` and `validate.yml`: a superseded pull-request run is cancelled, and a pushed commit's release-tag run is never replaced.
+
 ### Added
 
 - **The Music Map**: Add the full-color mark and favicon bundle.
