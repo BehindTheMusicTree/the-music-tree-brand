@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [12.15.0] - 2026-11-22
+
+### CI
+
+- Add the canonical workflow-level `concurrency` to `agent-drift.yml`, `release-tag.yml` and `validate.yml`: a superseded pull-request run is cancelled, and a pushed commit's release-tag run is never replaced.
+
+### Added
+
+- **The Music Map**: Add the full-color mark, black and white mark variants, and favicon bundle.
+- Add transparent full-color and white circled Grow marks in SVG and PNG.
+
+### Fixed
+
+- **Agent directories**: Keep plans and scratch data out of Git while tracking the directory ignore rules.
+
+### Removed
+
+- Drop the tracked `.agent-plans/.gitignore`: plans now live in the common git directory.
+
 ## [12.14.0] - 2026-11-14
 
 ### Added

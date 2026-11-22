@@ -64,6 +64,9 @@ BehindTheMusicTree symbol-only mark (PNG):
 import btmtMark from "@behindthemusictree/brand/marks/behind-the-music-tree/behind-the-music-tree-mark.png";
 ```
 
+The Music Map also ships black and white marks in SVG and PNG under
+`@behindthemusictree/brand/marks/the-music-map/`.
+
 Project favicon bundle:
 
 ```tsx
