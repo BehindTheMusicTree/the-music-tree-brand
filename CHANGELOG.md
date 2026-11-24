@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [12.15.1] - 2026-11-24
+
 ### CI
 
 - Key the CI concurrency groups of `agent-drift.yml` and `validate.yml` by pull request number, so a newer run cancels an older one on the same PR and same-named fork branches no longer collide (github-workflows#67).
