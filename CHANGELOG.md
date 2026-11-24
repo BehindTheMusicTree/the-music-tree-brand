@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### CI
+
+- Add the `org-conformance` caller pinned to github-workflows v6.5.0, so pull requests report the organization conformance check that `required-checks.json` declares as an optional job.
+
 ## [12.15.1] - 2026-11-24
 
 ### CI
