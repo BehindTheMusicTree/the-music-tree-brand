@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [12.15.3](https://github.com/BehindTheMusicTree/the-music-tree-brand/compare/v12.15.2...v12.15.3) (2026-11-26)
+
+
+### Bug Fixes
+
+* **brand:** compare assets against origin/main ([#74](https://github.com/BehindTheMusicTree/the-music-tree-brand/issues/74)) ([f65290d](https://github.com/BehindTheMusicTree/the-music-tree-brand/commit/f65290d7a4c2af35e8c46b4c727bcd9629a6a4e8))
+
 ## [12.15.2] - 2026-11-24
 
 ### CI
