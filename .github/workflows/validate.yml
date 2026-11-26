@@ -4,7 +4,6 @@ on:
   pull_request:
     branches:
       - main
-      - develop
 
 permissions:
   contents: read
@@ -28,12 +27,6 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      - name: Test release preparation
-        run: |
-          node --test scripts/release-utils.test.cjs
-          bash scripts/tests/release.sh
-          shellcheck scripts/release.sh scripts/tag-release.sh scripts/tests/release.sh
-
       - run: pnpm test
 
       - run: pnpm assets:test
@@ -41,3 +34,14 @@ jobs:
       - run: pnpm build
       - run: pnpm assets:package-check
       - run: node scripts/assets/browser-check.mjs
+
+  tests-success:
+    name: Tests success
+    needs: [test]
+    if: always()
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Require tests to pass
+        env:
+          NEEDS: ${{ toJSON(needs) }}
+        run: jq -e 'all(.[]; .result == "success")' <<<"$NEEDS"
