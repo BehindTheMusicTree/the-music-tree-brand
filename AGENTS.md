@@ -5,9 +5,10 @@ brand-identity components. Tokens live in `packages/brand/src/tokens/theme.css`;
 changes can affect `ui`, `app-kit-ui`, Grow and Hear. Generic UI primitives belong
 in the `ui` package.
 
-Follow `CONTRIBUTING.md` for the Gitflow, PR and release process: branch feature
-work from `develop` and target `develop`; `main` only receives release or hotfix
-PRs. Record changes under `[Unreleased]` in `CHANGELOG.md`.
+Follow `CONTRIBUTING.md` for branching, validation and releases. Branch from
+`main` and open a pull request with a Conventional Commit title. `publish.yml`
+manages release-please, release tags and npm Trusted Publishing; do not edit
+`CHANGELOG.md` by hand, release-please generates it from commit titles.
 
 The current pnpm workspace contains the library in `packages/brand` and a Vite
 playground in `apps/playground`. Use the scripts in the root `package.json`:

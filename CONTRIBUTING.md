@@ -21,7 +21,6 @@ This project is currently maintained by a solo developer, but contributions, sug
     - [5.1. Pre-PR Checklist](#51-pre-pr-checklist)
     - [5.2. Opening a Pull Request](#52-opening-a-pull-request)
   - [6. Releasing _(For Maintainers)_](#6-releasing-for-maintainers)
-  - [7. Hotfixing _(For Maintainers)_](#7-hotfixing-for-maintainers)
 - [License & Attribution](#license--attribution)
 
 ## Contributors vs Maintainers
@@ -45,9 +44,9 @@ The maintainer(s) are responsible for:
 - Managing releases and versioning
 - Ensuring code quality and project direction
 - Maintaining the project's infrastructure
-- Moving "Unreleased" changelog entries to versioned sections during releases
+- Reviewing the release pull request that release-please opens
 
-**Important:** Even maintainers must go through Pull Requests. No direct commits to `main` or `develop` are allowed.
+**Important:** Even maintainers must go through Pull Requests. No direct commits to `main` are allowed.
 
 ### Infrastructure & Automation Permissions
 
@@ -153,43 +152,11 @@ variables mapped in `.github/workflows/publish.yml`.
 
 ### 2. Branching
 
-This repo follows strict Gitflow. `develop` is the GitHub default branch: PRs target it unless noted otherwise.
+This repo is trunk-based: `main` is the only long-lived branch and the GitHub default branch.
 
-```
-main       ──●───────────────●───────●──   (tagged vX.Y.Z)
-              \             / \     /
-release/*      \       ●───●   \   /
-                \     /     \   \ /
-develop    ──●───●───●───●───●───●───●──
-                  \     /
-feature/*          ●───●
-```
-
-#### Main Branch (`main`)
-
-- Published versions only; every merge is tagged `vX.Y.Z`
-- Nothing merges here except `release/*` and `hotfix/*` branches
-
-#### Develop Branch (`develop`)
-
-- Integration branch: always reflects the latest delivered changes
-- All `feature/*` branches are cut from and merged back into `develop` via Pull Request
-
-#### Feature Branches (`feature/<name>`)
-
-- Any non-release, non-hotfix work: features, components, fixes, chores, docs, CI
-- Branch from `develop`; include issue numbers when applicable: `feature/123-add-card-component`
-- Merge into `develop` via Pull Request when complete
-
-#### Release Branches (`release/<version>`) _(For Maintainers)_
-
-- Create from current `develop` before running `pnpm run release` (see [§6](#6-releasing-for-maintainers)); only release preparation belongs here
-- Merged into both `main` (tagged) and `develop`
-
-#### Hotfix Branches (`hotfix/<name>`) _(For Maintainers)_
-
-- Cut from `main` for urgent fixes on published versions (see [§7](#7-hotfixing-for-maintainers))
-- Merged into both `main` (tagged) and `develop`
+- Branch from `main`, using a descriptive name; include issue numbers when applicable: `feature/123-add-card-component`
+- Open a pull request targeting `main` with a Conventional Commit title (see [§5.2](#52-opening-a-pull-request))
+- Urgent fixes follow the same path: a `fix:` pull request into `main` releases a patch
 
 ### 3. Developing
 
@@ -246,18 +213,18 @@ Before submitting a Pull Request:
 **3. Documentation**
 
 - Update README if adding new features or changing behavior
-- Update `CHANGELOG.md` with your changes in the `[Unreleased]` section
+- Do not edit `CHANGELOG.md`: release-please generates it from pull request titles
 - Update documentation when asset conventions change: global guides in `packages/brand/docs/` and colocated specs in `packages/brand/src/*/README.md` (see [`packages/brand/docs/README.md`](packages/brand/docs/README.md)). Any **multi-section** Markdown file in the repo should include a **Table of contents** linking each `##` section ([`CHANGELOG.md`](CHANGELOG.md) and one-section stubs exempt).
 
 **4. Git Hygiene**
 
 - Commit messages follow the convention above
-- Branch is up to date with `develop`
+- Branch is up to date with `main`
 - No accidental commits (large files, secrets, personal configs)
 
 #### 5.2. Opening a Pull Request
 
-**PR Title Naming Convention:**
+**PR Title Naming Convention:** squash merges use the title as the commit subject, which determines the next release version and changelog entry (`feat` minor, `fix` patch, `!` breaking). `pr-title.yml` checks it.
 
 ```
 <type>(<optional-scope>): <short imperative description>
@@ -278,29 +245,9 @@ Before submitting a Pull Request:
 
 ### 6. Releasing _(For Maintainers)_
 
-Releases are cut from `develop`. A GitHub Actions workflow **publishes** the version on npm (trusted publishing, with provenance) when a version tag is pushed and **creates a GitHub Release** for that tag from the changelog. npm may take a few minutes to serve the new version.
+On pushes to `main`, `publish.yml` validates release intent using `.github/release-policy.json`. When a version increases, CI creates an annotated `vX.Y.Z` tag, verifies the exact tagged commit, and publishes the built package with npm provenance, using the repository variables mapped in the workflow for build-time values. It creates the GitHub Release after npm succeeds. On retry, an existing npm version is accepted only when its SHA-512 integrity matches the newly packed artifact. Use **Re-run failed jobs** to retry publication; never move a tag or bump again to repair a partial publication.
 
-From a clean `release/<version>` branch created from current `origin/develop`:
-
-```bash
-pnpm run release patch   # 1.0.0 -> 1.0.1
-pnpm run release minor   # 1.0.0 -> 1.1.0
-pnpm run release major   # 1.0.0 -> 2.0.0
-```
-
-Create a `release/<version>` branch from current `develop` before running the command. The script requires a clean release or hotfix branch, validates nonempty changelog notes outside code examples, bumps the package and lockfile, and stamps the changelog. It leaves the changes for review and commit; it does not commit, open PRs, tag or push.
-
-Open the release PR against `main`. After merge, CI validates the canonical package version, matching changelog and main ancestry, then creates the annotated tag. The existing `publish.yml` retains npm OIDC publication and all build-time values. It validates tag provenance, skips an identical existing npm archive, and creates the changelog-based GitHub Release after npm succeeds. A registry error or different archive fails; rerun the failed workflow to recover without moving the tag. Local `tag-release` is refused.
-
-Integrate the released `main` back into `develop` after publication through a reviewed back-merge. Initial adoption preserves version 12.10.0 and creates no tag; App access and protections are activated separately in `github-config` after this contract reaches `main`.
-
-For an urgent fix to a published version, without pulling in unreleased `develop` work:
-
-```bash
-git checkout -b hotfix/<name> main
-```
-
-Commit the fix, bump `packages/brand/package.json`'s patch version and stamp `CHANGELOG.md` by hand, then open a PR: `hotfix/<name>` → `main`. Once the `main` PR merges, CI creates the tag and publishes. Integrate released `main` back into `develop` afterward.
+Release-please reconciles after successful publication and on ordinary pushes. It opens or updates a release pull request with the package version (`packages/brand/package.json`), the root changelog and the release manifest. That pull request squash-merges after the required checks pass. Keep the private workspace root at `0.0.0`. CI owns release tags.
 
 ## License & Attribution
 

@@ -4,7 +4,6 @@ on:
   pull_request:
     branches:
       - main
-      - develop
 
 permissions:
   contents: read
@@ -27,12 +26,6 @@ jobs:
           node-version: 22
 
       - run: pnpm install --frozen-lockfile
-
-      - name: Test release preparation
-        run: |
-          node --test scripts/release-utils.test.cjs
-          bash scripts/tests/release.sh
-          shellcheck scripts/release.sh scripts/tag-release.sh scripts/tests/release.sh
 
       - run: pnpm test
 
