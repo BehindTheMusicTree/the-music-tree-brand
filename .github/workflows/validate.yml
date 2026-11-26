@@ -41,3 +41,14 @@ jobs:
       - run: pnpm build
       - run: pnpm assets:package-check
       - run: node scripts/assets/browser-check.mjs
+
+  tests-success:
+    name: Tests success
+    needs: [test]
+    if: always()
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Require tests to pass
+        env:
+          NEEDS: ${{ toJSON(needs) }}
+        run: jq -e 'all(.[]; .result == "success")' <<<"$NEEDS"

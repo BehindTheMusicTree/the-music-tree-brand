@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### CI
+
+- Add the `Tests success` gate job to `validate.yml`, aggregating the `Test` job so branch protection can require a single check (github-config#97).
+
 ## [12.15.2] - 2026-11-24
 
 ### CI
