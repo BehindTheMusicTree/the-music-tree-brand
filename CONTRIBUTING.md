@@ -44,7 +44,7 @@ The maintainer(s) are responsible for:
 - Managing releases and versioning
 - Ensuring code quality and project direction
 - Maintaining the project's infrastructure
-- Reviewing the release pull request that release-please opens
+- Holding a release when needed (disable auto-merge on the release-please PR, or close it)
 
 **Important:** Even maintainers must go through Pull Requests. No direct commits to `main` are allowed.
 
